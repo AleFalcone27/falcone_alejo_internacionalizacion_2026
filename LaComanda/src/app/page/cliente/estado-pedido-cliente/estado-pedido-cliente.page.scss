@@ -1,0 +1,202 @@
+/* Página de nuevos clientes, reutiliza estructura base */
+.home-supervisor-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+}
+
+.header-nuevos-clientes{
+  color: var(--blanco);
+}
+
+.login-logo {
+  margin-top: 3dvh;
+  margin-bottom: 3dvh;
+  height: 100px;
+  width: 100px;
+}
+
+/* Header con nuevo color */
+.header-nuevos-clientes {
+ background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+}
+
+.button-list-container {
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+/* Botón principal */
+.full-button {
+  --background: var(--naranja);
+  --background-activated: var(--durazno); /* Al presionar */
+  --color: var(--blanco);
+  font-size: 1.3rem;
+  font-weight: 700;
+  height: 60px;
+  border-radius: var(--redondeado);
+  transition: background-color 0.4s ease;
+}
+
+.logout-button {
+    margin-left: 75%;
+    margin-top: 10%;
+    position: absolute;
+    z-index: 10;
+    color: var(--blanco);
+    font-weight: 200;
+}
+
+.white-button {
+  --background: var(--blanco);
+  --color: var(--naranja);
+  
+}
+
+.survey-card {
+  margin-top: 0;
+}
+
+.home-supervisor-page {
+  padding-top: 0;
+  gap: 0;
+}
+
+.header-nuevos-clientes {
+  margin-bottom: 0;
+}
+
+main.home-supervisor-page > *:first-child {
+  margin-top: 0 !important;
+}
+
+// Overlay orden
+
+
+.overlay-orden {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--naranja);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem 1.5rem;
+  z-index: 9999;
+  font-size: 1.2rem;
+  color: var(--blanco);
+  overflow-y: auto;
+}
+
+.overlay-orden h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.orden-linea {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.3rem;
+}
+
+.orden-total {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.cerrar-btn {
+  --background: var(--rojo); 
+  border-radius: var(--redondeado);
+  --color: var(--blanco);    
+  width: 80%;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aceptar-btn {
+  --background: var(--verde-menta); 
+  border-radius: var(--redondeado);       
+  --color: var(--blanco);        
+  width: 80%;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logo-container-overlay{
+  align-self: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;;
+}
+
+// Overlay proprina
+
+.propina-monto {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0 1.5rem;
+  color: var(--blanco);
+}
+
+.propina-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.propina-btn {
+  --background: var(--blanco);
+  --color: var(--naranja);
+  font-weight: bold;
+  width: 80px;
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+}
+
+.input-propina {
+  --background: var(--blanco);
+  color: var(--naranja);
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  width: 80%;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+}

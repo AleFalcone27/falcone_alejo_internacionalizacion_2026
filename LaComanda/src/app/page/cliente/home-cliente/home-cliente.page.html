@@ -1,0 +1,32 @@
+<header class="header header-nuevos-clientes">
+  <h1 class="title">Bienvenido</h1>
+</header>
+<ion-button fill="clear" slot="end" class="logout-button" (click)="CerrarCesion()">
+  Cerrar sesión
+  <ion-icon slot="start" name="arrow-back"></ion-icon>
+</ion-button>
+
+
+<main class="home-supervisor-page">
+  <!-- Logo centrado -->
+  <div class="logo-container">
+    <img src="../../../assets/icon/favicon.svg" alt="Logo" class="login-logo" />
+  </div>
+
+  <!-- Contenedor de botones -->
+  <div class="button-list-container">
+
+    <ion-button expand="block" class="full-button" (click)="navTo('/qr-code-scanner')">ESCANEAR</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/ver-encuestas')" [disabled]="!(showEncuesta || showMenu || estaEnListaDeEspera)">VER
+      ENCUESTAS</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/cliente-menu')"
+      [disabled]="!showMenu">MENÚ</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/preguntas-cliente')" [disabled]="!showMenu">HABLA
+      CON UN
+      MOZO</ion-button>
+
+  </div>
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+</main>

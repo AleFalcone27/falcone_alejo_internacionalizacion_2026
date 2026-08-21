@@ -1,0 +1,206 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: var(--blanco);
+}
+
+.header {
+  background-color: var(--naranja);
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  padding-top: var(--altura-header);
+  top: 0;
+  z-index: 10;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: 3px;
+}
+
+.login-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+}
+
+.logo-container {
+  margin-bottom: 30px;
+  animation: girarLento 5s linear infinite;
+}
+
+.auth-card {
+  width: 100%;
+  background: var(--naranja);
+  border-radius: var(--redondeado);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-card input[type="text"],
+.auth-card input[type="number"],
+.auth-card input[type="email"],
+.auth-card input[type="password"] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid var(--blanco);
+  border-radius: var(--redondeado);
+  transition: border-color 0.3s ease;
+  background-color: var(--durazno);
+  color: var(--blanco);
+}
+
+.auth-card input::placeholder {
+  color: var(--blanco);
+  opacity: 1;
+}
+
+.auth-card input:focus {
+  border-color: var(--durazno);
+  outline: none;
+  box-shadow: 0 0 10px var(--durazno);
+}
+
+.auth-card ion-input,
+.auth-card ion-select,
+.auth-card ion-datetime {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --background: var(--durazno);
+  --color: var(--blanco);
+  --placeholder-color: var(--blanco);
+  --border-radius: var(--redondeado);
+  --border-color: var(--blanco);
+  border: 2px solid var(--blanco);
+  font-size: 1rem;
+  border-radius: var(--redondeado);
+}
+
+.auth-card ion-input:focus-within,
+.auth-card ion-select:focus-within,
+.auth-card ion-datetime:focus-within {
+  box-shadow: 0 0 10px var(--durazno);
+  border-color: var(--durazno);
+}
+
+.auth-card button[type="button"],
+.auth-card button[type="submit"] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--verde-fuerte);
+  border: none;
+  border-radius: var(--redondeado);
+  color: var(--blanco);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-card button[type="submit"] {
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.auth-card button[type="button"]:hover,
+.auth-card button[type="submit"]:hover {
+  background-color: var(--durazno);
+}
+
+.foto-preview {
+  display: block;
+  margin: 16px auto;
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mensaje {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--rojo);
+}
+
+ion-item ion-toggle {
+  --handle-background: var(--blanco);
+  --handle-background-checked: var(--verde-fuerte);
+  --background: var(--durazno);
+  --background-checked: var(--naranja);
+  --border-radius: var(--redondeado);
+  --handle-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  --track-background: var(--durazno);
+  --track-background-checked: var(--durazno);
+  width: 50px;
+  height: 28px;
+  padding-top: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+ion-item.anonimo-toggle {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  align-items: center;
+  --padding-top: 0;
+  --inner-padding-top: 0;
+}
+
+ion-item ion-toggle:hover {
+  --background-checked: var(--durazno);
+}
+
+ion-item ion-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 8px var(--durazno);
+}
+
+ion-item ion-label {
+  font-weight: 600;
+  color: var(--blanco);
+  background-image: url('/assets/mi-foto.png');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: var(--redondeado);
+}
+
+ion-item.custom-item {
+  --background: var(--naranja);
+}
+
+.registro-link {
+  color: var(--naranja);
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 25px 20px;
+  }
+}
+
+@keyframes girarLento {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

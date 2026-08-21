@@ -1,0 +1,122 @@
+.preguntas-cliente-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+  overflow-y: auto;
+}
+
+.header-preguntas-cliente {
+  background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+  color: var(--blanco);
+}
+
+.preguntas-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 20px;
+}
+
+/* Card */
+.pregunta-card {
+  background-color: #fff;
+  border-radius: var(--redondeado);
+  padding: 18px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.pregunta-titulo {
+  margin: 0 0 6px;
+  color: var(--naranja);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pregunta-texto {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.respuesta-box {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 10px;
+}
+
+.respuesta-box.respondida {
+  background-color: #f4fff3;
+  border-left: 4px solid #4caf50;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.respuesta-texto {
+  font-size: 14px;
+  color: #2e7d32;
+  margin-top: 0;
+}
+
+.esperando {
+  font-size: 14px;
+  font-style: italic;
+  color: #999;
+  margin: 0;
+}
+
+/* FORMULARIO FIJO ABAJO */
+
+.formulario-fijo {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: var(--blanco);
+  padding: 12px;
+  border-radius: var(--redondeado);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* El ion-item que contiene el input se adapta para ocupar todo el espacio disponible */
+.formulario-fijo ion-item.input-card {
+  flex: 1;
+  --background: #fff;
+  --border-radius: var(--redondeado);
+  box-shadow: none;
+  padding: 0 12px;
+  height: 44px;
+  margin: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+/* Ajustes para que ion-input no tenga margenes extra */
+.formulario-fijo ion-input {
+  height: 100%;
+  padding-left: 4px;
+  color: var(--negro);
+}
+
+/* Botón de enviar ocupa sólo el tamaño necesario */
+.formulario-fijo ion-button {
+  --background: var(--naranja);
+  --background-activated: var(--durazno);
+  --color: var(--nergo);
+  --border-radius: var(--redondeado);
+  font-weight: 700;
+  font-size: 1rem;
+  height: 44px;
+  min-width: 100px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

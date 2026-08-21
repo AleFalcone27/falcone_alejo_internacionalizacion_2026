@@ -1,0 +1,102 @@
+<header class="header header-nuevos-clientes">
+  <h1 class="title">Tu Pedido</h1>
+</header>
+<ion-icon slot="start" name="arrow-back"></ion-icon>
+
+
+<main class="home-supervisor-page">
+  <!-- Logo centrado -->
+  <div class="logo-container">
+    <img src="../../../assets/icon/favicon.svg" alt="Logo" class="login-logo" />
+  </div>
+
+  <!-- Contenedor de botones -->
+  <div class="button-list-container">
+
+    <ion-button expand="block" (click)="confirmarRecepcion()" class="white-button full-button">
+      {{ estadoPedido}}
+    </ion-button>
+
+
+    <ion-button expand="block" class="full-button" [disabled]="!puedeLlenarEncuesta"
+      (click)="navTo('/encuesta-cliente')">COMPLETAR ENCUESTA</ion-button>
+    <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta" (click)="pedirCuenta()">PEDIR
+      CUENTA</ion-button>
+    <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta" (click)="navTo('/ahorcado')">JUEGO
+      AHORCADO</ion-button>
+    <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta"
+      (click)="navTo('/mayor-menor')">JUEGO MAYOR O MENOR</ion-button>
+
+
+
+
+  </div>
+
+  <div class="overlay-orden" *ngIf="verOrdenOverlay">
+    <h2>TU CUENTA</h2>
+
+    <div class="logo-container-overlay">
+      <img src="../../../assets/icon/favicon.svg" alt="Icono" class="login-logo-overlay" />
+    </div>
+
+    <div *ngFor="let entry of productosConCantidad" class="orden-linea">
+      <div>{{ entry.producto.nombre }} x{{ entry.cantidad }}</div>
+      <div>${{ calcularSubtotal(entry) }}</div>
+    </div>
+
+    <div *ngIf="propinaSeleccionada > 0" class="orden-linea">
+      <div>Propina</div>
+      <div>${{ propinaSeleccionada }}</div>
+    </div>
+    <ion-button  class="full-button" [disabled]="!puedePedirLaCuenta"
+      (click)="abrirPropinaOverlay()">AGREGAR PROPINA</ion-button>
+    <div class="orden-total">
+      Total: ${{ totalOrden + propinaSeleccionada - descuento }}
+    </div>
+
+    <ion-button expand="full" class="aceptar-btn" (click)="pagarCuenta()">
+      Realizar Pago
+    </ion-button>
+
+    <ion-button expand="full" class="cerrar-btn" (click)="cerrarOverlayOrden()">
+      Cerrar
+    </ion-button>
+  </div>
+
+
+  <div class="overlay-orden" *ngIf="verPropinaOverlay">
+    <h2>AGREGAR PROPINA</h2>
+
+    <div class="logo-container-overlay">
+      <img src="../../../assets/icon/favicon.svg" alt="Icono" class="login-logo-overlay" />
+    </div>
+
+    <!-- Mostrar propina en grande -->
+    <div class="propina-monto">
+      ${{ propinaSeleccionada || 0 }}
+    </div>
+
+    <!-- Botones de porcentaje -->
+    <div class="propina-buttons-container">
+      <ion-button class="propina-btn" (click)="seleccionarPropina(5)">5%</ion-button>
+      <ion-button class="propina-btn" (click)="seleccionarPropina(10)">10%</ion-button>
+      <ion-button class="propina-btn" (click)="seleccionarPropina(15)">15%</ion-button>
+    </div>
+
+    <ion-input class="input-propina" type="number" placeholder="Otro valor en $" [(ngModel)]="propinaPersonalizada"
+      (ionInput)="actualizarPropinaPersonalizada()"></ion-input>
+
+    <ion-button expand="full" class="aceptar-btn" (click)="confirmarPropina()">
+      Aceptar
+    </ion-button>
+
+    <ion-button expand="full" class="cerrar-btn" (click)="cerrarPropinaOverlay()">
+      Cerrar
+    </ion-button>
+  </div>
+
+
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+</main>

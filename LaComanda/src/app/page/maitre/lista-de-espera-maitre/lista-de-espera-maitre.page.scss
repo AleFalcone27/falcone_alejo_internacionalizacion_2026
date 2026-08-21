@@ -1,0 +1,140 @@
+/* Página de nuevos clientes, reutiliza estructura base */
+.home-supervisor-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+}
+
+/* Header con nuevo color */
+.header-nuevos-clientes {
+  background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+}
+
+.card-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%; // Podés cambiar de 90% a 100% si querés que ocupen casi todo
+  max-width: 1000px; // Aumentá este valor según lo que necesites (antes estaba en 600px)
+  margin: 0 auto;
+}
+
+/* Tarjeta con fondo naranja y texto blanco */
+.menu-card {
+  background-color: var(--naranja);
+  color: white;
+  border-radius: var(--redondeado);
+  padding: 0rem;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 
+              0px 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Título de la tarjeta */
+.menu-card ion-card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Contenido reorganizado */
+.cliente-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Contenedor de imagen + info */
+.cliente-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5rem; // antes era 1.5rem
+}
+
+/* Imagen circular */
+.cliente-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  flex-shrink: 0;
+}
+
+
+/* Info cliente a la derecha */
+.cliente-info {
+  width: 100%;
+  overflow: hidden;       // <-- clave para evitar que se desborde fuera de la card
+}
+
+.cliente-info p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+  font-weight: 200;
+
+  white-space: nowrap;          // No permite saltos de línea
+  overflow: hidden;             // Oculta el desborde
+  text-overflow: ellipsis;      // Muestra los puntos suspensivos
+  max-width: 100%;              // Limita el ancho al contenedor padre
+  display: block;               // Asegura el comportamiento del texto
+}
+
+.cliente-info strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Botones debajo de todo */
+.cliente-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Botón aceptar (verde) */
+.accept-btn {
+  --background: var(--verde-menta);
+  --color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Botón cancelar (rojo) */
+.cancel-btn {
+  --background: var(--rojo);
+  --color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Botones grandes y redondeados */
+ion-button {
+  height: 50px;
+  border-radius: var(--redondeado);
+  --padding-start: 1.2rem;
+  --padding-end: 1.2rem;
+}
+
+.sin-clientes {
+  text-align: center;
+  color: var(--gris);
+  font-size: 1.3rem;
+  padding: 2rem;
+}

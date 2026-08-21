@@ -1,0 +1,66 @@
+/* Página de nuevos clientes, reutiliza estructura base */
+.home-supervisor-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+}
+
+.header-nuevos-clientes{
+  color: var(--blanco);
+}
+
+.login-logo {
+  margin-top: 3dvh;
+  margin-bottom: 3dvh;
+  height: 100px;
+  width: 100px;
+}
+
+/* Header con nuevo color */
+.header-nuevos-clientes {
+ background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+}
+
+.button-list-container {
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+
+.full-button {
+  --background: var(--naranja);
+  --background-activated: var(--durazno); /* Al presionar */
+  --color: var(--blanco);
+  font-size: 1.3rem;
+  font-weight: 700;
+  height: 60px;
+  border-radius: var(--redondeado);
+  transition: background-color 0.4s ease;
+}
+
+.logout-button {
+    margin-left: 75%;
+    margin-top: 10%;
+    position: absolute;
+    z-index: 10;
+    color: var(--blanco);
+    font-weight: 200;
+}
+
+.white-button {
+  --background: var(--blanco);
+  --color: var(--naranja);
+  
+}

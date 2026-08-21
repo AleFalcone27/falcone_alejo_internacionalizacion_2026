@@ -1,0 +1,127 @@
+/* Página de nuevos clientes, reutiliza estructura base */
+.home-supervisor-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+}
+
+/* Ocultar logo */
+.logo-container {
+  display: none;
+}
+
+/* Header con nuevo color */
+.header-nuevos-clientes {
+  background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+}
+
+/* Contenedor tarjetas */
+.card-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 600px;
+  /* aumenté para tarjeta más ancha */
+  margin: 0 auto;
+}
+
+/* Tarjeta con fondo naranja y texto blanco */
+.menu-card {
+  background-color: var(--naranja);
+  color: white;
+  border-radius: var(--redondeado);
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centra horizontalmente */
+  text-align: center;
+  /* centra texto */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16),
+    0px 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Ajustar título dentro de la tarjeta */
+.menu-card ion-card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+/* Contenido de la tarjeta */
+.cliente-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Foto más grande */
+.cliente-foto {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* Info cliente */
+.cliente-info {
+  text-align: left;
+  width: 100%;
+}
+
+.cliente-info p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+  font-weight: 200
+}
+
+.cliente-info strong {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+
+/* Botones */
+.cliente-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Botón aceptar (verde) */
+.accept-btn {
+  --background: var(--verde-menta);
+  --color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Botón cancelar (rojo) */
+.cancel-btn {
+  --background: var(--rojo);
+  /* rojo */
+  --color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Botones grandes y redondeados */
+ion-button {
+  height: 50px;
+  border-radius: var(--redondeado);
+  --padding-start: 1.2rem;
+  --padding-end: 1.2rem;
+}

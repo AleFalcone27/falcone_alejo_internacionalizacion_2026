@@ -1,0 +1,68 @@
+<header class="header">
+  <h1 class="title">INICIO</h1>
+</header>
+
+<main class="login-page">
+
+  <section class="auth-card">
+    <h2 class="subtitle">EL BOCADO</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <input type="email" placeholder="Correo" formControlName="correo" />
+      <input type="password" placeholder="Contraseña" formControlName="clave" />
+      <button type="submit">INGRESAR</button>
+    </form>
+  </section>
+
+  <a routerLink="/alta-cliente" class="registro-link">¿Sos un cliente nuevo? Registrate</a>
+
+<div class="quick-access-wrapper">
+  <!-- Primera columna: 4 botones rectangulares -->
+  <div class="main-access-buttons">
+    <ion-button expand="block" class="access-btn btn-bartender"
+      (click)="cargarUsuarioRapido('barTender@gmail.com', '123456')">
+      Bartender
+    </ion-button>
+
+    <ion-button expand="block" class="access-btn btn-mozo"
+      (click)="cargarUsuarioRapido('mozo1@gmail.com', '12345678')">
+      Mozo
+    </ion-button>
+
+    <ion-button expand="block" class="access-btn btn-supervisor"
+      (click)="cargarUsuarioRapido('supervisor@gmail.com', '12345678')">
+      Supervisor
+    </ion-button>
+  </div>
+
+  <!-- Grid: 2 columnas de botones redondos -->
+  <div class="circle-button-grid">
+    <ion-button class="circle-btn"
+      (click)="cargarUsuarioRapido('anonimo@gmail.com', '12345678')">
+      ANÓNIMO
+    </ion-button>
+
+    <ion-button class=" circle-btn btn-cliente"
+      (click)="cargarUsuarioRapido('aleefalcone@gmail.com', '1234567')">
+      CLIENTE
+    </ion-button>
+
+    <ion-button class="circle-btn btn-maitre"
+      (click)="cargarUsuarioRapido('maitre@gmail.com', '1234567')">
+      MAITRE
+    </ion-button>
+
+    <ion-button class="circle-btn btn-cocinero"
+      (click)="cargarUsuarioRapido('cocinero@gmail.com', '123456')">
+      COCINERO
+    </ion-button>
+  </div>
+</div>
+
+  
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+  <app-custom-toast #toast></app-custom-toast>
+
+</main>

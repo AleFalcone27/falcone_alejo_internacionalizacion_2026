@@ -1,0 +1,7 @@
+{
+  "name": "El Bocado",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

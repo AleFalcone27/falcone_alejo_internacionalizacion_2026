@@ -1,0 +1,321 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: var(--blanco);
+}
+
+.header {
+  background-color: var(--naranja);
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  padding-top: 3dvh;
+  z-index: 10;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: 3px;
+}
+
+.login-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+  overflow-y: auto; 
+}
+
+.logo-container {
+  margin-bottom: 30px;
+}
+
+.login-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Auth card */
+.auth-card {
+  width: 100%;
+  background: var(--naranja);
+  border-radius: var(--redondeado);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-card .subtitle {
+  font-size: 1.9rem;
+  color: var(--blanco);
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1.3px;
+}
+
+/* Form */
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-card input[type="email"],
+.auth-card input[type="password"] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid var(--blanco);
+  border-radius: var(--redondeado);
+  transition: border-color 0.3s ease;
+  background-color: var(--durazno);
+}
+
+.auth-card input::placeholder {
+  color: var(--blanco);
+  opacity: 1;
+}
+
+.auth-card input[type="email"]:focus,
+.auth-card input[type="password"]:focus {
+  border-color: var(--durazno);
+  outline: none;
+  box-shadow: 0 0 10px var(--durazno);
+}
+
+.auth-card button[type="submit"] {
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: var(--verde-fuerte);
+  border: none;
+  border-radius: var(--redondeado);
+  color: var(--blanco);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-card button[type="submit"]:hover {
+  background-color: var(--durazno);
+}
+
+/* Mensaje */
+.mensaje {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--rojo);
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px 30px;
+  justify-items: center;
+  padding: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.quick-access-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Texto en los botones centrado y con overlay oscuro para mejor contraste */
+.quick-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  border-radius: var(--redondeado);
+  z-index: 0;
+}
+
+.quick-btn span,
+.quick-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.fab-label {
+  margin-top: 6px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--naranja);
+}
+
+/* Tamaños y formas para botones */
+ion-fab-button {
+  --background: var(--naranja);
+  --color: var(--blanco);
+  --border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+ion-fab-button:hover {
+  --background: var(--durazno);
+  transform: scale(1.1);
+}
+
+ion-fab-button.fab-rounded {
+  width: 70px;
+  height: 50px;
+  --border-radius: 15px;
+}
+
+ion-fab-button.fab-rectangle {
+  width: 80px;
+  height: 40px;
+  --border-radius: 5px;
+}
+
+.btn-label {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.registro-link{
+  color: var(--naranja);
+  font-weight: 600;
+}
+
+/* Grid de botones */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  justify-items: center;
+  align-items: center;
+}
+
+.button-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 25px 20px;
+  }
+
+  .quick-access-grid {
+    flex-direction: column;
+  }
+
+  .quick-btn {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+ion-button{
+   --background: var(--naranja);
+}
+
+@keyframes girarLento {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Accesos rápidos */
+.quick-access-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto 0;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Botones rectangulares */
+.main-access-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.access-btn {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  height: 50px;
+  --color: white;
+  --border-radius: 12px;
+  --background: var(--naranja);
+}
+
+/* Botones redondos alineados y del mismo tamaño que los rectangulares */
+.circle-button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+  width: 100%;
+}
+
+.circle-btn {
+  font-weight: 600;
+  height: 50px;
+  --border-radius: 12px;
+  --color: white;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  display: flex;
+  align-items: center;       /* CENTRADO VERTICAL */
+  justify-content: center;   /* CENTRADO HORIZONTAL */
+  --background: var(--naranja);
+
+  padding-left: 0;
+  padding-right: 0;
+}
+
+

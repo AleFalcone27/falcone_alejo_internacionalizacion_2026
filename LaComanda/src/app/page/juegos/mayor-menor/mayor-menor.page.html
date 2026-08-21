@@ -1,0 +1,31 @@
+<ion-content class="juego-mayor-menor" fullscreen>
+  <div class="juego-container">
+    <h2 class="titulo">¿Mayor o menor?</h2>
+
+    <div class="carta">
+      <p>Carta actual:</p>
+      <div class="numero">{{ cartaActual }}</div>
+    </div>
+
+    <div class="botones">
+      <ion-button expand="block" (click)="elegir('mayor')" [disabled]="mostrarModal">Mayor</ion-button>
+      <ion-button expand="block" (click)="elegir('menor')" [disabled]="mostrarModal">Menor</ion-button>
+    </div>
+
+    <div class="info">
+      <p>Aciertos: {{ aciertos }}</p>
+      <p>Vidas: ❤️ x{{ vidas }}</p>
+    </div>
+  </div>
+
+<div class="modal-overlay" *ngIf="mostrarModal">
+  <div class="modal-card">
+    <p *ngIf="gano" class="ganaste">¡Ganaste! 🎉</p>
+    <p *ngIf="!gano" class="perdiste">
+      Perdiste 😢<br />
+      <small>Te quedaste sin vidas</small>
+    </p>
+    <ion-button expand="block" (click)="reiniciarJuego()">Jugar otra vez</ion-button>
+  </div>
+</div>
+</ion-content>

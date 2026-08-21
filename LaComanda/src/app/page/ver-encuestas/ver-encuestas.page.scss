@@ -1,0 +1,134 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* HEADER */
+.header-nuevos-clientes {
+  background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+  color: var(--blanco);
+}
+
+.title {
+  margin-top: auto;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--blanco);
+}
+
+h2 {
+  color: red;
+}
+
+/* CONTENIDO PRINCIPAL */
+ion-content {
+  --background: linear-gradient(to top, var(--blanco), var(--durazno));
+  flex: 1;
+  overflow-y: auto; /* ✅ Enables vertical scrolling */
+}
+
+/* CONTENEDOR DE GRÁFICOS */
+.graficos-container {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 1rem; 
+  
+}
+
+.chart-wrapper {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto !important;
+}
+
+/* TÍTULOS */
+.grafico-titulo {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: black;
+  font-weight: 400;
+}
+
+/* BOTÓN VER COMENTARIOS */
+ion-button {
+  --background: var(--naranja);
+  --color: var(--blanco);
+  font-weight: 600;
+}
+
+/* CARDS DE COMENTARIOS */
+.comentario-card {
+  margin: 8px;
+  border-left: 4px solid var(--verde-fuerte);
+  background: var(--blanco);
+  border-radius: 10px;
+  margin-bottom: 5vh;
+}
+
+ion-card-title {
+  color: var(--verde-fuerte);
+}
+
+ion-card-subtitle {
+  color: var(--naranja);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ESTRELLAS */
+.estrellas {
+  color: gold;
+  font-size: 1.2rem;
+  margin-left: 8px;
+  z-index: 1000;
+}
+
+.card-container{
+  background-color: transparent;
+}
+
+ion-card-title {
+  font-size: 1.2rem; /* aumentá según necesidad */
+  font-weight: bold;
+  color: var(--verde-fuerte);
+}
+
+ion-card-subtitle {
+  font-size: 1rem;
+}
+
+ion-card-content {
+  font-size: 1rem; /* aumentá según necesidad */
+  line-height: 1.5; /* mejor legibilidad */
+  color: #333; /* asegurate de que se lea bien */
+}
+
+ion-icon {
+  color: gold;
+  font-size: 1.2rem;
+}
+
+.fecha-comentario {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: #666; /* gris medio para que no compita con el título */
+  font-style: italic;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 8px;
+  border-radius: 6px 6px 0 0; /* opcional, para redondear bordes arriba */
+  background-color: #f9f9f9; /* un fondo claro para distinguirlo */
+}

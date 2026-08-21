@@ -1,0 +1,13 @@
+<ion-content>
+  <div class="scanner-container">
+
+    <div class="top-spacer"></div>
+
+    <div class="camera-status">
+      <p *ngIf="isInitializing">🔄 Inicializando cámara...</p>
+      <p *ngIf="isScanning">🔍 Escaneando... Mantén el código QR en el marco</p>
+      <p *ngIf="!cameraPreviewActive && !isInitializing">📵 Cámara desactivada</p>
+    </div>
+
+  </div>
+</ion-content>

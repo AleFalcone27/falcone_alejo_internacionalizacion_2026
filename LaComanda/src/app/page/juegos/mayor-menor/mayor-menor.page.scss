@@ -1,0 +1,120 @@
+:host {
+  --background: var(--naranja);
+}
+
+.juego-mayor-menor {
+  --background: var(--naranja);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--blanco);
+  padding: 0;
+  height: 100%;
+}
+
+.juego-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.titulo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.carta {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.numero {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--blanco);
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+ion-button {
+  --background: var(--blanco);
+  --color: var(--naranja);
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 12px;
+}
+
+.info {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.modal-juego {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background: var(--blanco);
+  color: var(--naranja);
+  padding: 24px 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 300px;
+  width: 80%;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 90%;
+}
+
+.ganaste {
+  color: green;
+  font-size: 1.5rem;
+}
+
+.perdiste {
+  color: red;
+  font-size: 1.3rem;
+}

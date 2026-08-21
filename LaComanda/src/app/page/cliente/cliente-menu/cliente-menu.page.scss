@@ -1,0 +1,278 @@
+/* Página de nuevos clientes, reutiliza estructura base */
+.home-supervisor-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+  overflow-y: auto; /* 👈 Habilita el scroll vertical */
+}
+
+/* Header con nuevo color */
+.header-nuevos-clientes {
+  background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+  color: var(--blanco);
+}
+
+.card-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%; // Podés cambiar de 90% a 100% si querés que ocupen casi todo
+  max-width: 1000px; // Aumentá este valor según lo que necesites (antes estaba en 600px)
+  margin: 0 auto;
+}
+
+/* Tarjeta con fondo naranja y texto blanco */
+.menu-card {
+  background-color: var(--naranja);
+  color: white;
+  border-radius: var(--redondeado);
+  padding: 0rem;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 
+              0px 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Título de la tarjeta */
+.menu-card ion-card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--blanco);
+}
+
+/* Contenido reorganizado */
+.cliente-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Contenedor de imagen + info */
+.cliente-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5rem; // antes era 1.5rem
+}
+
+/* Imagen circular */
+.cliente-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  flex-shrink: 0;
+}
+
+
+/* Info cliente a la derecha */
+.cliente-info {
+  width: 100%;
+  overflow: hidden;       // <-- clave para evitar que se desborde fuera de la card
+}
+
+.cliente-info p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+  font-weight: 200;
+  max-width: 100%;              // Limita el ancho al contenedor padre
+  display: block;               // Asegura el comportamiento del texto
+}
+
+.cliente-info strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.precio-grande {
+  font-size: 2rem !important; /* Agregamos !important por si otro estilo de Ionic lo pisa */
+}
+
+/* Botones debajo de todo */
+.cliente-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Botón aceptar (verde) */
+.accept-btn {
+  --background: var(--verde-menta);
+  --color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Botones grandes y redondeados */
+ion-button {
+  height: 50px;
+  border-radius: var(--redondeado);
+  --padding-start: 1.2rem;
+  --padding-end: 1.2rem;
+}
+.footer-ver-orden {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--naranja); /* o reemplazá por #ff9800 */
+  padding: 1rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-total-text {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Botón más compacto y ajustado al contenido */
+.footer-ver-orden ion-button {
+  --background: white;
+  --color: var(--naranja);
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: var(--redondeado);
+  height: 45px;
+  padding: 0 1.5rem;
+}
+.overlay-fotos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  flex-direction: column;
+}
+
+.foto-grande {
+  max-width: 90vw;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 20px black;
+}
+
+.zona-clic {
+  position: absolute;
+  top: 0;
+  bottom: 60px;
+  width: 50%;
+}
+
+.izquierda {
+  left: 0;
+}
+
+.derecha {
+  right: 0;
+}
+
+
+// Overlay orden
+
+
+.overlay-orden {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--naranja);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem 1.5rem;
+  z-index: 9999;
+  font-size: 1.2rem;
+  color: var(--blanco);
+  overflow-y: auto;
+}
+
+.overlay-orden h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.orden-linea {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.3rem;
+}
+
+.orden-total {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.cerrar-btn {
+  --background: var(--rojo); 
+  border-radius: var(--redondeado);
+  --color: var(--blanco);    
+  width: 80%;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aceptar-btn {
+  --background: var(--verde-menta); 
+  border-radius: var(--redondeado);       
+  --color: var(--blanco);        
+  width: 80%;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logo-container{
+  align-self: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;;
+}
