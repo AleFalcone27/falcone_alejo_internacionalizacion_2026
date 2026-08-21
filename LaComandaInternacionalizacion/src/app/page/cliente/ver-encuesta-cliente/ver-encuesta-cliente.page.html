@@ -1,0 +1,26 @@
+<header class="header header-nuevos-clientes">
+  <h1 class="title">Encuestas</h1>
+</header>
+
+<main class="home-supervisor-page ion-padding">
+  <div class="card-list-container">
+    <ion-card *ngFor="let encuesta of encuestas" class="menu-card">
+      <ion-card-header>
+        <ion-card-title>Calificación General: {{ encuesta.calificacionGeneral }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="cliente-card-content">
+        <p><strong>Comida:</strong> {{ encuesta.calificacionComida }} | <strong>Atención:</strong> {{ encuesta.calificacionAtencion }}</p>
+        <p><strong>Comentarios:</strong> {{ encuesta.comentarios || 'Sin comentarios' }}</p>
+        <p><strong>Recomendado:</strong> {{ encuesta.recomendado ? '✅ Sí' : '❌ No' }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ng-template #noEncuestas>
+    <ion-card class="no-products-card">
+      <ion-card-content>No hay encuestas registradas.</ion-card-content>
+    </ion-card>
+  </ng-template>
+
+  <ion-spinner *ngIf="isLoading" name="crescent" class="spinner-center"></ion-spinner>
+</main>

@@ -1,0 +1,83 @@
+// Estilos básicos para el scanner QR
+ion-content {
+  --background: transparent;
+}
+
+.scanner-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3); // Fondo semi-transparente para ver la cámara
+}
+
+.camera-status {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  
+  p {
+    margin: 0;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+.control-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  
+  ion-button {
+    height: 50px;
+    font-weight: bold;
+  }
+}
+
+.scan-info {
+  text-align: center;
+  margin-bottom: 20px;
+  
+  ion-chip {
+    --background: rgba(66, 165, 245, 0.2);
+    --color: #42a5f5;
+  }
+}
+
+.result-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  margin-top: auto;
+  
+  ion-card-header h3 {
+    margin: 0;
+    color: #2c2c2c;
+    font-size: 1.2rem;
+  }
+  
+  ion-card-content p {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin: 0;
+    color: #333;
+  }
+}
+
+// Estilos globales para cuando el scanner está activo
+:global(body.scanner-active) {
+  --ion-background-color: transparent;
+  
+  ion-app {
+    background: transparent !important;
+  }
+}

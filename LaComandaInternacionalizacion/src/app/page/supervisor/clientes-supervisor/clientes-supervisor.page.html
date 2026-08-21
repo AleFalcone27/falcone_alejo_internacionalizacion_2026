@@ -1,0 +1,39 @@
+<header class="header header-nuevos-clientes">
+  <h1 class="title">NUEVOS CLIENTES</h1>
+</header>
+
+
+
+<main class="home-supervisor-page">
+  <!-- Logo centrado -->
+  <!-- <div class="logo-container">
+    <img src="../../../assets/icon/favicon.svg" alt="Logo" class="login-logo" />
+  </div> -->
+
+  <!-- Lista de tarjetas -->
+  <div class="card-list-container">
+    <ion-card class="menu-card" *ngFor="let cliente of clientesPendientes">
+      <ion-card-header>
+        <ion-card-title>{{ cliente.nombre }} {{ cliente.apellido }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="cliente-card-content">
+        <img [src]="cliente.foto || 'assets/img/default-user.png'" alt="Foto del cliente" class="cliente-foto" />
+
+        <div class="cliente-info">
+          <p><strong>Correo:</strong> {{ cliente.email || 'No disponible' }}</p>
+          <p><strong>DNI:</strong> {{ cliente.dni || 'No disponible' }}</p>
+          <p><strong>Edad:</strong> {{ cliente.edad || 'No disponible' }}</p>
+        </div>
+
+        <div class="cliente-actions">
+          <ion-button class="accept-btn" (click)="aceptarCliente(cliente)">Aceptar</ion-button>
+          <ion-button class="cancel-btn" (click)="rechazarCliente(cliente)">Rechazar</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+</main>

@@ -1,0 +1,48 @@
+<header class="header">
+  <h1 class="title">NUEVO CLIENTE</h1>
+</header>
+
+<main class="login-page">
+  <!-- Icono centrado -->
+
+  <section class="auth-card">
+
+    <ion-label>Anónimo</ion-label>
+    <ion-toggle slot="end" [(ngModel)]="esAnonimo" name="anonimo"></ion-toggle>
+
+    <form [formGroup]="registroForm" (ngSubmit)="onRegistrar()">
+      <!-- Nombre -->
+      <input type="text" placeholder="Nombre" formControlName="nombre" />
+
+      <!-- Apellido (condicional si no es anónimo) -->
+      <input type="text" placeholder="Apellido" formControlName="apellido" *ngIf="!esAnonimo" />
+
+      <!-- Email -->
+      <input type="text" placeholder="Correo" formControlName="email" *ngIf="!esAnonimo" />
+
+      <!-- Contraseña -->
+      <input type="text" type="password" placeholder="Contraseña" formControlName="contraseña" *ngIf="!esAnonimo" />
+
+      <!-- Repetir contraseña -->
+      <input type="password" placeholder="Repetir contraseña" formControlName="repetirContraseña" *ngIf="!esAnonimo" />
+
+      <!-- DNI -->
+      <input type="text" placeholder="DNI" formControlName="dni" *ngIf="!esAnonimo" />
+
+      <!-- Boton de tomar foto -->
+      <button type="button" (click)="tomarFoto()">TOMAR FOTO</button>
+
+      <!-- Botón de enviar -->
+      <button type="submit">REGISTRARSE</button>
+
+      <button type="button" (click)="navTo('/qr-code-scanner')">ESCANEAR QR</button>
+
+    </form>
+  </section>
+
+  <a routerLink="/login" class="registro-link">¿Ya tenés cuenta? Iniciá sesión</a>
+
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+</main>

@@ -1,0 +1,91 @@
+<header class="header header-nuevos-clientes">
+  <h1 class="title">Menú</h1>
+  <ion-searchbar [(ngModel)]="searchTerm" debounce="300" placeholder="Buscar producto..."
+    (ionInput)="filtrarProductos()"></ion-searchbar>
+</header>
+
+<main class="home-supervisor-page">
+  <div class="card-list-container">
+    <ion-card class="menu-card" *ngFor="let producto of productosFiltrados">
+      <ion-card-header>
+        <ion-card-title>{{ producto.nombre }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="cliente-card-content">
+        <div class="cliente-info">
+          <p class="precio-grande"><strong>Precio:</strong> ${{ producto.precio }}</p>
+          <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+          <p><strong>Tiempo estimado de preparación:</strong> {{ producto.tiempoEstimadoDePreparacion }} min</p>
+        </div>
+
+        <div class="cliente-actions">
+          <ion-button class="accept-btn" (click)="verFotos(producto)">Ver Fotos</ion-button>
+          <ion-button class="accept-btn" (click)="agregarProducto(producto)">Agregar</ion-button>
+        </div>
+
+        <div *ngIf="mostrarFotosId === producto.id" class="carousel-container">
+          <div class="carousel" [style.transform]="'translateX(-' + currentSlideIndex[producto.id] * 100 + '%)'">
+            <div class="slide" *ngFor="let foto of [producto.foto1, producto.foto2, producto.foto3]">
+              <img [src]="foto" />
+            </div>
+          </div>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <footer class="footer-ver-orden">
+    <div class="footer-content">
+      <div class="footer-total-text">
+        TOTAL ${{ totalOrden }}
+      </div>
+      <ion-button (click)="abrirOverlayOrden()">
+        Ver Orden
+      </ion-button>
+    </div>
+  </footer>
+  <div class="overlay-fotos" *ngIf="verFotosOverlay">
+    <div class="zona-clic izquierda" (click)="cambiarFoto(-1)"></div>
+    <div class="zona-clic derecha" (click)="cambiarFoto(1)"></div>
+
+    <img [src]="fotosActuales[fotoIndex]" class="foto-grande" />
+
+    <ion-button expand="full" (click)="cerrarFotosOverlay()" class="cerrar-btn">
+      Cerrar
+    </ion-button>
+  </div>
+  <div class="overlay-fotos" *ngIf="verOrdenOverlay">
+    <h2 style="color: white; text-align: center;">Tu orden</h2>
+
+    <div class="overlay-orden" *ngIf="verOrdenOverlay">
+      <h2>TU ORDEN</h2>
+      <div class="orden-total">
+        Estará lista en {{ tiempoEstimadoEnMinutos }} minutos
+      </div>
+
+      <div class="logo-container">
+        <img src="../../../assets/icon/favicon.svg" alt="Icono" class="login-logo" />
+      </div>
+
+      <div *ngFor="let entry of productosSeleccionados" class="orden-linea">
+        <div>{{ entry.producto.nombre }} x{{ entry.cantidad }}</div>
+        <div>${{ calcularSubtotal(entry) }}</div>
+      </div>
+
+      <div class="orden-total">
+        Total: ${{ totalOrden }}
+      </div>
+
+      <ion-button expand="full" class="aceptar-btn" (click)="confirmarOrden()">
+        Aceptar
+      </ion-button>
+
+      <ion-button expand="full" class="cerrar-btn" (click)="cerrarOverlayOrden()">
+        Cerrar
+      </ion-button>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+</main>

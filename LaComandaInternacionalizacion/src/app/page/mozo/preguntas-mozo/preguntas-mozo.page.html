@@ -1,0 +1,28 @@
+<header class="header header-preguntas-mozo">
+  <h1 class="title">Chat</h1>
+</header>
+<main class="preguntas-mozo-page">
+
+  <ion-card *ngIf="!isLoading && preguntas.length === 0" class="no-products-card">
+    <ion-card-header>
+      <ion-card-title>No hay preguntas</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <div *ngFor="let p of preguntas" class="card-respuesta">
+    <p><strong>Mesa:</strong> {{ p.mesa }}</p>
+    <p><strong>Pregunta:</strong> {{ p.pregunta }}</p>
+
+    <form (ngSubmit)="responder(p.id)" class="form-responder">
+      <ion-item class="input-card" lines="none">
+        <ion-input [(ngModel)]="p.respuestaTemp" [name]="'respuesta_' + p.id" placeholder="Responder..."
+          (ionInput)="p.respuestaTemp = $event.target.value">
+        </ion-input>
+      </ion-item>
+      <ion-button expand="full" type="submit" class="btn-responder">Responder</ion-button>
+    </form>
+  </div>
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+</main>

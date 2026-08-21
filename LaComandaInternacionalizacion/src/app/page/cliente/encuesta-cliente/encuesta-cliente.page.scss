@@ -1,0 +1,169 @@
+/* Estilo base de la página */
+.home-supervisor-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+  overflow-y: auto;
+  gap: 1.5rem;
+}
+.home-supervisor-page {
+  padding: 16px 16px 24px; /* menos padding inferior para que el botón suba */
+  gap: 1rem; /* menos espacio entre elementos */
+  min-height: auto; /* para evitar mucho espacio extra */
+}
+
+/* Header naranja fijo */
+.header-nuevos-clientes {
+  background-color: var(--naranja);
+  text-align: center;
+  padding-top: var(--altura-header);
+  z-index: 10;
+  color: var(--blanco);
+}
+
+.title {
+  margin: 0;
+  padding: 1rem;
+  font-size: 2rem;
+  color: var(--blanco);
+  font-weight: bold;
+}
+
+/* Tarjeta de encuesta */
+.survey-card {
+  background-color: var(--naranja);
+  color: var(--blanco);
+  border-radius: var(--redondeado);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16),
+              0px 3px 6px rgba(0, 0, 0, 0.23);
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Título dentro de la card */
+ion-card-header {
+  text-align: center;
+  padding: 1rem;
+}
+
+ion-card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--blanco);
+}
+
+ion-card-subtitle {
+  font-size: 1rem;
+  color: var(--blanco);
+  opacity: 0.85;
+}
+
+/* Items dentro del contenido */
+ion-card-content ion-item {
+  --background: transparent;
+  margin-bottom: 1rem;
+}
+
+/* Etiquetas */
+.survey-card ion-label {
+  color: var(--blanco);
+  font-size: 1.1rem;
+}
+
+/* Radio buttons blancos */
+.survey-card ion-radio {
+  --color: var(--blanco);
+  --color-checked: var(--blanco);
+}
+
+/* Toggle con estilo claro */
+.survey-card ion-toggle {
+  --handle-background: var(--blanco);
+  --handle-background-checked: var(--naranja);
+  --background: rgba(255, 255, 255, 0.4);
+  --background-checked: var(--blanco);
+}
+
+/* Textarea estilizado */
+.survey-card ion-textarea {
+  --color: var(--blanco);
+  color: var(--blanco);
+  --placeholder-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid var(--blanco);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Botón principal para enviar */
+.full-button {
+  --background: var(--naranja);
+  --background-activated: var(--durazno);
+  --color: var(--blanco);
+  font-size: 1.3rem;
+  font-weight: 700;
+  height: 60px;
+  border-radius: var(--redondeado);
+  transition: background-color 0.4s ease;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Spinner centrado */
+.custom-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Contenedor general de la pregunta */
+.survey-field {
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+/* Etiqueta del segmento */
+.segment-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--blanco);
+}
+
+/* Segmento adaptado */
+.custom-segment {
+  --color-checked: var(--blanco);
+  --indicator-color: var(--naranja);
+  --color: var(--naranja);
+}
+
+/* Botones del segmento */
+ion-segment-button {
+  --background-checked: var(--naranja);
+  --color-checked: var(--blanco);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 4px;
+}
+
+.custom-toggle {
+  --handle-background: var(--blanco);              /* círculo sin activar */
+  --handle-background-checked: var(--naranja);     /* círculo activado */
+  --background: rgba(255, 255, 255, 0.4);           /* fondo sin activar */
+  --background-checked: var(--durazno);            /* fondo activado */
+}
+
+ion-range.custom-range {
+  --bar-background: rgba(255, 255, 255, 0.3); /* barra inactiva */
+  --bar-background-active: var(--blanco);     /* barra activa */
+  --knob-background: var(--blanco);           /* thumb normal */
+  --knob-background-pressed: var(--durazno);  /* thumb al presionar */
+  --pin-background: var(--naranja);           /* fondo del número si usás 'pin' */
+  --pin-color: var(--blanco);                 /* texto del número */
+}

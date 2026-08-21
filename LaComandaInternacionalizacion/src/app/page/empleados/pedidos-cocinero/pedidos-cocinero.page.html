@@ -1,0 +1,63 @@
+<header class="header-nuevos-clientes">
+  <h1 class="title">Cocina</h1>
+</header>
+
+<ion-content>
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+
+  <ion-card *ngIf="!isLoading && productosPendientes.length === 0" class="no-products-card">
+    <ion-card-header>
+      <ion-card-title>No hay productos pendientes</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card *ngFor="let item of productosPendientes">
+    <ion-card-header>
+      <ion-card-title>{{ item.producto?.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Mesa: {{ item.mesa_id }} <br>
+      Cantidad: {{ item.cantidad || 1 }} <br>
+      Estado: {{ EstadoProducto[item.estado] }}
+
+      <div class="ion-margin-top">
+        <ion-button
+          expand="block"
+          (click)="tomarProducto(item)"
+          *ngIf="item.estado === EstadoProducto.ComandaRecibida"
+        >
+          Tomar
+        </ion-button>
+
+        <ion-button
+          expand="block"
+          (click)="marcarComoListo(item)"
+          *ngIf="item.estado === EstadoProducto.EnProceso"
+        >
+          Marcar como Listo
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+   <!-- Modal para ingresar tiempo -->
+<div class="modal-backdrop" *ngIf="showTiempoModal">
+  <div class="modal-content">
+    <h2>Tiempo estimado</h2>
+    <p>¿Cuántos minutos tardará "{{ productoSeleccionado?.producto?.nombre }} x{{ productoSeleccionado?.cantidad }}"?</p>
+
+    <ion-input
+      type="number"
+      min="1"
+      [(ngModel)]="tiempoIngresado"
+      placeholder="Minutos"
+    />
+
+    <div class="modal-buttons">
+      <ion-button (click)="cancelarTiempo()">Cancelar</ion-button>
+      <ion-button (click)="confirmarTiempo()">Confirmar</ion-button>
+    </div>
+  </div>
+</div>
+</ion-content>

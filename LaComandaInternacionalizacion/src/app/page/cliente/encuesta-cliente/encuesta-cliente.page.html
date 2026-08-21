@@ -1,0 +1,100 @@
+<!-- encuesta-cliente.page.html -->
+<header class="header header-nuevos-clientes">
+  <h1 class="title">Encuesta</h1>
+</header>
+
+<main class="home-supervisor-page">
+  <ion-card class="survey-card">
+
+    <ion-card-content>
+      <!-- Pregunta 1: Calificación General -->
+      <div class="survey-field">
+        <ion-label class="segment-label" position="stacked">Calificación General</ion-label>
+        <ion-segment [(ngModel)]="calificacionGeneral" class="custom-segment">
+          <ion-segment-button value="1">
+            <ion-label>1</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="2">
+            <ion-label>2</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="3">
+            <ion-label>3</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="4">
+            <ion-label>4</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="5">
+            <ion-label>5</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <!-- Pregunta 2: Calificación Comida -->
+      <div class="survey-field">
+        <ion-label class="segment-label" position="stacked">Comida</ion-label>
+        <ion-range 
+          [(ngModel)]="calificacionComida" 
+          min="1" 
+          max="10" 
+          step="1" 
+          snaps="true" 
+          pin="true"
+          class="custom-range">
+          <ion-label slot="start">1</ion-label>
+          <ion-label slot="end">10</ion-label>
+        </ion-range>
+      </div>
+
+      <!-- Pregunta 3: Calificación Atención -->
+      <div class="survey-field">
+        <ion-label class="segment-label" position="stacked">Atención</ion-label>
+        <ion-range 
+          [(ngModel)]="calificacionAtencion" 
+          min="1" 
+          max="5" 
+          step="1" 
+          snaps="true" 
+          pin="true"
+          class="custom-range">
+          <ion-label slot="start">1</ion-label>
+          <ion-label slot="end">5</ion-label>
+        </ion-range>
+      </div>
+
+      <!-- Pregunta 4: Comentarios -->
+      <ion-item>
+        <ion-label class="segment-label" position="stacked">Comentarios adicionales</ion-label>
+        <ion-textarea 
+          [(ngModel)]="comentarios" 
+          placeholder="Contanos más sobre tu experiencia..."
+          rows="4"
+          maxlength="500">
+        </ion-textarea>
+      </ion-item>
+
+      <!-- Pregunta 5: Recomendación -->
+      <ion-item lines="full">
+        <ion-label class="segment-label">¿Recomendarías este restaurante?</ion-label>
+        <ion-toggle 
+          [(ngModel)]="recomendado" 
+          class="custom-toggle" 
+          color="success"
+          slot="end">
+        </ion-toggle>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button 
+    expand="block" 
+    class="full-button" 
+    (click)="enviarEncuesta()"
+    [disabled]="isLoading">
+    {{isLoading ? 'ENVIANDO...' : 'ENVIAR RESPUESTA'}}
+  </ion-button>
+
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+  </div>
+</main>

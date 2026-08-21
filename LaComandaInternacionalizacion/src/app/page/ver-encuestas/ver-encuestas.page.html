@@ -1,0 +1,58 @@
+<header class="header header-nuevos-clientes">
+  <h1 class="title">ENCUESTAS</h1>
+</header>
+
+<ion-content fullscreen class="ion-padding">
+
+  <!-- GRÁFICOS -->
+  <section class="graficos-container">
+    <h2 class="grafico-titulo ion-text-center ion-text-dark">PROMEDIOS</h2>
+    <div class="chart-wrapper">
+      <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"></canvas>
+    </div>
+
+    <h2 class="grafico-titulo ion-text-center ion-text-dark">RECOMIENDAN</h2>
+    <div class="chart-wrapper">
+      <canvas baseChart [data]="pieChartData" [type]="'pie'"></canvas>
+    </div>
+
+    <h2 class="grafico-titulo ion-text-center ion-text-dark">EVOLUCIÓN</h2>
+    <div class="chart-wrapper">
+      <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="'line'"></canvas>
+    </div>
+  </section>
+
+  <!-- COMENTARIOS DE CLIENTES -->
+  <div class="ion-text-center ion-margin-top">
+    <ion-button expand="block" (click)="verComentarios = !verComentarios">
+      {{ verComentarios ? 'Ocultar comentarios' : 'Ver todos los comentarios' }}
+    </ion-button>
+  </div>
+
+
+
+  <ion-list *ngIf="verComentarios" class="card-container">
+
+
+    <ion-card *ngFor="let encuesta of encuestasConPromedio" class="comentario-card">
+      <ion-card-subtitle class="fecha-comentario">
+        {{ encuesta.created_at | date:'dd MMM yyyy' }}
+      </ion-card-subtitle>
+      <ion-card-header>
+        <ion-card-title class="card-title">{{ encuesta.clienteNombre }}</ion-card-title>
+        <ion-card-subtitle>
+          Puntuación promedio: {{ encuesta.promedio}}
+          <span class="estrellas">
+            <ng-container *ngFor="let star of [1,2,3,4,5]">
+              <ion-icon [name]="star <= redondear(encuesta.promedio) ? 'star' : 'star-outline'"></ion-icon>
+            </ng-container>
+          </span>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content class="card-comment">
+        {{ encuesta.comentarios }}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

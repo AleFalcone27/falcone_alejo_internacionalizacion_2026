@@ -1,0 +1,94 @@
+<header class=" header-nuevos-clientes">
+  <h1 class="title">Pendientes</h1>
+</header>
+
+<ion-content>
+  <main class="home-supervisor-page">
+    <div class="card-list-container">
+
+      <ion-card *ngIf="!isLoading && pedidosPendientes.length === 0" class="no-products-card">
+        <ion-card-header>
+          <ion-card-title>No hay pedidos pendientes</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="menu-card" *ngFor="let pedido of pedidosPendientes">
+        <ion-card-header>
+          <ion-card-title>MESA {{ pedido.mesa.id }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="cliente-card-content" [ngSwitch]="pedido.estado">
+
+          <!-- 🟡 Comanda Enviada -->
+          <ng-container *ngSwitchCase="EstadoPedido.ComandaEnviada">
+            <div class="cliente-info">
+              <p><strong>Estado:</strong> Comanda enviada a cocina</p>
+              <p><strong>Tiempo estimado:</strong> {{ getTiempoMaximo(pedido.id) }} min</p>
+              <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+            </div>
+
+            <div class="productos-en-comanda">
+              <h2><strong>Productos: </strong></h2>
+              <ul>
+                <li *ngFor="let item of pedido.productos">
+                  {{ item.producto.nombre }} :
+                  <ion-badge class="estado-badge">
+                    {{ getNombreEstadoProducto(item.estado) }}
+                  </ion-badge>
+                </li>
+              </ul>
+            </div>
+
+          <ion-button class="full-button" *ngIf="isPedidoListo(pedido)" (click)="entregarPedido(pedido)">
+            Entregar orden
+          </ion-button>
+          </ng-container>
+
+          <!-- 🟢 Pendiente de Aprobación -->
+          <ng-container *ngSwitchCase="EstadoPedido.PendienteDeAprobacion">
+            <div class="cliente-info">
+              <p><strong>Tiempo estimado:</strong> {{ getTiempoMaximo(pedido.id) }} min</p>
+              <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+            </div>
+            <div class="cliente-actions">
+              <ion-button class="accept-btn" (click)="aceptarPedido(pedido)">Aceptar</ion-button>
+              <ion-button class="cancel-btn" (click)="rechazarPedido(pedido)">Rechazar</ion-button>
+            </div>
+          </ng-container>
+          <!-- ✅ Pedido Pagado -->
+
+        <ng-container *ngSwitchCase="EstadoPedido.PagoRealizado">
+          <div class="cliente-info">
+            <p><strong>Estado:</strong> Pedido pagado</p>
+            <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+          </div>
+
+          <div class="cliente-actions">
+            <ion-button class="accept-btn" (click)="liberarMesa(pedido)">
+              Confirmar pago y liberar mesa
+            </ion-button>
+          </div>
+
+          <div class="verificacion">
+            <p>El cliente podrá verificar que la mesa está libre volviendo a escanear el QR.</p>
+          </div>
+        </ng-container>
+          <!-- Otros estados -->
+          <ng-container *ngSwitchDefault>
+            <div class="cliente-info">
+              <p><strong>Estado:</strong> {{ pedido.estado }}</p>
+              <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+            </div>
+          </ng-container>
+
+
+
+        </ion-card-content>
+
+      </ion-card>
+    </div>
+    <div *ngIf="isLoading" class="custom-spinner">
+      <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    </div>
+  </main>
+</ion-content>
