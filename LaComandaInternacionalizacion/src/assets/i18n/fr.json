@@ -192,7 +192,8 @@
     "ROLE_MAITRE": "MAÎTRE D'HÔTEL",
     "ROLE_MOZO": "Serveur",
     "ROLE_SUPERVISOR": "Superviseur",
-    "SUBMIT_BUTTON": "SE CONNECTER"
+    "SUBMIT_BUTTON": "SE CONNECTER",
+    "WELCOME_SUBTITLE": "Bienvenue"
   },
   "MAYOR_MENOR": {
     "CORRECT_GUESSES": "Bonnes réponses :",

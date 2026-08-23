@@ -192,7 +192,8 @@
     "ROLE_MAITRE": "MAITRE",
     "ROLE_MOZO": "Waiter",
     "ROLE_SUPERVISOR": "Supervisor",
-    "SUBMIT_BUTTON": "LOG IN"
+    "SUBMIT_BUTTON": "LOG IN",
+    "WELCOME_SUBTITLE": "Welcome"
   },
   "MAYOR_MENOR": {
     "CORRECT_GUESSES": "Correct guesses:",

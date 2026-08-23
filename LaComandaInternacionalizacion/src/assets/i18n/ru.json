@@ -192,7 +192,8 @@
     "ROLE_MAITRE": "МЕТРДОТЕЛЬ",
     "ROLE_MOZO": "Официант",
     "ROLE_SUPERVISOR": "Супервайзер",
-    "SUBMIT_BUTTON": "ВОЙТИ"
+    "SUBMIT_BUTTON": "ВОЙТИ",
+    "WELCOME_SUBTITLE": "Добро пожаловать"
   },
   "MAYOR_MENOR": {
     "CORRECT_GUESSES": "Правильных ответов:",

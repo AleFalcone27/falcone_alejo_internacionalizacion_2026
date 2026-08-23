@@ -5,7 +5,7 @@
 <main class="login-page">
 
   <section class="auth-card">
-    <h2 class="subtitle">{{ 'HOME.TITLE' | translate }} </h2>
+    <h2 class="subtitle">{{ 'LOGIN.WELCOME_SUBTITLE' | translate }} </h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <input type="email" [placeholder]="'LOGIN.EMAIL_PLACEHOLDER' | translate" formControlName="correo" />
