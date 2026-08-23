@@ -5,6 +5,7 @@ import { IonButton, IonIcon, IonContent } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Pedido } from 'src/app/models';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Pedido } from 'src/app/models';
   templateUrl: './home-cliente.page.html',
   styleUrls: ['./home-cliente.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, CommonModule, FormsModule]
+  imports: [IonIcon, IonButton, CommonModule, FormsModule, TranslatePipe]
 })
 export class HomeClientePage implements OnInit {
 

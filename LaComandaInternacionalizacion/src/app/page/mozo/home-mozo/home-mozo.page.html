@@ -1,8 +1,8 @@
 <header class="header header-nuevos-clientes">
-  <h1 class="title">Bienvenido</h1>
+  <h1 class="title">{{ 'HOME_MOZO.WELCOME' | translate }}</h1>
 </header>
 <ion-button fill="clear" slot="end" class="logout-button" (click)="CerrarCesion()">
-  Cerrar sesión
+  {{ 'COMMON.LOGOUT' | translate }}
   <ion-icon slot="start" name="arrow-back"></ion-icon>
 </ion-button>
 
@@ -10,13 +10,13 @@
 <main class="home-supervisor-page">
   <!-- Logo centrado -->
   <div class="logo-container">
-    <img src="../../../assets/icon/favicon.svg" alt="Logo" class="login-logo" />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'HOME_MOZO.LOGO_ALT' | translate" class="login-logo" />
   </div>
 
   <!-- Contenedor de botones -->
   <div class="button-list-container">
-    <ion-button expand="block" class="full-button" (click)="navTo('/preguntas-mozo')">CHAT</ion-button>
-    <ion-button expand="block" class="full-button" (click)="navTo('/pedidos-pendientes-mozo')">PEDIDOS PENDIENTES</ion-button>
-    <ion-button expand="block" class="full-button">PRÓXIMAMENTE</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/preguntas-mozo')">{{ 'HOME_MOZO.CHAT' | translate }}</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/pedidos-pendientes-mozo')">{{ 'HOME_MOZO.PENDING_ORDERS' | translate }}</ion-button>
+    <ion-button expand="block" class="full-button">{{ 'HOME_MOZO.COMING_SOON' | translate }}</ion-button>
   </div>
 </main>

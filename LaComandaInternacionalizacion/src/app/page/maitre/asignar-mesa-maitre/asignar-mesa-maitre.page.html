@@ -1,6 +1,6 @@
 
 <header class="header header-nuevos-clientes">
-  <h1 class="title">ASIGNAR MESA</h1>
+  <h1 class="title">{{ 'ASIGNAR_MESA_MAITRE.TITLE' | translate }}</h1>
 </header>
 
 <main class="home-supervisor-page">
@@ -8,28 +8,28 @@
   <div class="card-list-container">
     <ion-card class="menu-card" *ngFor="let mesa of mesas">
       <ion-card-header>
-        <ion-card-title> MESA {{ mesa.numero }}</ion-card-title>
+        <ion-card-title>{{ 'ASIGNAR_MESA_MAITRE.TABLE_NUMBER' | translate:{ numero: mesa.numero } }}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content class="cliente-card-content">
         <div class="cliente-info">
-          <p><strong>Descripción:</strong> {{ mesa.descripcion }}</p>
-          <p><strong>Capacidad:</strong> {{ mesa.capacidad || 'No disponible' }}</p>
-          <p><strong>Apta bebés:</strong> {{ mesa.aptaBebes ? 'Sí' : 'No' }}</p>
-          <p><strong>Ubicación:</strong> {{ mesa.ubicacion || 'No disponible' }}</p>
+          <p><strong>{{ 'ASIGNAR_MESA_MAITRE.DESCRIPTION_LABEL' | translate }}</strong> {{ mesa.descripcion }}</p>
+          <p><strong>{{ 'ASIGNAR_MESA_MAITRE.CAPACITY_LABEL' | translate }}</strong> {{ mesa.capacidad || ('ASIGNAR_MESA_MAITRE.NOT_AVAILABLE' | translate) }}</p>
+          <p><strong>{{ 'ASIGNAR_MESA_MAITRE.BABY_FRIENDLY_LABEL' | translate }}</strong> {{ mesa.aptaBebes ? ('ASIGNAR_MESA_MAITRE.YES' | translate) : ('ASIGNAR_MESA_MAITRE.NO' | translate) }}</p>
+          <p><strong>{{ 'ASIGNAR_MESA_MAITRE.LOCATION_LABEL' | translate }}</strong> {{ mesa.ubicacion || ('ASIGNAR_MESA_MAITRE.NOT_AVAILABLE' | translate) }}</p>
         </div>
 
         <div class="cliente-actions">
           <ion-button class="asignar-btn"
             [disabled]="mesa.estado === 1"
             (click)="asignarClienteMesa(cliente!, mesa)">
-            {{ mesa.estado === 1 ? 'Ocupada' : 'Asignar Mesa' }}
+            {{ mesa.estado === 1 ? ('ASIGNAR_MESA_MAITRE.OCCUPIED' | translate) : ('ASIGNAR_MESA_MAITRE.ASSIGN_TABLE_BUTTON' | translate) }}
 </ion-button>
         </div>
       </ion-card-content>
     </ion-card>
   </div> <!-- <-- Cierra card-list-container -->
     <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
 </main>

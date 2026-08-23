@@ -2,7 +2,7 @@
   <div class="splash-container">
    
     <h1 class="app-title" [class.visible]="showTitle">El Bocado</h1>
-     <img src="../../../assets/icon/favicon.svg" alt="Icono" class="splash-logo" />
+     <img src="../../../assets/icon/favicon.svg" [attr.alt]="'SPLASH.LOGO_ALT' | translate" class="splash-logo" />
 
     <div class="wave" [class.expand]="showWave"></div>
 

@@ -7,13 +7,14 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { Pedido, Producto, Item } from 'src/app/models';
 import { AppComponent } from 'src/app/app.component';
 import { JuegosService } from 'src/app/services/juegos/juegos.service';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-estado-pedido-cliente',
   templateUrl: './estado-pedido-cliente.page.html',
   styleUrls: ['./estado-pedido-cliente.page.scss'],
   standalone: true,
-  imports: [IonInput, IonIcon, IonButton, CommonModule, FormsModule]
+  imports: [IonInput, IonIcon, IonButton, CommonModule, FormsModule, TranslatePipe]
 })
 
 export class EstadoPedidoClientePage implements OnInit {
@@ -37,7 +38,7 @@ export class EstadoPedidoClientePage implements OnInit {
   mostrarDescuento: boolean = false;
 
 
-  constructor(private router: Router, private authService: AuthService, private juegosService: JuegosService) { }
+  constructor(private router: Router, private authService: AuthService, private juegosService: JuegosService, private translate: TranslateService) { }
 
   async ngOnInit() {
     this.isLoading = true;
@@ -65,19 +66,19 @@ export class EstadoPedidoClientePage implements OnInit {
   formatEstadoPedido() {
     switch (this.pedido?.estado) {
       case 0:
-        this.estadoPedido = "ESPERANDO CONFIRMACIÓN DEL MOZO";
+        this.estadoPedido = this.translate.instant('ESTADO_PEDIDO_CLIENTE.STATUS_WAITING_CONFIRMATION');
         break;
       case 1:
-        this.estadoPedido = "¡TU PEDIDO ESTA SIENDO PREPARADO!";
+        this.estadoPedido = this.translate.instant('ESTADO_PEDIDO_CLIENTE.STATUS_PREPARING');
         break;
       case 2:
-        this.estadoPedido = "¡TU PEDIDO LISTO PARA SERVIRSE!";
+        this.estadoPedido = this.translate.instant('ESTADO_PEDIDO_CLIENTE.STATUS_READY');
         break;
       case 3:
-        this.estadoPedido = "CONFIRMAR RECEPCIÓN DEL PEDIDO";
+        this.estadoPedido = this.translate.instant('ESTADO_PEDIDO_CLIENTE.STATUS_CONFIRM_RECEIPT');
         break;
       case 4:
-        this.estadoPedido = "¡BUEN PROVECHO!";
+        this.estadoPedido = this.translate.instant('ESTADO_PEDIDO_CLIENTE.STATUS_ENJOY');
         break;
     }
   }
@@ -124,18 +125,18 @@ export class EstadoPedidoClientePage implements OnInit {
 
 
 
-      AppComponent.instance.toast.show("Cuenta pagada correctamente");
+      AppComponent.instance.toast.show(this.translate.instant('ESTADO_PEDIDO_CLIENTE.BILL_PAID'));
 
       this.isLoading = false;
 
       this.navTo("/home-cliente");
 
-      AppComponent.instance.toast.show("Gracias por confiar en nosotros. ¡Te esperamos la próxima!");
+      AppComponent.instance.toast.show(this.translate.instant('ESTADO_PEDIDO_CLIENTE.THANK_YOU'));
 
     } catch (error) {
       console.error('Error al pagar la cuenta:', error);
       this.isLoading = false;
-      AppComponent.instance.toast.show("Ocurrió un error al procesar el pago");
+      AppComponent.instance.toast.show(this.translate.instant('ESTADO_PEDIDO_CLIENTE.PAYMENT_ERROR'));
     }
   }
 
@@ -163,7 +164,7 @@ export class EstadoPedidoClientePage implements OnInit {
   confirmarPropina(): void {
     console.log('Propina final:', this.propinaSeleccionada);
     this.cerrarPropinaOverlay();
-    AppComponent.instance.toast.show("Propina agregada");
+    AppComponent.instance.toast.show(this.translate.instant('ESTADO_PEDIDO_CLIENTE.TIP_ADDED'));
   }
 
   async confirmarRecepcion() {

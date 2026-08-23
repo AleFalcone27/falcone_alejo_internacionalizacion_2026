@@ -1,5 +1,5 @@
 <header class=" header-nuevos-clientes">
-  <h1 class="title">Pendientes</h1>
+  <h1 class="title">{{ 'PEDIDOS_PENDIENTES_MOZO.TITLE' | translate }}</h1>
 </header>
 
 <ion-content>
@@ -8,13 +8,13 @@
 
       <ion-card *ngIf="!isLoading && pedidosPendientes.length === 0" class="no-products-card">
         <ion-card-header>
-          <ion-card-title>No hay pedidos pendientes</ion-card-title>
+          <ion-card-title>{{ 'PEDIDOS_PENDIENTES_MOZO.NO_PENDING_ORDERS' | translate }}</ion-card-title>
         </ion-card-header>
       </ion-card>
 
       <ion-card class="menu-card" *ngFor="let pedido of pedidosPendientes">
         <ion-card-header>
-          <ion-card-title>MESA {{ pedido.mesa.id }}</ion-card-title>
+          <ion-card-title>{{ 'PEDIDOS_PENDIENTES_MOZO.TABLE_LABEL' | translate:{ value: pedido.mesa.id } }}</ion-card-title>
         </ion-card-header>
 
         <ion-card-content class="cliente-card-content" [ngSwitch]="pedido.estado">
@@ -22,13 +22,13 @@
           <!-- 🟡 Comanda Enviada -->
           <ng-container *ngSwitchCase="EstadoPedido.ComandaEnviada">
             <div class="cliente-info">
-              <p><strong>Estado:</strong> Comanda enviada a cocina</p>
-              <p><strong>Tiempo estimado:</strong> {{ getTiempoMaximo(pedido.id) }} min</p>
-              <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+              <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.STATUS_LABEL' | translate }}</strong> {{ 'PEDIDOS_PENDIENTES_MOZO.ORDER_SENT_TO_KITCHEN' | translate }}</p>
+              <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.ESTIMATED_TIME_LABEL' | translate }}</strong> {{ 'PEDIDOS_PENDIENTES_MOZO.ESTIMATED_TIME_VALUE' | translate:{ value: getTiempoMaximo(pedido.id) } }}</p>
+              <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.LOCATION_LABEL' | translate }}</strong> {{ pedido.mesa.ubicacion || ('PEDIDOS_PENDIENTES_MOZO.NOT_AVAILABLE' | translate) }}</p>
             </div>
 
             <div class="productos-en-comanda">
-              <h2><strong>Productos: </strong></h2>
+              <h2><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.PRODUCTS_LABEL' | translate }}</strong></h2>
               <ul>
                 <li *ngFor="let item of pedido.productos">
                   {{ item.producto.nombre }} :
@@ -40,44 +40,44 @@
             </div>
 
           <ion-button class="full-button" *ngIf="isPedidoListo(pedido)" (click)="entregarPedido(pedido)">
-            Entregar orden
+            {{ 'PEDIDOS_PENDIENTES_MOZO.DELIVER_ORDER' | translate }}
           </ion-button>
           </ng-container>
 
           <!-- 🟢 Pendiente de Aprobación -->
           <ng-container *ngSwitchCase="EstadoPedido.PendienteDeAprobacion">
             <div class="cliente-info">
-              <p><strong>Tiempo estimado:</strong> {{ getTiempoMaximo(pedido.id) }} min</p>
-              <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+              <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.ESTIMATED_TIME_LABEL' | translate }}</strong> {{ 'PEDIDOS_PENDIENTES_MOZO.ESTIMATED_TIME_VALUE' | translate:{ value: getTiempoMaximo(pedido.id) } }}</p>
+              <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.LOCATION_LABEL' | translate }}</strong> {{ pedido.mesa.ubicacion || ('PEDIDOS_PENDIENTES_MOZO.NOT_AVAILABLE' | translate) }}</p>
             </div>
             <div class="cliente-actions">
-              <ion-button class="accept-btn" (click)="aceptarPedido(pedido)">Aceptar</ion-button>
-              <ion-button class="cancel-btn" (click)="rechazarPedido(pedido)">Rechazar</ion-button>
+              <ion-button class="accept-btn" (click)="aceptarPedido(pedido)">{{ 'PEDIDOS_PENDIENTES_MOZO.ACCEPT' | translate }}</ion-button>
+              <ion-button class="cancel-btn" (click)="rechazarPedido(pedido)">{{ 'PEDIDOS_PENDIENTES_MOZO.REJECT' | translate }}</ion-button>
             </div>
           </ng-container>
           <!-- ✅ Pedido Pagado -->
 
         <ng-container *ngSwitchCase="EstadoPedido.PagoRealizado">
           <div class="cliente-info">
-            <p><strong>Estado:</strong> Pedido pagado</p>
-            <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+            <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.STATUS_LABEL' | translate }}</strong> {{ 'PEDIDOS_PENDIENTES_MOZO.ORDER_PAID' | translate }}</p>
+            <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.LOCATION_LABEL' | translate }}</strong> {{ pedido.mesa.ubicacion || ('PEDIDOS_PENDIENTES_MOZO.NOT_AVAILABLE' | translate) }}</p>
           </div>
 
           <div class="cliente-actions">
             <ion-button class="accept-btn" (click)="liberarMesa(pedido)">
-              Confirmar pago y liberar mesa
+              {{ 'PEDIDOS_PENDIENTES_MOZO.CONFIRM_PAYMENT_RELEASE_TABLE' | translate }}
             </ion-button>
           </div>
 
           <div class="verificacion">
-            <p>El cliente podrá verificar que la mesa está libre volviendo a escanear el QR.</p>
+            <p>{{ 'PEDIDOS_PENDIENTES_MOZO.VERIFY_TABLE_FREE_INFO' | translate }}</p>
           </div>
         </ng-container>
           <!-- Otros estados -->
           <ng-container *ngSwitchDefault>
             <div class="cliente-info">
-              <p><strong>Estado:</strong> {{ pedido.estado }}</p>
-              <p><strong>Ubicación:</strong> {{ pedido.mesa.ubicacion || 'No disponible' }}</p>
+              <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.STATUS_LABEL' | translate }}</strong> {{ pedido.estado }}</p>
+              <p><strong>{{ 'PEDIDOS_PENDIENTES_MOZO.LOCATION_LABEL' | translate }}</strong> {{ pedido.mesa.ubicacion || ('PEDIDOS_PENDIENTES_MOZO.NOT_AVAILABLE' | translate) }}</p>
             </div>
           </ng-container>
 
@@ -88,7 +88,7 @@
       </ion-card>
     </div>
     <div *ngIf="isLoading" class="custom-spinner">
-      <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+      <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
     </div>
   </main>
 </ion-content>

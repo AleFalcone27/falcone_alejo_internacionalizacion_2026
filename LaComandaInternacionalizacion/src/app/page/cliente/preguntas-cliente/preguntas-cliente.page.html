@@ -1,25 +1,25 @@
 <header class="header  header-preguntas-cliente">
-  <h1 class="title">Preguntar</h1>
+  <h1 class="title">{{ 'PREGUNTAS_CLIENTE.TITLE' | translate }}</h1>
 </header>
 <main class="preguntas-cliente-page">
 
     <ion-card *ngIf="!isLoading && preguntas.length === 0" class="no-products-card">
     <ion-card-header>
-      <ion-card-title>No hay preguntas</ion-card-title>
+      <ion-card-title>{{ 'PREGUNTAS_CLIENTE.NO_QUESTIONS' | translate }}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
   <div class="preguntas-container">
     <div *ngFor="let p of preguntas" class="pregunta-card">
-      <h3 class="pregunta-titulo">Tu pregunta</h3>
+      <h3 class="pregunta-titulo">{{ 'PREGUNTAS_CLIENTE.YOUR_QUESTION' | translate }}</h3>
       <p class="pregunta-texto">{{ p.pregunta }}</p>
 
       <div class="respuesta-box" [class.respondida]="p.respuesta">
         <p *ngIf="p.respuesta" class="respuesta-texto">
-          <strong>Respuesta:</strong> {{ p.respuesta }}
+          <strong>{{ 'PREGUNTAS_CLIENTE.ANSWER_LABEL' | translate }}</strong> {{ p.respuesta }}
         </p>
         <p *ngIf="!p.respuesta" class="esperando">
-          <em>Esperando respuesta...</em>
+          <em>{{ 'PREGUNTAS_CLIENTE.WAITING_ANSWER' | translate }}</em>
         </p>
       </div>
     </div>
@@ -29,12 +29,12 @@
   <!-- Formulario fijo abajo -->
   <form class="formulario-fijo" (ngSubmit)="enviarPregunta()">
     <ion-item class="input-card" lines="none">
-      <ion-input type="text" [(ngModel)]="nuevaPregunta" name="nuevaPregunta" placeholder="Escribí tu pregunta"
+      <ion-input type="text" [(ngModel)]="nuevaPregunta" name="nuevaPregunta" [placeholder]="'PREGUNTAS_CLIENTE.INPUT_PLACEHOLDER' | translate"
         required></ion-input>
     </ion-item>
-    <ion-button expand="full" type="submit">Enviar pregunta</ion-button>
+    <ion-button expand="full" type="submit">{{ 'PREGUNTAS_CLIENTE.SEND' | translate }}</ion-button>
   </form>
   <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
 </main>

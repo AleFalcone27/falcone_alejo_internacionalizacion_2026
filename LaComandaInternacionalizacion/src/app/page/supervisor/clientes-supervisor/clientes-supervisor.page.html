@@ -1,5 +1,5 @@
 <header class="header header-nuevos-clientes">
-  <h1 class="title">NUEVOS CLIENTES</h1>
+  <h1 class="title">{{ 'CLIENTES_SUPERVISOR.TITLE' | translate }}</h1>
 </header>
 
 
@@ -18,22 +18,22 @@
       </ion-card-header>
 
       <ion-card-content class="cliente-card-content">
-        <img [src]="cliente.foto || 'assets/img/default-user.png'" alt="Foto del cliente" class="cliente-foto" />
+        <img [src]="cliente.foto || 'assets/img/default-user.png'" [attr.alt]="'CLIENTES_SUPERVISOR.CLIENT_PHOTO_ALT' | translate" class="cliente-foto" />
 
         <div class="cliente-info">
-          <p><strong>Correo:</strong> {{ cliente.email || 'No disponible' }}</p>
-          <p><strong>DNI:</strong> {{ cliente.dni || 'No disponible' }}</p>
-          <p><strong>Edad:</strong> {{ cliente.edad || 'No disponible' }}</p>
+          <p><strong>{{ 'CLIENTES_SUPERVISOR.EMAIL_LABEL' | translate }}</strong> {{ cliente.email || ('CLIENTES_SUPERVISOR.NOT_AVAILABLE' | translate) }}</p>
+          <p><strong>{{ 'CLIENTES_SUPERVISOR.DNI_LABEL' | translate }}</strong> {{ cliente.dni || ('CLIENTES_SUPERVISOR.NOT_AVAILABLE' | translate) }}</p>
+          <p><strong>{{ 'CLIENTES_SUPERVISOR.AGE_LABEL' | translate }}</strong> {{ cliente.edad || ('CLIENTES_SUPERVISOR.NOT_AVAILABLE' | translate) }}</p>
         </div>
 
         <div class="cliente-actions">
-          <ion-button class="accept-btn" (click)="aceptarCliente(cliente)">Aceptar</ion-button>
-          <ion-button class="cancel-btn" (click)="rechazarCliente(cliente)">Rechazar</ion-button>
+          <ion-button class="accept-btn" (click)="aceptarCliente(cliente)">{{ 'CLIENTES_SUPERVISOR.ACCEPT' | translate }}</ion-button>
+          <ion-button class="cancel-btn" (click)="rechazarCliente(cliente)">{{ 'CLIENTES_SUPERVISOR.REJECT' | translate }}</ion-button>
         </div>
       </ion-card-content>
     </ion-card>
   </div>
   <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
 </main>

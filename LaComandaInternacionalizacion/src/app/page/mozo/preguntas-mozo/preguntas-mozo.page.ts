@@ -2,14 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PreguntaService } from 'src/app/services/preguntas/preguntas-service.service';
-import { IonItem, IonButton, IonCard, IonCardHeader, IonCardTitle } from "@ionic/angular/standalone";
+import { IonItem, IonButton, IonCard, IonCardHeader, IonCardTitle, IonInput } from "@ionic/angular/standalone";
 import { AppComponent } from 'src/app/app.component';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-preguntas-mozo',
   templateUrl: './preguntas-mozo.page.html',
   styleUrls: ['./preguntas-mozo.page.scss'],
-  imports: [IonCardTitle, IonCardHeader, IonCard, IonButton, IonItem, CommonModule, FormsModule]
+  imports: [IonCardTitle, IonCardHeader, IonCard, IonButton, IonItem, IonInput, CommonModule, FormsModule, TranslatePipe]
 
 })
 export class PreguntasMozoPage implements OnInit {
@@ -17,7 +18,7 @@ export class PreguntasMozoPage implements OnInit {
   mozoNombre: string = 'Juan Pérez';
   isLoading = false;
 
-  constructor(private preguntaService: PreguntaService) { }
+  constructor(private preguntaService: PreguntaService, private translate: TranslateService) { }
 
   async ngOnInit() {
     setTimeout(async () => {
@@ -40,9 +41,9 @@ export class PreguntasMozoPage implements OnInit {
         this.preguntas = this.preguntas.filter(p => p.id !== id);
         this.preguntas = await this.preguntaService.getPreguntasSinResponder();
         this.preguntas.forEach(p => p.respuestaTemp = '');
-        AppComponent.instance.toast.show("Respuesta enviada")
+        AppComponent.instance.toast.show(this.translate.instant('PREGUNTAS_MOZO.ANSWER_SENT'))
       }else{
-        AppComponent.instance.toast.show("Error al enviar la respuesta")
+        AppComponent.instance.toast.show(this.translate.instant('PREGUNTAS_MOZO.ANSWER_SEND_ERROR'))
       }
       this.isLoading = false;
     }, 1000)

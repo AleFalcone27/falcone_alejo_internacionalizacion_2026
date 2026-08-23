@@ -45,22 +45,22 @@ export class LoginComponent {
       this.loginForm.markAllAsTouched();
 
       if (correoCtrl?.errors?.['required']) {
-        AppComponent.instance.toast.show('El correo es obligatorio.', 1000);
+        AppComponent.instance.toast.show(this.translate.instant('LOGIN.EMAIL_REQUIRED'), 1000);
         return;
       }
 
       if (correoCtrl?.errors?.['email']) {
-        AppComponent.instance.toast.show('El formato del correo no es válido.', 1000);
+        AppComponent.instance.toast.show(this.translate.instant('LOGIN.EMAIL_INVALID'), 1000);
         return;
       }
 
       if (claveCtrl?.errors?.['required']) {
-        AppComponent.instance.toast.show('La contraseña es obligatoria.', 1000);
+        AppComponent.instance.toast.show(this.translate.instant('LOGIN.PASSWORD_REQUIRED'), 1000);
         return;
       }
 
       if (claveCtrl?.errors?.['minlength']) {
-        AppComponent.instance.toast.show('La contraseña debe tener al menos 6 caracteres.', 1000);
+        AppComponent.instance.toast.show(this.translate.instant('LOGIN.PASSWORD_MIN_LENGTH'), 1000);
         return;
       }
 
@@ -75,7 +75,7 @@ export class LoginComponent {
     if (error?.message == 'alta_false') {
       console.log(error)
       setTimeout(async () => {
-        AppComponent.instance.toast.show('Un administrador debe aceptarte.', 3000);
+        AppComponent.instance.toast.show(this.translate.instant('LOGIN.PENDING_ADMIN_APPROVAL'), 3000);
         this.isLoading = false;
         await this.ui.hideLoading();
       }, 1000);
@@ -86,7 +86,7 @@ export class LoginComponent {
     if (error?.message == 'denied') {
       console.log(error)
       setTimeout(async () => {
-        AppComponent.instance.toast.show("La petición de registro fue denegada por un supervisor.", 3000);
+        AppComponent.instance.toast.show(this.translate.instant('LOGIN.REGISTRATION_DENIED'), 3000);
         this.isLoading = false;
         await this.ui.hideLoading();
       }, 1000);
@@ -95,7 +95,7 @@ export class LoginComponent {
 
     if (error) {
       setTimeout(async () => {
-        AppComponent.instance.toast.show('Credenciales incorrectas o usuario no existente.', 3000);
+        AppComponent.instance.toast.show(this.translate.instant('LOGIN.INVALID_CREDENTIALS'), 3000);
         this.isLoading = false;
         await this.ui.hideLoading();
       }, 1000);
@@ -103,7 +103,7 @@ export class LoginComponent {
     }
 
     // Éxito
-    AppComponent.instance.toast.showGod('Inicio de sesión exitoso');
+    AppComponent.instance.toast.showGod(this.translate.instant('LOGIN.LOGIN_SUCCESS'));
     this.loginForm.reset();
     this.isLoading = false;
 

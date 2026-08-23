@@ -1,13 +1,13 @@
 <ion-content class="ahorcado-page" fullscreen>
   <div class="ahorcado-container">
-    <h2 class="titulo">¡Adiviná la palabra!</h2>
+    <h2 class="titulo">{{ 'AHORCADO.TITLE' | translate }}</h2>
 
     <div class="palabra">
       <span *ngFor="let letra of palabraMostrada">{{ letra }}</span>
     </div>
 
     <div class="intentos">
-      Intentos restantes: <strong>{{ intentosRestantes }}</strong>
+      {{ 'AHORCADO.ATTEMPTS_REMAINING' | translate }} <strong>{{ intentosRestantes }}</strong>
     </div>
 
     <div class="teclado">
@@ -19,11 +19,11 @@
 
     <div class="modal-overlay" *ngIf="juegoTerminado">
       <div class="modal-card">
-        <p *ngIf="gano" class="ganaste">¡Ganaste! 🎉</p>
+        <p *ngIf="gano" class="ganaste">{{ 'AHORCADO.WIN_MESSAGE' | translate }}</p>
         <p *ngIf="!gano" class="perdiste">
-          Perdiste 😢<br><small>La palabra era:</small><br><strong>{{ palabra }}</strong>
+          {{ 'AHORCADO.LOSE_MESSAGE' | translate }}<br><small>{{ 'AHORCADO.WORD_WAS' | translate }}</small><br><strong>{{ palabra }}</strong>
         </p>
-        <ion-button expand="block" (click)="reiniciarJuego()">Jugar otra vez</ion-button>
+        <ion-button expand="block" (click)="reiniciarJuego()">{{ 'AHORCADO.PLAY_AGAIN' | translate }}</ion-button>
       </div>
     </div>
   </div>

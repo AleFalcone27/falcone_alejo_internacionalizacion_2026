@@ -6,16 +6,17 @@ import { NgChartsModule } from 'ng2-charts';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { IonIcon } from '@ionic/angular/standalone';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-ver-encuestas',
   templateUrl: './ver-encuestas.page.html',
   styleUrls: ['./ver-encuestas.page.scss'],
   standalone: true,
-  imports: [IonCardContent, IonIcon, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCard, IonList, IonButton, IonContent, CommonModule, FormsModule, NgChartsModule]
+  imports: [IonCardContent, IonIcon, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCard, IonList, IonButton, IonContent, CommonModule, FormsModule, NgChartsModule, TranslatePipe]
 })
 export class VerEncuestasPage implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private translate: TranslateService) {}
 
   calificaciones: any[] = [];
   encuestasConPromedio: any[] = [];
@@ -82,10 +83,14 @@ export class VerEncuestasPage implements OnInit {
 
   prepararGraficos() {
     this.barChartData = {
-      labels: ['General', 'Comida', 'Atención'],
+      labels: [
+        this.translate.instant('VER_ENCUESTAS.CHART_LABEL_GENERAL'),
+        this.translate.instant('VER_ENCUESTAS.CHART_LABEL_FOOD'),
+        this.translate.instant('VER_ENCUESTAS.CHART_LABEL_SERVICE')
+      ],
       datasets: [
         {
-          label: 'Promedio',
+          label: this.translate.instant('VER_ENCUESTAS.CHART_LABEL_AVERAGE'),
           data: [this.promedioGeneral, this.promedioComida, this.promedioAtencion],
           backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384']
         }
@@ -111,7 +116,10 @@ this.barChartOptions = {
 };
 
     this.pieChartData = {
-      labels: ['Recomiendan', 'No Recomiendan'],
+      labels: [
+        this.translate.instant('VER_ENCUESTAS.CHART_LABEL_RECOMMEND'),
+        this.translate.instant('VER_ENCUESTAS.CHART_LABEL_NOT_RECOMMEND')
+      ],
       datasets: [
         {
           data: [this.recomendados, this.noRecomendados],
@@ -124,7 +132,7 @@ this.barChartOptions = {
       labels: this.calificaciones.map((_, i) => `#${i + 1}`),
       datasets: [
         {
-          label: 'Calificación General',
+          label: this.translate.instant('VER_ENCUESTAS.CHART_LABEL_GENERAL_RATING'),
           data: this.calificaciones.map(c => Number(c.calificacionGeneral)),
           borderColor: '#36A2EB',
           fill: false,

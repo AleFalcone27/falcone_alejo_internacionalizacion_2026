@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton } from '@ionic/angular/standalone';
+import { TranslatePipe } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ClienteMesa, Mesa } from 'src/app/models';
@@ -14,7 +15,7 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './asignar-mesa-maitre.page.html',
   styleUrls: ['./asignar-mesa-maitre.page.scss'],
   standalone: true,
-  imports: [IonButton, IonCardContent, IonCardTitle, IonCardHeader, IonCard, CommonModule, FormsModule]
+  imports: [IonButton, IonCardContent, IonCardTitle, IonCardHeader, IonCard, CommonModule, FormsModule, TranslatePipe]
 })
 export class AsignarMesaMaitrePage implements OnInit {
 

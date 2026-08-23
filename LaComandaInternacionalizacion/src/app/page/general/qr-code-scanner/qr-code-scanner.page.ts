@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { QRCodeScannerService } from 'src/app/services/qRCodeScanenr/q-rcode-scanner.service';
 import { AppComponent } from 'src/app/app.component';
 import { Router } from '@angular/router';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 const BarcodeScanner = {
   checkPermission: async (_options?: { force?: boolean }) => ({ granted: true, denied: false }),
@@ -35,6 +36,7 @@ const BarcodeScanner = {
   imports: [
     CommonModule,
     IonContent,
+    TranslatePipe,
   ]
 })
 export class QrCodeScannerPage implements OnInit, OnDestroy {
@@ -54,7 +56,8 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
     private navController: NavController,
     private authService: AuthService,
     private qRCodeScannerService: QRCodeScannerService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
   ) {
     addIcons({ infiniteOutline, qrCodeOutline, cameraOutline, stopCircleOutline });
   }
@@ -77,14 +80,14 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
     try {
       // Verificar si estamos en un dispositivo real
       if (!this.platform.is('capacitor')) {
-        AppComponent.instance.toast.show('Función disponible solo en dispositivo móvil');
+        AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.MOBILE_ONLY'));
         this.isInitializing = false;
         return;
       }
 
       // Verificar disponibilidad del plugin
       if (!BarcodeScanner) {
-        AppComponent.instance.toast.show('Error: Plugin no disponible');
+        AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.PLUGIN_UNAVAILABLE'));
         this.isInitializing = false;
         return;
       }
@@ -109,7 +112,7 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
 
     } catch (error) {
 
-      AppComponent.instance.toast.show('Error inicializando cámara: ' + error);
+      AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.CAMERA_INIT_ERROR', { error }));
     } finally {
       this.isInitializing = false;
     }
@@ -149,7 +152,7 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
       }, 1000);
 
     } catch (error) {
-      AppComponent.instance.toast.show('Error iniciando cámara: ' + error);
+      AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.CAMERA_START_ERROR', { error }));
       this.cameraPreviewActive = false;
 
       // Limpiar clases CSS en caso de error
@@ -212,13 +215,13 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
         }, 1500);
       } else {
         ;
-        AppComponent.instance.toast.show('No se pudo leer el código QR');
+        AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.QR_READ_ERROR'));
         this.isScanning = false;
       }
 
     } catch (error) {
 
-      AppComponent.instance.toast.show('Error al escanear: ' + error);
+      AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.SCAN_ERROR', { error }));
       this.isScanning = false;
 
       // Reintentar si el escaneo continuo está activo
@@ -234,7 +237,7 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
     try {
 
       // Mostrar toast de reinicio
-      AppComponent.instance.toast.show('Reiniciando escáner...');
+      AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.RESTARTING_SCANNER'));
 
       // Limpiar datos anteriores
       this.scannedData = '';
@@ -255,7 +258,7 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
       await this.startScan();
 
     } catch (error) {
-      AppComponent.instance.toast.show('Error reiniciando escáner: ' + error);
+      AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.RESTART_ERROR', { error }));
 
       // En caso de error, intentar reinicializar completamente
       await this.restartCamera();
@@ -298,7 +301,7 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
           break;
 
         default:
-          AppComponent.instance.toast.show(`Tipo de QR no reconocido: ${jsonScanedData.type}`);
+          AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.UNRECOGNIZED_QR_TYPE', { type: jsonScanedData.type }));
           this.goBack();
           break;
       }
@@ -325,7 +328,7 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
 
     // 1. Validar QR
     if (isNaN(mesaQR)) {
-      AppComponent.instance.toast.show('El código QR no contiene una mesa válida');
+      AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.INVALID_TABLE_QR'));
       this.goBack();
       return;
     }
@@ -335,7 +338,7 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
     // 2. Si el cliente tiene mesa asignada
     if (mesaAsignada) {
       if (mesaQR !== mesaAsignada) {
-        AppComponent.instance.toast.show('Lo sentimos, esta mesa no fue asignada a su nombre');
+        AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.TABLE_NOT_ASSIGNED_TO_YOU'));
         this.goBack();
         return;
       }else{
@@ -346,7 +349,7 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
       const pedido = await this.authService.getPedidoAsignadoAlCliente();
 
       if (pedido) {
-        AppComponent.instance.toast.show('Mostrando tu pedido');
+        AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.SHOWING_ORDER'));
         this.navTo('/estado-pedido-cliente');
         return;
       }
@@ -355,7 +358,7 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
     // 3. Si no tiene mesa asignada, verificar si está en lista de espera
     const enLista = await this.authService.estaEnListaDeEspera();
     if (!enLista) {
-      AppComponent.instance.toast.show('Lo sentimos, el maitre debe asignarte una mesa antes');
+      AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.NEED_TABLE_ASSIGNMENT'));
       this.goBack();
       return;
     }
@@ -373,7 +376,7 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
 
   } catch (error) {
     console.error(error);
-    AppComponent.instance.toast.show('Error verificando mesa asignada');
+    AppComponent.instance.toast.show(this.translate.instant('QR_CODE_SCANNER.TABLE_VERIFICATION_ERROR'));
     this.goBack();
   }
 }
@@ -382,15 +385,15 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
 
   private async createQrAlert(message: string, acceptHandler: () => void) {
     return await this.alertController.create({
-      header: '✅ QR Escaneado',
+      header: this.translate.instant('QR_CODE_SCANNER.QR_SCANNED_HEADER'),
       message: message,
       buttons: [
         {
-          text: 'Aceptar',
+          text: this.translate.instant('QR_CODE_SCANNER.ACCEPT'),
           handler: acceptHandler
         },
         {
-          text: 'Volver a escanear',
+          text: this.translate.instant('QR_CODE_SCANNER.SCAN_AGAIN'),
           handler: async () => {
             await this.restartScanner();
           }
@@ -455,18 +458,18 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
 
   private async showPermissionAlert() {
     const alert = await this.alertController.create({
-      header: 'Permisos necesarios',
-      message: 'Se necesita acceso a la cámara para escanear códigos QR.',
+      header: this.translate.instant('QR_CODE_SCANNER.PERMISSIONS_NEEDED_HEADER'),
+      message: this.translate.instant('QR_CODE_SCANNER.PERMISSIONS_NEEDED_MESSAGE'),
       buttons: [
         {
-          text: 'Cancelar',
+          text: this.translate.instant('COMMON.CANCEL'),
           role: 'cancel',
           handler: () => {
             this.goBack();
           }
         },
         {
-          text: 'Permitir',
+          text: this.translate.instant('QR_CODE_SCANNER.ALLOW'),
           handler: async () => {
             await this.initializeCamera();
           }
@@ -478,18 +481,18 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
 
   private async showPermissionDeniedAlert() {
     const alert = await this.alertController.create({
-      header: 'Permisos denegados',
-      message: 'Los permisos de cámara han sido denegados. Ve a la configuración de la app para habilitarlos.',
+      header: this.translate.instant('QR_CODE_SCANNER.PERMISSIONS_DENIED_HEADER'),
+      message: this.translate.instant('QR_CODE_SCANNER.PERMISSIONS_DENIED_MESSAGE'),
       buttons: [
         {
-          text: 'Cancelar',
+          text: this.translate.instant('COMMON.CANCEL'),
           role: 'cancel',
           handler: () => {
             this.goBack();
           }
         },
         {
-          text: 'Ir a Configuración',
+          text: this.translate.instant('QR_CODE_SCANNER.GO_TO_SETTINGS'),
           handler: async () => {
             await BarcodeScanner.openAppSettings();
           }

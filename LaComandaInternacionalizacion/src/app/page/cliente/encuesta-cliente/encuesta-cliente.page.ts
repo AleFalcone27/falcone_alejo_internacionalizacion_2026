@@ -19,6 +19,7 @@ import {
   IonToggle          
 } from '@ionic/angular/standalone';
 import { idCard } from 'ionicons/icons';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-encuesta-cliente',
@@ -34,10 +35,11 @@ import { idCard } from 'ionicons/icons';
     IonItem,
     CommonModule,
     FormsModule,
-    IonSegment,        
-    IonRange,          
-    IonTextarea,      
-    IonToggle    
+    IonSegment,
+    IonRange,
+    IonTextarea,
+    IonToggle,
+    TranslatePipe
 ]})
 export class EncuestaClientePage {
   isLoading = false;

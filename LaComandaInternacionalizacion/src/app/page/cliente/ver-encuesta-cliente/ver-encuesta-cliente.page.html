@@ -1,24 +1,24 @@
 <header class="header header-nuevos-clientes">
-  <h1 class="title">Encuestas</h1>
+  <h1 class="title">{{ 'VER_ENCUESTA_CLIENTE.TITLE' | translate }}</h1>
 </header>
 
 <main class="home-supervisor-page ion-padding">
   <div class="card-list-container">
     <ion-card *ngFor="let encuesta of encuestas" class="menu-card">
       <ion-card-header>
-        <ion-card-title>Calificación General: {{ encuesta.calificacionGeneral }}</ion-card-title>
+        <ion-card-title>{{ 'VER_ENCUESTA_CLIENTE.OVERALL_RATING' | translate:{ value: encuesta.calificacionGeneral } }}</ion-card-title>
       </ion-card-header>
       <ion-card-content class="cliente-card-content">
-        <p><strong>Comida:</strong> {{ encuesta.calificacionComida }} | <strong>Atención:</strong> {{ encuesta.calificacionAtencion }}</p>
-        <p><strong>Comentarios:</strong> {{ encuesta.comentarios || 'Sin comentarios' }}</p>
-        <p><strong>Recomendado:</strong> {{ encuesta.recomendado ? '✅ Sí' : '❌ No' }}</p>
+        <p><strong>{{ 'VER_ENCUESTA_CLIENTE.FOOD_LABEL' | translate }}</strong> {{ encuesta.calificacionComida }} | <strong>{{ 'VER_ENCUESTA_CLIENTE.SERVICE_LABEL' | translate }}</strong> {{ encuesta.calificacionAtencion }}</p>
+        <p><strong>{{ 'VER_ENCUESTA_CLIENTE.COMMENTS_LABEL' | translate }}</strong> {{ encuesta.comentarios || ('VER_ENCUESTA_CLIENTE.NO_COMMENTS' | translate) }}</p>
+        <p><strong>{{ 'VER_ENCUESTA_CLIENTE.RECOMMENDED_LABEL' | translate }}</strong> {{ encuesta.recomendado ? ('VER_ENCUESTA_CLIENTE.YES' | translate) : ('VER_ENCUESTA_CLIENTE.NO' | translate) }}</p>
       </ion-card-content>
     </ion-card>
   </div>
 
   <ng-template #noEncuestas>
     <ion-card class="no-products-card">
-      <ion-card-content>No hay encuestas registradas.</ion-card-content>
+      <ion-card-content>{{ 'VER_ENCUESTA_CLIENTE.NO_SURVEYS' | translate }}</ion-card-content>
     </ion-card>
   </ng-template>
 

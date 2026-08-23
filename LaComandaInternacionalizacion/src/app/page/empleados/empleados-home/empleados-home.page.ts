@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-empleados-home',
   templateUrl: './empleados-home.page.html',
   styleUrls: ['./empleados-home.page.scss'],
   standalone: true,
-  imports: [IonButton, CommonModule, FormsModule]
+  imports: [IonButton, CommonModule, FormsModule, TranslatePipe]
 })
 export class EmpleadosHomePage {
   constructor(private authService: AuthService, private router: Router) { }

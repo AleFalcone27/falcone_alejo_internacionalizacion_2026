@@ -1,5 +1,5 @@
 <header class="header">
-  <h1 class="title">NUEVO CLIENTE</h1>
+  <h1 class="title">{{ 'ALTA_CLIENTE.TITLE' | translate }}</h1>
 </header>
 
 <main class="login-page">
@@ -7,42 +7,42 @@
 
   <section class="auth-card">
 
-    <ion-label>Anónimo</ion-label>
+    <ion-label>{{ 'ALTA_CLIENTE.ANONYMOUS_LABEL' | translate }}</ion-label>
     <ion-toggle slot="end" [(ngModel)]="esAnonimo" name="anonimo"></ion-toggle>
 
     <form [formGroup]="registroForm" (ngSubmit)="onRegistrar()">
       <!-- Nombre -->
-      <input type="text" placeholder="Nombre" formControlName="nombre" />
+      <input type="text" [placeholder]="'ALTA_CLIENTE.NAME_PLACEHOLDER' | translate" formControlName="nombre" />
 
       <!-- Apellido (condicional si no es anónimo) -->
-      <input type="text" placeholder="Apellido" formControlName="apellido" *ngIf="!esAnonimo" />
+      <input type="text" [placeholder]="'ALTA_CLIENTE.LAST_NAME_PLACEHOLDER' | translate" formControlName="apellido" *ngIf="!esAnonimo" />
 
       <!-- Email -->
-      <input type="text" placeholder="Correo" formControlName="email" *ngIf="!esAnonimo" />
+      <input type="text" [placeholder]="'ALTA_CLIENTE.EMAIL_PLACEHOLDER' | translate" formControlName="email" *ngIf="!esAnonimo" />
 
       <!-- Contraseña -->
-      <input type="text" type="password" placeholder="Contraseña" formControlName="contraseña" *ngIf="!esAnonimo" />
+      <input type="text" type="password" [placeholder]="'ALTA_CLIENTE.PASSWORD_PLACEHOLDER' | translate" formControlName="contraseña" *ngIf="!esAnonimo" />
 
       <!-- Repetir contraseña -->
-      <input type="password" placeholder="Repetir contraseña" formControlName="repetirContraseña" *ngIf="!esAnonimo" />
+      <input type="password" [placeholder]="'ALTA_CLIENTE.REPEAT_PASSWORD_PLACEHOLDER' | translate" formControlName="repetirContraseña" *ngIf="!esAnonimo" />
 
       <!-- DNI -->
-      <input type="text" placeholder="DNI" formControlName="dni" *ngIf="!esAnonimo" />
+      <input type="text" [placeholder]="'ALTA_CLIENTE.DNI_PLACEHOLDER' | translate" formControlName="dni" *ngIf="!esAnonimo" />
 
       <!-- Boton de tomar foto -->
-      <button type="button" (click)="tomarFoto()">TOMAR FOTO</button>
+      <button type="button" (click)="tomarFoto()">{{ 'ALTA_CLIENTE.TAKE_PHOTO_BUTTON' | translate }}</button>
 
       <!-- Botón de enviar -->
-      <button type="submit">REGISTRARSE</button>
+      <button type="submit">{{ 'ALTA_CLIENTE.REGISTER_BUTTON' | translate }}</button>
 
-      <button type="button" (click)="navTo('/qr-code-scanner')">ESCANEAR QR</button>
+      <button type="button" (click)="navTo('/qr-code-scanner')">{{ 'ALTA_CLIENTE.SCAN_QR_BUTTON' | translate }}</button>
 
     </form>
   </section>
 
-  <a routerLink="/login" class="registro-link">¿Ya tenés cuenta? Iniciá sesión</a>
+  <a routerLink="/login" class="registro-link">{{ 'ALTA_CLIENTE.ALREADY_HAVE_ACCOUNT' | translate }}</a>
 
   <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
 </main>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
+import { TranslatePipe } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './home-maitre.page.html',
   styleUrls: ['./home-maitre.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, CommonModule, FormsModule]
+  imports: [IonIcon, IonButton, CommonModule, FormsModule, TranslatePipe]
 })
 export class HomeMaitrePage {
 

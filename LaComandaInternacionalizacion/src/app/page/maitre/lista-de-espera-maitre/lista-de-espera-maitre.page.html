@@ -1,5 +1,5 @@
 <header class="header header-nuevos-clientes">
-  <h1 class="title">Lista de Espera</h1>
+  <h1 class="title">{{ 'LISTA_DE_ESPERA_MAITRE.TITLE' | translate }}</h1>
 </header>
 <main class="home-supervisor-page">
 
@@ -9,7 +9,7 @@
 
     <ion-card *ngIf="!isLoading && clientesPendientes.length === 0" class="no-products-card">
       <ion-card-header>
-        <ion-card-title>No hay nadie en lista de espera</ion-card-title>
+        <ion-card-title>{{ 'LISTA_DE_ESPERA_MAITRE.EMPTY_WAITLIST' | translate }}</ion-card-title>
       </ion-card-header>
     </ion-card>
 
@@ -20,25 +20,25 @@
 
       <ion-card-content class="cliente-card-content">
         <div class="cliente-body">
-          <img [src]="listaDeEspera.cliente.foto || 'assets/img/default-user.png'" alt="Foto del cliente"
+          <img [src]="listaDeEspera.cliente.foto || 'assets/img/default-user.png'" [attr.alt]="'LISTA_DE_ESPERA_MAITRE.CLIENT_PHOTO_ALT' | translate"
             class="cliente-foto" />
 
           <div class="cliente-info">
-            <p><strong>Correo:</strong> {{ listaDeEspera.cliente.email || 'No disponible' }}</p>
-            <p><strong>DNI:</strong> {{ listaDeEspera.cliente.dni || 'No disponible' }}</p>
-            <p><strong>Edad:</strong> {{ listaDeEspera.cliente.edad || 'No disponible' }}</p>
+            <p><strong>{{ 'LISTA_DE_ESPERA_MAITRE.EMAIL_LABEL' | translate }}</strong> {{ listaDeEspera.cliente.email || ('LISTA_DE_ESPERA_MAITRE.NOT_AVAILABLE' | translate) }}</p>
+            <p><strong>{{ 'LISTA_DE_ESPERA_MAITRE.DNI_LABEL' | translate }}</strong> {{ listaDeEspera.cliente.dni || ('LISTA_DE_ESPERA_MAITRE.NOT_AVAILABLE' | translate) }}</p>
+            <p><strong>{{ 'LISTA_DE_ESPERA_MAITRE.AGE_LABEL' | translate }}</strong> {{ listaDeEspera.cliente.edad || ('LISTA_DE_ESPERA_MAITRE.NOT_AVAILABLE' | translate) }}</p>
           </div>
         </div>
 
         <div class="cliente-actions">
-          <ion-button class="accept-btn" (click)="VerMesasDisponibles(listaDeEspera.cliente)">Asignar mesa</ion-button>
-          <ion-button class="cancel-btn" (click)="rechazarCliente(listaDeEspera.cliente)">Cancelar</ion-button>
+          <ion-button class="accept-btn" (click)="VerMesasDisponibles(listaDeEspera.cliente)">{{ 'LISTA_DE_ESPERA_MAITRE.ASSIGN_TABLE_BUTTON' | translate }}</ion-button>
+          <ion-button class="cancel-btn" (click)="rechazarCliente(listaDeEspera.cliente)">{{ 'COMMON.CANCEL' | translate }}</ion-button>
         </div>
       </ion-card-content>
 
     </ion-card>
   </div>
   <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
 </main>

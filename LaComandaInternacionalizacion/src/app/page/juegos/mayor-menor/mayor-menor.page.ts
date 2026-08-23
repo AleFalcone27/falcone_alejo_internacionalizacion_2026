@@ -3,12 +3,13 @@ import { IonHeader, IonToolbar, IonContent, IonButton } from "@ionic/angular/sta
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { JuegosService } from 'src/app/services/juegos/juegos.service'; // 👈 Asegurate de tener la ruta correcta
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-mayor-menor',
   templateUrl: './mayor-menor.page.html',
   styleUrls: ['./mayor-menor.page.scss'],
-  imports: [IonButton, IonContent, FormsModule, CommonModule]
+  imports: [IonButton, IonContent, FormsModule, CommonModule, TranslatePipe]
 })
 export class MayorMenorPage {
   cartaActual = 0;

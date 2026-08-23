@@ -6,13 +6,14 @@ import { Pedido, ItemPedido, EstadoProducto } from 'src/app/models';
 import { AppComponent } from 'src/app/app.component';
 import { AlertController } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pedidos-bar',
   templateUrl: './pedidos-bar.page.html',
   styleUrls: ['./pedidos-bar.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule,FormsModule]
+  imports: [CommonModule, IonicModule,FormsModule, TranslatePipe]
 })
 export class PedidosBarPage implements OnInit {
 showTiempoModal = false;
@@ -22,7 +23,8 @@ tiempoIngresado: number | null = null;
   isLoading = false;
   EstadoProducto = EstadoProducto; // <- Esto lo usás en el HTML
 
-  constructor(private authService: AuthService,  private alertController: AlertController
+  constructor(private authService: AuthService,  private alertController: AlertController,
+    private translate: TranslateService
 ) {}
 
   async ngOnInit() {
@@ -59,12 +61,12 @@ cancelarTiempo() {
 
 async confirmarTiempo() {
   if (!this.tiempoIngresado || this.tiempoIngresado <= 0) {
-    AppComponent.instance.toast.show('Debes ingresar un tiempo válido.', 2000);
+    AppComponent.instance.toast.show(this.translate.instant('PEDIDOS_BAR.INVALID_TIME'), 2000);
     return;
   }
 
   await this.authService.marcarProductoEnPreparacion(this.productoSeleccionado.id, this.tiempoIngresado);
-  AppComponent.instance.toast.show(`Producto tomado. Tiempo estimado: ${this.tiempoIngresado} min.`, 2000);
+  AppComponent.instance.toast.show(this.translate.instant('PEDIDOS_BAR.PRODUCT_TAKEN', { value: this.tiempoIngresado }), 2000);
 
   this.showTiempoModal = false;
   this.productoSeleccionado = null;
@@ -75,7 +77,7 @@ async confirmarTiempo() {
 
   async marcarComoListo(item: any) {
     await this.authService.marcarProductoListo(item.id);
-    AppComponent.instance.toast.show('Producto listo para servir', 2000);
+    AppComponent.instance.toast.show(this.translate.instant('PEDIDOS_BAR.PRODUCT_READY'), 2000);
     this.cargarProductosPendientes();
   }
 

@@ -18,6 +18,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { AppComponent } from 'src/app/app.component';
 import { EstadoPedido, EstadoProducto } from 'src/app/models';
 import { settings } from 'ionicons/icons';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 type PedidoConProductos = Pedido & { productos: ItemPedido[] };
 
@@ -34,7 +35,8 @@ type PedidoConProductos = Pedido & { productos: ItemPedido[] };
     IonCardHeader,
     IonContent,
     CommonModule,
-    FormsModule
+    FormsModule,
+    TranslatePipe
   ]
 })
 export class PedidosPendientesMozoPage implements OnInit {
@@ -46,7 +48,7 @@ export class PedidosPendientesMozoPage implements OnInit {
     [pedidoId: number]: { tiempoMaximo: number; cantidadTotal: number } | undefined;
   } = {};
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private translate: TranslateService) { }
 
   async ngOnInit() {
     await this.init();
@@ -100,33 +102,33 @@ export class PedidosPendientesMozoPage implements OnInit {
   async aceptarPedido(pedido: Pedido) {
     await this.authService.aceptarPedidoMozo(pedido);
     await this.init();
-    AppComponent.instance.toast.show('Pedido tomado');
+    AppComponent.instance.toast.show(this.translate.instant('PEDIDOS_PENDIENTES_MOZO.ORDER_TAKEN'));
   }
 
   async rechazarPedido(pedido: Pedido) {
     await this.authService.rechazarPedidoMozo(pedido);
     await this.init();
-    AppComponent.instance.toast.show('Pedido rechazado');
+    AppComponent.instance.toast.show(this.translate.instant('PEDIDOS_PENDIENTES_MOZO.ORDER_REJECTED'));
   }
 
   async  liberarMesa(pedido:Pedido) {
         await this.authService.liberarMesa(pedido);
     await this.init();
-    AppComponent.instance.toast.show('Pedido liberado');
-    
+    AppComponent.instance.toast.show(this.translate.instant('PEDIDOS_PENDIENTES_MOZO.TABLE_RELEASED'));
+
   }
   getNombreEstadoProducto(estado: EstadoProducto | undefined): string {
     switch (estado) {
       case EstadoProducto.PedidoPendienteDeAprobacion:
-        return 'Pendiente de aprobación';
+        return this.translate.instant('PEDIDOS_PENDIENTES_MOZO.PRODUCT_STATUS_PENDING_APPROVAL');
       case EstadoProducto.ComandaRecibida:
-        return 'Comanda recibida';
+        return this.translate.instant('PEDIDOS_PENDIENTES_MOZO.PRODUCT_STATUS_ORDER_RECEIVED');
       case EstadoProducto.EnProceso:
-        return 'En proceso';
+        return this.translate.instant('PEDIDOS_PENDIENTES_MOZO.PRODUCT_STATUS_IN_PROGRESS');
       case EstadoProducto.Listo:
-        return 'Listo';
+        return this.translate.instant('PEDIDOS_PENDIENTES_MOZO.PRODUCT_STATUS_READY');
       default:
-        return 'Desconocido';
+        return this.translate.instant('PEDIDOS_PENDIENTES_MOZO.PRODUCT_STATUS_UNKNOWN');
     }
   }
 

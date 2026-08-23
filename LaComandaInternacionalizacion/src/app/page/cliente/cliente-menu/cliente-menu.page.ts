@@ -8,6 +8,7 @@ import { IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonButton, IonSea
 import { AppComponent } from 'src/app/app.component';
 import { App } from '@capacitor/app';
 import { Router } from '@angular/router';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
   templateUrl: './cliente-menu.page.html',
   styleUrls: ['./cliente-menu.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonButton, IonSearchbar, FormsModule]
+  imports: [CommonModule, IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonButton, IonSearchbar, FormsModule, TranslatePipe]
 })
 export class ClienteMenuPage implements OnInit {
 
@@ -32,7 +33,7 @@ export class ClienteMenuPage implements OnInit {
   searchTerm: string = '';
   productosFiltrados: Producto[] = [];
 
-  constructor(private authService: AuthService, private uiService: UiService, private router: Router) { }
+  constructor(private authService: AuthService, private uiService: UiService, private router: Router, private translate: TranslateService) { }
 
   async ngOnInit() {
     this.isLoading = true;
@@ -117,7 +118,7 @@ export class ClienteMenuPage implements OnInit {
     } else {
       this.order[id] = 1;
     }
-    AppComponent.instance.toast.show("Producto agregado a la orden", 1000);
+    AppComponent.instance.toast.show(this.translate.instant('CLIENTE_MENU.PRODUCT_ADDED'), 1000);
   }
 
   get totalOrden(): number {
@@ -149,7 +150,7 @@ export class ClienteMenuPage implements OnInit {
       this.authService.generarOrden(this.productosSeleccionados);
 
     }, 1000);
-    AppComponent.instance.toast.show("Orden creada correctamente. Aguardé a la confirmació del mozo");
+    AppComponent.instance.toast.show(this.translate.instant('CLIENTE_MENU.ORDER_CREATED'));
     this.isLoading = false;
   }
 

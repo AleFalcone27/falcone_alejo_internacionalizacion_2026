@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Encuesta } from 'src/app/models';
 import { IonHeader, IonContent, IonList, IonItem, IonLabel, IonCard, IonCardContent, IonSpinner, IonTitle, IonToolbar, IonCardHeader, IonCardTitle } from "@ionic/angular/standalone";
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-ver-encuesta-cliente',
   templateUrl: './ver-encuesta-cliente.page.html',
   styleUrls: ['./ver-encuesta-cliente.page.scss'],
   standalone: true,
-  imports: [IonCardTitle, IonCardHeader, IonSpinner, IonCardContent, IonCard,  CommonModule, FormsModule]
+  imports: [IonCardTitle, IonCardHeader, IonSpinner, IonCardContent, IonCard,  CommonModule, FormsModule, TranslatePipe]
 })
 export class VerEncuestaClientePage implements OnInit {
   encuestas: Encuesta[] = [];

@@ -11,10 +11,11 @@ import { Router } from '@angular/router';
 import { UiService } from '../../services/ui/ui.service';
 import { QRCodeScannerService } from 'src/app/services/qRCodeScanenr/q-rcode-scanner.service';
 import { AppComponent } from 'src/app/app.component';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-alta-cliente',
-  imports: [IonToggle, IonLabel, CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
+  imports: [IonToggle, IonLabel, CommonModule, ReactiveFormsModule, RouterModule, FormsModule, TranslatePipe],
   templateUrl: './alta-cliente.page.html',
   styleUrls: ['./alta-cliente.page.scss'],
 })
@@ -30,7 +31,8 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
     private authService: AuthService,
     private router: Router,
     private ui: UiService,
-    private qrService: QRCodeScannerService
+    private qrService: QRCodeScannerService,
+    private translate: TranslateService
   ) {
     this.registroForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -133,7 +135,7 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
       const pass = this.registroForm.get('contraseña')?.value;
       const repeatPass = this.registroForm.get('repetirContraseña')?.value;
       if (pass !== repeatPass) {
-        this.mensaje = 'Las contraseñas no coinciden.';
+        this.mensaje = this.translate.instant('ALTA_CLIENTE.PASSWORDS_DONT_MATCH');
         AppComponent.instance.toast.show(this.mensaje);
         return;
       }
@@ -149,7 +151,7 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
 
       if (resultado.error) {
         console.error('Error al registrar usuario:', resultado.error.message);
-        AppComponent.instance.toast.show('No se pudo registrar el usuario.');
+        AppComponent.instance.toast.show(this.translate.instant('ALTA_CLIENTE.REGISTER_FAILED'));
         setTimeout(() => this.isLoading = false, 1500);
         return;
       }
@@ -180,7 +182,7 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
       await this.authService.createCliente(cliente);
 
       this.registroForm.reset();
-      AppComponent.instance.toast.showGod('Usuario registrado correctamente.');
+      AppComponent.instance.toast.showGod(this.translate.instant('ALTA_CLIENTE.REGISTER_SUCCESS'));
 
       setTimeout(() => {
         this.isLoading = false;
@@ -189,7 +191,7 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
 
     } catch (err) {
       console.error('Error general durante el registro:', err);
-      AppComponent.instance.toast.show('Ocurrió un error durante el registro.');
+      AppComponent.instance.toast.show(this.translate.instant('ALTA_CLIENTE.REGISTER_ERROR'));
       setTimeout(() => this.isLoading = false, 1500);
     }
   }
@@ -211,14 +213,14 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
     for (const key in this.registroForm.controls) {
       const control = this.registroForm.get(key);
       if (control?.invalid) {
-        if (control.errors?.['required']) return `El campo ${key} es obligatorio`;
-        if (control.errors?.['email']) return `El campo ${key} debe ser un email válido`;
+        if (control.errors?.['required']) return this.translate.instant('ALTA_CLIENTE.FIELD_REQUIRED', { field: key });
+        if (control.errors?.['email']) return this.translate.instant('ALTA_CLIENTE.FIELD_INVALID_EMAIL', { field: key });
         if (control.errors?.['minlength']) {
           const min = control.errors['minlength'].requiredLength;
-          return `El campo ${key} debe tener al menos ${min} caracteres`;
+          return this.translate.instant('ALTA_CLIENTE.FIELD_MIN_LENGTH', { field: key, min: min });
         }
       }
     }
-    return 'Formulario inválido';
+    return this.translate.instant('ALTA_CLIENTE.INVALID_FORM');
   }
 }

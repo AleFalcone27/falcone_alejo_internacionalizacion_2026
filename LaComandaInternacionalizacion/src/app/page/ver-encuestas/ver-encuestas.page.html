@@ -1,22 +1,22 @@
 <header class="header header-nuevos-clientes">
-  <h1 class="title">ENCUESTAS</h1>
+  <h1 class="title">{{ 'VER_ENCUESTAS.HEADER_TITLE' | translate }}</h1>
 </header>
 
 <ion-content fullscreen class="ion-padding">
 
   <!-- GRÁFICOS -->
   <section class="graficos-container">
-    <h2 class="grafico-titulo ion-text-center ion-text-dark">PROMEDIOS</h2>
+    <h2 class="grafico-titulo ion-text-center ion-text-dark">{{ 'VER_ENCUESTAS.AVERAGES_TITLE' | translate }}</h2>
     <div class="chart-wrapper">
       <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"></canvas>
     </div>
 
-    <h2 class="grafico-titulo ion-text-center ion-text-dark">RECOMIENDAN</h2>
+    <h2 class="grafico-titulo ion-text-center ion-text-dark">{{ 'VER_ENCUESTAS.RECOMMENDED_TITLE' | translate }}</h2>
     <div class="chart-wrapper">
       <canvas baseChart [data]="pieChartData" [type]="'pie'"></canvas>
     </div>
 
-    <h2 class="grafico-titulo ion-text-center ion-text-dark">EVOLUCIÓN</h2>
+    <h2 class="grafico-titulo ion-text-center ion-text-dark">{{ 'VER_ENCUESTAS.EVOLUTION_TITLE' | translate }}</h2>
     <div class="chart-wrapper">
       <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="'line'"></canvas>
     </div>
@@ -25,7 +25,7 @@
   <!-- COMENTARIOS DE CLIENTES -->
   <div class="ion-text-center ion-margin-top">
     <ion-button expand="block" (click)="verComentarios = !verComentarios">
-      {{ verComentarios ? 'Ocultar comentarios' : 'Ver todos los comentarios' }}
+      {{ (verComentarios ? 'VER_ENCUESTAS.HIDE_COMMENTS' : 'VER_ENCUESTAS.SHOW_COMMENTS') | translate }}
     </ion-button>
   </div>
 
@@ -41,7 +41,7 @@
       <ion-card-header>
         <ion-card-title class="card-title">{{ encuesta.clienteNombre }}</ion-card-title>
         <ion-card-subtitle>
-          Puntuación promedio: {{ encuesta.promedio}}
+          {{ 'VER_ENCUESTAS.AVERAGE_SCORE' | translate }} {{ encuesta.promedio}}
           <span class="estrellas">
             <ng-container *ngFor="let star of [1,2,3,4,5]">
               <ion-icon [name]="star <= redondear(encuesta.promedio) ? 'star' : 'star-outline'"></ion-icon>

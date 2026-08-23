@@ -1,5 +1,5 @@
 <header class="header">
-  <h1 class="title">INICIO</h1>
+  <h1 class="title">{{ 'LOGIN.HEADER_TITLE' | translate }}</h1>
 </header>
 
 <main class="login-page">
@@ -8,30 +8,30 @@
     <h2 class="subtitle">{{ 'HOME.TITLE' | translate }} </h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-      <input type="email" placeholder="Correo" formControlName="correo" />
-      <input type="password" placeholder="Contraseña" formControlName="clave" />
-      <button type="submit">INGRESAR</button>
+      <input type="email" [placeholder]="'LOGIN.EMAIL_PLACEHOLDER' | translate" formControlName="correo" />
+      <input type="password" [placeholder]="'LOGIN.PASSWORD_PLACEHOLDER' | translate" formControlName="clave" />
+      <button type="submit">{{ 'LOGIN.SUBMIT_BUTTON' | translate }}</button>
     </form>
   </section>
 
-  <a routerLink="/alta-cliente" class="registro-link">¿Sos un cliente nuevo? Registrate</a>
+  <a routerLink="/alta-cliente" class="registro-link">{{ 'LOGIN.NEW_CLIENT_LINK' | translate }}</a>
 
 <div class="quick-access-wrapper">
   <!-- Primera columna: 4 botones rectangulares -->
   <div class="main-access-buttons">
     <ion-button expand="block" class="access-btn btn-bartender"
       (click)="cargarUsuarioRapido('barTender@gmail.com', '123456')">
-      Bartender
+      {{ 'LOGIN.ROLE_BARTENDER' | translate }}
     </ion-button>
 
     <ion-button expand="block" class="access-btn btn-mozo"
       (click)="cargarUsuarioRapido('mozo1@gmail.com', '12345678')">
-      Mozo
+      {{ 'LOGIN.ROLE_MOZO' | translate }}
     </ion-button>
 
     <ion-button expand="block" class="access-btn btn-supervisor"
       (click)="cargarUsuarioRapido('supervisor@gmail.com', '12345678')">
-      Supervisor
+      {{ 'LOGIN.ROLE_SUPERVISOR' | translate }}
     </ion-button>
   </div>
 
@@ -39,29 +39,29 @@
   <div class="circle-button-grid">
     <ion-button class="circle-btn"
       (click)="cargarUsuarioRapido('anonimo@gmail.com', '12345678')">
-      ANÓNIMO
+      {{ 'LOGIN.ROLE_ANONYMOUS' | translate }}
     </ion-button>
 
     <ion-button class=" circle-btn btn-cliente"
       (click)="cargarUsuarioRapido('aleefalcone@gmail.com', '1234567')">
-      CLIENTE
+      {{ 'LOGIN.ROLE_CLIENTE' | translate }}
     </ion-button>
 
     <ion-button class="circle-btn btn-maitre"
       (click)="cargarUsuarioRapido('maitre@gmail.com', '1234567')">
-      MAITRE
+      {{ 'LOGIN.ROLE_MAITRE' | translate }}
     </ion-button>
 
     <ion-button class="circle-btn btn-cocinero"
       (click)="cargarUsuarioRapido('cocinero@gmail.com', '123456')">
-      COCINERO
+      {{ 'LOGIN.ROLE_COCINERO' | translate }}
     </ion-button>
   </div>
 </div>
 
-  
+
   <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
   <app-custom-toast #toast></app-custom-toast>
 

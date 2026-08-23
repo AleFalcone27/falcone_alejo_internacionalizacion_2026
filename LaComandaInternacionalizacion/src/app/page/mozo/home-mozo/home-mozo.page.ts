@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-mozo',
   templateUrl: './home-mozo.page.html',
   styleUrls: ['./home-mozo.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, CommonModule, FormsModule]
+  imports: [IonIcon, IonButton, CommonModule, FormsModule, TranslatePipe]
 })
 export class HomeMozoPage {
 

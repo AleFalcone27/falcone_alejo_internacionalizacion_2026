@@ -3,12 +3,13 @@ import { IonHeader, IonButton, IonContent, IonTitle, IonToolbar } from "@ionic/a
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { JuegosService } from 'src/app/services/juegos/juegos.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-ahorcado',
   templateUrl: './ahorcado.page.html',
   styleUrls: ['./ahorcado.page.scss'],
-  imports: [IonContent, CommonModule, FormsModule, IonButton]
+  imports: [IonContent, CommonModule, FormsModule, IonButton, TranslatePipe]
 })
 export class AhorcadoPage implements OnInit {
   palabra: string = '';

@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCard, IonIcon } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-supervisor',
   templateUrl: './home-supervisor.page.html',
   styleUrls: ['./home-supervisor.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, CommonModule, FormsModule]
+  imports: [IonIcon, IonButton, CommonModule, FormsModule, TranslatePipe]
 })
 export class HomeSupervisorPage {
 

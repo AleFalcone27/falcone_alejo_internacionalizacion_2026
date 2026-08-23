@@ -1,15 +1,15 @@
 <header class="header-nuevos-clientes">
-  <h1 class="title">Bar</h1>
+  <h1 class="title">{{ 'PEDIDOS_BAR.TITLE' | translate }}</h1>
 </header>
 
 <ion-content>
   <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
 
   <ion-card *ngIf="!isLoading && productosPendientes.length === 0" class="no-products-card">
     <ion-card-header>
-      <ion-card-title>No hay productos pendientes</ion-card-title>
+      <ion-card-title>{{ 'PEDIDOS_BAR.NO_PENDING_PRODUCTS' | translate }}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
@@ -18,9 +18,9 @@
       <ion-card-title>{{ item.producto?.nombre }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Mesa: {{ item.mesa_id }} <br>
-      Cantidad: {{ item.cantidad || 1 }} <br>
-      Estado: {{ EstadoProducto[item.estado] }}
+      {{ 'PEDIDOS_BAR.TABLE_LABEL' | translate }} {{ item.mesa_id }} <br>
+      {{ 'PEDIDOS_BAR.QUANTITY_LABEL' | translate }} {{ item.cantidad || 1 }} <br>
+      {{ 'PEDIDOS_BAR.STATUS_LABEL' | translate }} {{ EstadoProducto[item.estado] }}
 
       <div class="ion-margin-top">
         <ion-button
@@ -28,7 +28,7 @@
           (click)="tomarProducto(item)"
           *ngIf="item.estado === EstadoProducto.ComandaRecibida"
         >
-          Tomar
+          {{ 'PEDIDOS_BAR.TAKE' | translate }}
         </ion-button>
 
         <ion-button
@@ -36,29 +36,29 @@
           (click)="marcarComoListo(item)"
           *ngIf="item.estado === EstadoProducto.EnProceso"
         >
-          Marcar como Listo
+          {{ 'PEDIDOS_BAR.MARK_AS_READY' | translate }}
         </ion-button>
       </div>
     </ion-card-content>
   </ion-card>
- 
+
 
 <div class="modal-backdrop" *ngIf="showTiempoModal">
   <div class="modal-content">
-    <h2>Tiempo estimado</h2>
-    <p>¿Cuántos minutos tardará "{{ productoSeleccionado?.producto?.nombre }} x{{ productoSeleccionado?.cantidad }}"?</p>
+    <h2>{{ 'PEDIDOS_BAR.ESTIMATED_TIME' | translate }}</h2>
+    <p>{{ 'PEDIDOS_BAR.ESTIMATED_TIME_QUESTION' | translate:{ producto: productoSeleccionado?.producto?.nombre, cantidad: productoSeleccionado?.cantidad } }}</p>
 
     <ion-input
       type="number"
       min="1"
       [(ngModel)]="tiempoIngresado"
-      placeholder="Minutos"
+      [placeholder]="'PEDIDOS_BAR.MINUTES_PLACEHOLDER' | translate"
       autofocus
     />
 
     <div class="modal-buttons">
-      <ion-button (click)="cancelarTiempo()">Cancelar</ion-button>
-      <ion-button (click)="confirmarTiempo()">Confirmar</ion-button>
+      <ion-button (click)="cancelarTiempo()">{{ 'COMMON.CANCEL' | translate }}</ion-button>
+      <ion-button (click)="confirmarTiempo()">{{ 'COMMON.CONFIRM' | translate }}</ion-button>
     </div>
   </div>
 </div>

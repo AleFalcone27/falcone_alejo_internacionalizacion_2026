@@ -7,13 +7,14 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { VolverComponent } from "../../../components/volver/volver.component";
 import { Mesa } from 'src/app/models';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-preguntas-cliente',
   standalone: true,
   templateUrl: './preguntas-cliente.page.html',
   styleUrls: ['./preguntas-cliente.page.scss'],
-  imports: [IonCardTitle, IonCardHeader, IonCard, IonItem, IonInput, IonButton, CommonModule, FormsModule]
+  imports: [IonCardTitle, IonCardHeader, IonCard, IonItem, IonInput, IonButton, CommonModule, FormsModule, TranslatePipe]
 })
 export class PreguntasClientePage implements OnInit {
   preguntas: any[] = [];

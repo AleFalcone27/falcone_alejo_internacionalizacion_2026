@@ -1,5 +1,5 @@
 <header class="header header-nuevos-clientes">
-  <h1 class="title">Tu Pedido</h1>
+  <h1 class="title">{{ 'ESTADO_PEDIDO_CLIENTE.TITLE' | translate }}</h1>
 </header>
 <ion-icon slot="start" name="arrow-back"></ion-icon>
 
@@ -7,7 +7,7 @@
 <main class="home-supervisor-page">
   <!-- Logo centrado -->
   <div class="logo-container">
-    <img src="../../../assets/icon/favicon.svg" alt="Logo" class="login-logo" />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'ESTADO_PEDIDO_CLIENTE.LOGO_ALT' | translate" class="login-logo" />
   </div>
 
   <!-- Contenedor de botones -->
@@ -19,13 +19,11 @@
 
 
     <ion-button expand="block" class="full-button" [disabled]="!puedeLlenarEncuesta"
-      (click)="navTo('/encuesta-cliente')">COMPLETAR ENCUESTA</ion-button>
-    <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta" (click)="pedirCuenta()">PEDIR
-      CUENTA</ion-button>
-    <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta" (click)="navTo('/ahorcado')">JUEGO
-      AHORCADO</ion-button>
+      (click)="navTo('/encuesta-cliente')">{{ 'ESTADO_PEDIDO_CLIENTE.COMPLETE_SURVEY' | translate }}</ion-button>
+    <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta" (click)="pedirCuenta()">{{ 'ESTADO_PEDIDO_CLIENTE.REQUEST_BILL' | translate }}</ion-button>
+    <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta" (click)="navTo('/ahorcado')">{{ 'ESTADO_PEDIDO_CLIENTE.HANGMAN_GAME' | translate }}</ion-button>
     <ion-button expand="block" class="full-button" [disabled]="!puedePedirLaCuenta"
-      (click)="navTo('/mayor-menor')">JUEGO MAYOR O MENOR</ion-button>
+      (click)="navTo('/mayor-menor')">{{ 'ESTADO_PEDIDO_CLIENTE.HIGHER_LOWER_GAME' | translate }}</ion-button>
 
 
 
@@ -33,10 +31,10 @@
   </div>
 
   <div class="overlay-orden" *ngIf="verOrdenOverlay">
-    <h2>TU CUENTA</h2>
+    <h2>{{ 'ESTADO_PEDIDO_CLIENTE.YOUR_BILL_TITLE' | translate }}</h2>
 
     <div class="logo-container-overlay">
-      <img src="../../../assets/icon/favicon.svg" alt="Icono" class="login-logo-overlay" />
+      <img src="../../../assets/icon/favicon.svg" [attr.alt]="'ESTADO_PEDIDO_CLIENTE.ICON_ALT' | translate" class="login-logo-overlay" />
     </div>
 
     <div *ngFor="let entry of productosConCantidad" class="orden-linea">
@@ -45,30 +43,30 @@
     </div>
 
     <div *ngIf="propinaSeleccionada > 0" class="orden-linea">
-      <div>Propina</div>
+      <div>{{ 'ESTADO_PEDIDO_CLIENTE.TIP_LABEL' | translate }}</div>
       <div>${{ propinaSeleccionada }}</div>
     </div>
     <ion-button  class="full-button" [disabled]="!puedePedirLaCuenta"
-      (click)="abrirPropinaOverlay()">AGREGAR PROPINA</ion-button>
+      (click)="abrirPropinaOverlay()">{{ 'ESTADO_PEDIDO_CLIENTE.ADD_TIP' | translate }}</ion-button>
     <div class="orden-total">
-      Total: ${{ totalOrden + propinaSeleccionada - descuento }}
+      {{ 'ESTADO_PEDIDO_CLIENTE.TOTAL_LABEL' | translate:{ value: totalOrden + propinaSeleccionada - descuento } }}
     </div>
 
     <ion-button expand="full" class="aceptar-btn" (click)="pagarCuenta()">
-      Realizar Pago
+      {{ 'ESTADO_PEDIDO_CLIENTE.MAKE_PAYMENT' | translate }}
     </ion-button>
 
     <ion-button expand="full" class="cerrar-btn" (click)="cerrarOverlayOrden()">
-      Cerrar
+      {{ 'ESTADO_PEDIDO_CLIENTE.CLOSE' | translate }}
     </ion-button>
   </div>
 
 
   <div class="overlay-orden" *ngIf="verPropinaOverlay">
-    <h2>AGREGAR PROPINA</h2>
+    <h2>{{ 'ESTADO_PEDIDO_CLIENTE.ADD_TIP' | translate }}</h2>
 
     <div class="logo-container-overlay">
-      <img src="../../../assets/icon/favicon.svg" alt="Icono" class="login-logo-overlay" />
+      <img src="../../../assets/icon/favicon.svg" [attr.alt]="'ESTADO_PEDIDO_CLIENTE.ICON_ALT' | translate" class="login-logo-overlay" />
     </div>
 
     <!-- Mostrar propina en grande -->
@@ -83,20 +81,20 @@
       <ion-button class="propina-btn" (click)="seleccionarPropina(15)">15%</ion-button>
     </div>
 
-    <ion-input class="input-propina" type="number" placeholder="Otro valor en $" [(ngModel)]="propinaPersonalizada"
+    <ion-input class="input-propina" type="number" [placeholder]="'ESTADO_PEDIDO_CLIENTE.TIP_PLACEHOLDER' | translate" [(ngModel)]="propinaPersonalizada"
       (ionInput)="actualizarPropinaPersonalizada()"></ion-input>
 
     <ion-button expand="full" class="aceptar-btn" (click)="confirmarPropina()">
-      Aceptar
+      {{ 'ESTADO_PEDIDO_CLIENTE.ACCEPT' | translate }}
     </ion-button>
 
     <ion-button expand="full" class="cerrar-btn" (click)="cerrarPropinaOverlay()">
-      Cerrar
+      {{ 'ESTADO_PEDIDO_CLIENTE.CLOSE' | translate }}
     </ion-button>
   </div>
 
 
   <div *ngIf="isLoading" class="custom-spinner">
-    <img src="../../../assets/icon/favicon.svg" alt="Cargando..." />
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
   </div>
 </main>

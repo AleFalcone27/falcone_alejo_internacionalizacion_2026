@@ -4,9 +4,9 @@
     <div class="top-spacer"></div>
 
     <div class="camera-status">
-      <p *ngIf="isInitializing">🔄 Inicializando cámara...</p>
-      <p *ngIf="isScanning">🔍 Escaneando... Mantén el código QR en el marco</p>
-      <p *ngIf="!cameraPreviewActive && !isInitializing">📵 Cámara desactivada</p>
+      <p *ngIf="isInitializing">{{ 'QR_CODE_SCANNER.INITIALIZING_CAMERA' | translate }}</p>
+      <p *ngIf="isScanning">{{ 'QR_CODE_SCANNER.SCANNING_HINT' | translate }}</p>
+      <p *ngIf="!cameraPreviewActive && !isInitializing">{{ 'QR_CODE_SCANNER.CAMERA_DISABLED' | translate }}</p>
     </div>
 
   </div>

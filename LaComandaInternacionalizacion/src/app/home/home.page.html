@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      {{ 'HOME.BLANK_TITLE' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,12 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">{{ 'HOME.BLANK_TITLE' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
 sdadas
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>{{ 'HOME.READY_TO_CREATE' | translate }}</strong>
+    <p>{{ 'HOME.START_WITH_IONIC' | translate }} <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">{{ 'HOME.UI_COMPONENTS' | translate }}</a></p>
   </div>
 </ion-content>
