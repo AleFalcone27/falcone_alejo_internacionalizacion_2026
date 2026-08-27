@@ -176,7 +176,7 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
         dni: datosCliente.dni,
         foto: imageUrl ?? undefined,
         alta: 0,
-        rol: 'cliente'
+        rol: this.esAnonimo ? 'clienteAnonimo' : 'cliente'
       };
 
       await this.authService.createCliente(cliente);
