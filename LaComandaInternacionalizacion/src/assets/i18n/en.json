@@ -7,6 +7,20 @@
     "WIN_MESSAGE": "You win! 🎉",
     "WORD_WAS": "The word was:"
   },
+  "ALTA_BEBIDA": {
+    "DESCRIPTION_PLACEHOLDER": "Description",
+    "INVALID_FORM": "Fill in all fields and the 3 photos.",
+    "NAME_PLACEHOLDER": "Name",
+    "PREP_TIME_PLACEHOLDER": "Estimated preparation time (min)",
+    "PRICE_PLACEHOLDER": "Price",
+    "SAVE_BUTTON": "SAVE DRINK",
+    "SAVE_ERROR": "An error occurred while saving the drink.",
+    "SAVE_SUCCESS": "Drink added successfully.",
+    "TAKE_PHOTO_1_BUTTON": "TAKE PHOTO 1",
+    "TAKE_PHOTO_2_BUTTON": "TAKE PHOTO 2",
+    "TAKE_PHOTO_3_BUTTON": "TAKE PHOTO 3",
+    "TITLE": "NEW DRINK"
+  },
   "ALTA_CLIENTE": {
     "ALREADY_HAVE_ACCOUNT": "Already have an account? Sign in",
     "ANONYMOUS_LABEL": "Anonymous",
@@ -28,6 +42,33 @@
     "SCAN_QR_BUTTON": "SCAN QR",
     "TAKE_PHOTO_BUTTON": "TAKE PHOTO",
     "TITLE": "NEW CUSTOMER"
+  },
+  "ALTA_MESA": {
+    "BABY_FRIENDLY_LABEL": "Baby friendly",
+    "CAPACITY_PLACEHOLDER": "Capacity",
+    "DESCRIPTION_PLACEHOLDER": "Description",
+    "INVALID_FORM": "Fill in all required fields and the photo.",
+    "LOCATION_LABEL": "Location",
+    "NUMBER_PLACEHOLDER": "Table number",
+    "SAVE_BUTTON": "SAVE TABLE",
+    "SAVE_ERROR": "An error occurred while saving the table.",
+    "SAVE_SUCCESS": "Table added successfully.",
+    "TAKE_PHOTO_BUTTON": "TAKE PHOTO",
+    "TITLE": "NEW TABLE"
+  },
+  "ALTA_PLATO": {
+    "DESCRIPTION_PLACEHOLDER": "Description",
+    "INVALID_FORM": "Fill in all fields and the 3 photos.",
+    "NAME_PLACEHOLDER": "Name",
+    "PREP_TIME_PLACEHOLDER": "Estimated preparation time (min)",
+    "PRICE_PLACEHOLDER": "Price",
+    "SAVE_BUTTON": "SAVE DISH",
+    "SAVE_ERROR": "An error occurred while saving the dish.",
+    "SAVE_SUCCESS": "Dish added successfully.",
+    "TAKE_PHOTO_1_BUTTON": "TAKE PHOTO 1",
+    "TAKE_PHOTO_2_BUTTON": "TAKE PHOTO 2",
+    "TAKE_PHOTO_3_BUTTON": "TAKE PHOTO 3",
+    "TITLE": "NEW DISH"
   },
   "ASIGNAR_MESA_MAITRE": {
     "ASSIGN_TABLE_BUTTON": "Assign Table",
@@ -83,6 +124,7 @@
     "LOGOUT": "Log out"
   },
   "EMPLEADOS_HOME": {
+    "ADD_PRODUCT_BUTTON": "ADD PRODUCT",
     "COMING_SOON": "COMING SOON",
     "LOGO_ALT": "Logo",
     "PENDING_ORDERS": "PENDING ORDERS",
@@ -134,6 +176,7 @@
   "HOME_CLIENTE": {
     "LOGO_ALT": "Logo",
     "MENU": "MENU",
+    "RESERVATION_BUTTON": "BOOK A TABLE",
     "SCAN": "SCAN",
     "TALK_TO_WAITER": "TALK TO A WAITER",
     "VIEW_SURVEYS": "VIEW SURVEYS",
@@ -309,6 +352,42 @@
     "TABLE_NOT_ASSIGNED_TO_YOU": "Sorry, this table was not assigned to you",
     "TABLE_VERIFICATION_ERROR": "Error verifying assigned table",
     "UNRECOGNIZED_QR_TYPE": "Unrecognized QR type: {{type}}"
+  },
+  "RESERVAS_SUPERVISOR": {
+    "CLIENT_LABEL": "Client:",
+    "COMMENT_LABEL": "Comment:",
+    "CONFIRM_BUTTON": "CONFIRM RESERVATION",
+    "CONFIRM_ERROR": "An error occurred while confirming the reservation.",
+    "CONFIRM_SUCCESS": "Reservation confirmed successfully.",
+    "DATE_LABEL": "Date and time:",
+    "NO_PENDING": "There are no pending reservations.",
+    "PARTY_SIZE_LABEL": "Party size:",
+    "REJECT_BUTTON": "REJECT RESERVATION",
+    "REJECT_ERROR": "An error occurred while rejecting the reservation.",
+    "REJECT_SUCCESS": "Reservation rejected successfully.",
+    "TABLE_NUMBER": "TABLE {{numero}}",
+    "TITLE": "PENDING RESERVATIONS"
+  },
+  "RESERVA_CLIENTE": {
+    "COMMENT_PLACEHOLDER": "Comment (optional)",
+    "DATE_NOT_FUTURE": "The reservation date and time must be in the future.",
+    "DATE_PLACEHOLDER": "Date and time",
+    "INVALID_FORM": "Fill in the date and the party size.",
+    "MY_RESERVATIONS_TITLE": "My reservations",
+    "NO_TABLES_AVAILABLE": "No tables are available for that date.",
+    "ONLY_REGISTERED": "Only a registered client can make a reservation.",
+    "PARTY_SIZE_PLACEHOLDER": "Party size",
+    "PICK_DATE_FIRST": "Pick a date and time first to see available tables.",
+    "SAVE_BUTTON": "BOOK",
+    "SAVE_ERROR": "An error occurred while creating the reservation.",
+    "SAVE_SUCCESS": "Reservation created successfully.",
+    "STATUS_CONFIRMED": "Confirmed",
+    "STATUS_PENDING": "Pending confirmation",
+    "STATUS_REJECTED": "Rejected",
+    "TABLE_ALREADY_RESERVED": "That table is already reserved for that day. Choose another table or date.",
+    "TABLE_LABEL": "Table",
+    "TABLE_OPTION": "Table {{numero}}",
+    "TITLE": "BOOK A TABLE"
   },
   "SPLASH": {
     "LOGO_ALT": "Icon"

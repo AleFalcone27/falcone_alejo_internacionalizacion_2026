@@ -7,6 +7,20 @@
     "WIN_MESSAGE": "Du hast gewonnen! 🎉",
     "WORD_WAS": "Das Wort war:"
   },
+  "ALTA_BEBIDA": {
+    "DESCRIPTION_PLACEHOLDER": "Beschreibung",
+    "INVALID_FORM": "Bitte alle Felder und die 3 Fotos ausfüllen.",
+    "NAME_PLACEHOLDER": "Name",
+    "PREP_TIME_PLACEHOLDER": "Geschätzte Zubereitungszeit (Min.)",
+    "PRICE_PLACEHOLDER": "Preis",
+    "SAVE_BUTTON": "GETRÄNK SPEICHERN",
+    "SAVE_ERROR": "Beim Speichern des Getränks ist ein Fehler aufgetreten.",
+    "SAVE_SUCCESS": "Getränk erfolgreich hinzugefügt.",
+    "TAKE_PHOTO_1_BUTTON": "FOTO 1 AUFNEHMEN",
+    "TAKE_PHOTO_2_BUTTON": "FOTO 2 AUFNEHMEN",
+    "TAKE_PHOTO_3_BUTTON": "FOTO 3 AUFNEHMEN",
+    "TITLE": "NEUES GETRÄNK"
+  },
   "ALTA_CLIENTE": {
     "ALREADY_HAVE_ACCOUNT": "Hast du bereits ein Konto? Anmelden",
     "ANONYMOUS_LABEL": "Anonym",
@@ -28,6 +42,33 @@
     "SCAN_QR_BUTTON": "QR SCANNEN",
     "TAKE_PHOTO_BUTTON": "FOTO AUFNEHMEN",
     "TITLE": "NEUER KUNDE"
+  },
+  "ALTA_MESA": {
+    "BABY_FRIENDLY_LABEL": "Babyfreundlich",
+    "CAPACITY_PLACEHOLDER": "Kapazität",
+    "DESCRIPTION_PLACEHOLDER": "Beschreibung",
+    "INVALID_FORM": "Bitte alle Pflichtfelder und das Foto ausfüllen.",
+    "LOCATION_LABEL": "Standort",
+    "NUMBER_PLACEHOLDER": "Tischnummer",
+    "SAVE_BUTTON": "TISCH SPEICHERN",
+    "SAVE_ERROR": "Beim Speichern des Tisches ist ein Fehler aufgetreten.",
+    "SAVE_SUCCESS": "Tisch erfolgreich hinzugefügt.",
+    "TAKE_PHOTO_BUTTON": "FOTO AUFNEHMEN",
+    "TITLE": "NEUER TISCH"
+  },
+  "ALTA_PLATO": {
+    "DESCRIPTION_PLACEHOLDER": "Beschreibung",
+    "INVALID_FORM": "Bitte alle Felder und die 3 Fotos ausfüllen.",
+    "NAME_PLACEHOLDER": "Name",
+    "PREP_TIME_PLACEHOLDER": "Geschätzte Zubereitungszeit (Min.)",
+    "PRICE_PLACEHOLDER": "Preis",
+    "SAVE_BUTTON": "GERICHT SPEICHERN",
+    "SAVE_ERROR": "Beim Speichern des Gerichts ist ein Fehler aufgetreten.",
+    "SAVE_SUCCESS": "Gericht erfolgreich hinzugefügt.",
+    "TAKE_PHOTO_1_BUTTON": "FOTO 1 AUFNEHMEN",
+    "TAKE_PHOTO_2_BUTTON": "FOTO 2 AUFNEHMEN",
+    "TAKE_PHOTO_3_BUTTON": "FOTO 3 AUFNEHMEN",
+    "TITLE": "NEUES GERICHT"
   },
   "ASIGNAR_MESA_MAITRE": {
     "ASSIGN_TABLE_BUTTON": "Tisch zuweisen",
@@ -83,6 +124,7 @@
     "LOGOUT": "Abmelden"
   },
   "EMPLEADOS_HOME": {
+    "ADD_PRODUCT_BUTTON": "PRODUKT HINZUFÜGEN",
     "COMING_SOON": "DEMNÄCHST VERFÜGBAR",
     "LOGO_ALT": "Logo",
     "PENDING_ORDERS": "OFFENE BESTELLUNGEN",
@@ -134,6 +176,7 @@
   "HOME_CLIENTE": {
     "LOGO_ALT": "Logo",
     "MENU": "SPEISEKARTE",
+    "RESERVATION_BUTTON": "TISCH RESERVIEREN",
     "SCAN": "SCANNEN",
     "TALK_TO_WAITER": "MIT KELLNER SPRECHEN",
     "VIEW_SURVEYS": "UMFRAGEN ANSEHEN",
@@ -309,6 +352,42 @@
     "TABLE_NOT_ASSIGNED_TO_YOU": "Entschuldigung, dieser Tisch wurde dir nicht zugewiesen",
     "TABLE_VERIFICATION_ERROR": "Fehler bei der Überprüfung des zugewiesenen Tisches",
     "UNRECOGNIZED_QR_TYPE": "Unbekannter QR-Typ: {{type}}"
+  },
+  "RESERVAS_SUPERVISOR": {
+    "CLIENT_LABEL": "Kunde:",
+    "COMMENT_LABEL": "Kommentar:",
+    "CONFIRM_BUTTON": "RESERVIERUNG BESTÄTIGEN",
+    "CONFIRM_ERROR": "Beim Bestätigen der Reservierung ist ein Fehler aufgetreten.",
+    "CONFIRM_SUCCESS": "Reservierung erfolgreich bestätigt.",
+    "DATE_LABEL": "Datum und Uhrzeit:",
+    "NO_PENDING": "Es gibt keine ausstehenden Reservierungen.",
+    "PARTY_SIZE_LABEL": "Anzahl der Personen:",
+    "REJECT_BUTTON": "RESERVIERUNG ABLEHNEN",
+    "REJECT_ERROR": "Beim Ablehnen der Reservierung ist ein Fehler aufgetreten.",
+    "REJECT_SUCCESS": "Reservierung erfolgreich abgelehnt.",
+    "TABLE_NUMBER": "TISCH {{numero}}",
+    "TITLE": "AUSSTEHENDE RESERVIERUNGEN"
+  },
+  "RESERVA_CLIENTE": {
+    "COMMENT_PLACEHOLDER": "Kommentar (optional)",
+    "DATE_NOT_FUTURE": "Datum und Uhrzeit der Reservierung müssen in der Zukunft liegen.",
+    "DATE_PLACEHOLDER": "Datum und Uhrzeit",
+    "INVALID_FORM": "Bitte Datum und Personenanzahl ausfüllen.",
+    "MY_RESERVATIONS_TITLE": "Meine Reservierungen",
+    "NO_TABLES_AVAILABLE": "Für dieses Datum sind keine Tische verfügbar.",
+    "ONLY_REGISTERED": "Nur ein registrierter Kunde kann eine Reservierung vornehmen.",
+    "PARTY_SIZE_PLACEHOLDER": "Anzahl der Personen",
+    "PICK_DATE_FIRST": "Wählen Sie zuerst Datum und Uhrzeit, um verfügbare Tische zu sehen.",
+    "SAVE_BUTTON": "RESERVIEREN",
+    "SAVE_ERROR": "Beim Erstellen der Reservierung ist ein Fehler aufgetreten.",
+    "SAVE_SUCCESS": "Reservierung erfolgreich erstellt.",
+    "STATUS_CONFIRMED": "Bestätigt",
+    "STATUS_PENDING": "Bestätigung ausstehend",
+    "STATUS_REJECTED": "Abgelehnt",
+    "TABLE_ALREADY_RESERVED": "Dieser Tisch ist an diesem Tag bereits reserviert. Wählen Sie einen anderen Tisch oder ein anderes Datum.",
+    "TABLE_LABEL": "Tisch",
+    "TABLE_OPTION": "Tisch {{numero}}",
+    "TITLE": "TISCH RESERVIEREN"
   },
   "SPLASH": {
     "LOGO_ALT": "Symbol"

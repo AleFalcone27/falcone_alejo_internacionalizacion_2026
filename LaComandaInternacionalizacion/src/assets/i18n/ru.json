@@ -7,6 +7,20 @@
     "WIN_MESSAGE": "Вы выиграли! 🎉",
     "WORD_WAS": "Загаданное слово:"
   },
+  "ALTA_BEBIDA": {
+    "DESCRIPTION_PLACEHOLDER": "Описание",
+    "INVALID_FORM": "Заполните все поля и добавьте 3 фото.",
+    "NAME_PLACEHOLDER": "Название",
+    "PREP_TIME_PLACEHOLDER": "Примерное время приготовления (мин)",
+    "PRICE_PLACEHOLDER": "Цена",
+    "SAVE_BUTTON": "СОХРАНИТЬ НАПИТОК",
+    "SAVE_ERROR": "Произошла ошибка при сохранении напитка.",
+    "SAVE_SUCCESS": "Напиток успешно добавлен.",
+    "TAKE_PHOTO_1_BUTTON": "СДЕЛАТЬ ФОТО 1",
+    "TAKE_PHOTO_2_BUTTON": "СДЕЛАТЬ ФОТО 2",
+    "TAKE_PHOTO_3_BUTTON": "СДЕЛАТЬ ФОТО 3",
+    "TITLE": "НОВЫЙ НАПИТОК"
+  },
   "ALTA_CLIENTE": {
     "ALREADY_HAVE_ACCOUNT": "Уже есть аккаунт? Войти",
     "ANONYMOUS_LABEL": "Аноним",
@@ -28,6 +42,33 @@
     "SCAN_QR_BUTTON": "СКАНИРОВАТЬ QR",
     "TAKE_PHOTO_BUTTON": "СДЕЛАТЬ ФОТО",
     "TITLE": "НОВЫЙ КЛИЕНТ"
+  },
+  "ALTA_MESA": {
+    "BABY_FRIENDLY_LABEL": "Подходит для детей",
+    "CAPACITY_PLACEHOLDER": "Вместимость",
+    "DESCRIPTION_PLACEHOLDER": "Описание",
+    "INVALID_FORM": "Заполните все обязательные поля и добавьте фото.",
+    "LOCATION_LABEL": "Расположение",
+    "NUMBER_PLACEHOLDER": "Номер стола",
+    "SAVE_BUTTON": "СОХРАНИТЬ СТОЛ",
+    "SAVE_ERROR": "Произошла ошибка при сохранении стола.",
+    "SAVE_SUCCESS": "Стол успешно добавлен.",
+    "TAKE_PHOTO_BUTTON": "СДЕЛАТЬ ФОТО",
+    "TITLE": "НОВЫЙ СТОЛ"
+  },
+  "ALTA_PLATO": {
+    "DESCRIPTION_PLACEHOLDER": "Описание",
+    "INVALID_FORM": "Заполните все поля и добавьте 3 фото.",
+    "NAME_PLACEHOLDER": "Название",
+    "PREP_TIME_PLACEHOLDER": "Примерное время приготовления (мин)",
+    "PRICE_PLACEHOLDER": "Цена",
+    "SAVE_BUTTON": "СОХРАНИТЬ БЛЮДО",
+    "SAVE_ERROR": "Произошла ошибка при сохранении блюда.",
+    "SAVE_SUCCESS": "Блюдо успешно добавлено.",
+    "TAKE_PHOTO_1_BUTTON": "СДЕЛАТЬ ФОТО 1",
+    "TAKE_PHOTO_2_BUTTON": "СДЕЛАТЬ ФОТО 2",
+    "TAKE_PHOTO_3_BUTTON": "СДЕЛАТЬ ФОТО 3",
+    "TITLE": "НОВОЕ БЛЮДО"
   },
   "ASIGNAR_MESA_MAITRE": {
     "ASSIGN_TABLE_BUTTON": "Назначить столик",
@@ -83,6 +124,7 @@
     "LOGOUT": "Выйти"
   },
   "EMPLEADOS_HOME": {
+    "ADD_PRODUCT_BUTTON": "ДОБАВИТЬ ТОВАР",
     "COMING_SOON": "СКОРО",
     "LOGO_ALT": "Логотип",
     "PENDING_ORDERS": "ОЖИДАЮЩИЕ ЗАКАЗЫ",
@@ -134,6 +176,7 @@
   "HOME_CLIENTE": {
     "LOGO_ALT": "Логотип",
     "MENU": "МЕНЮ",
+    "RESERVATION_BUTTON": "ЗАБРОНИРОВАТЬ СТОЛ",
     "SCAN": "СКАНИРОВАТЬ",
     "TALK_TO_WAITER": "ПОЗВАТЬ ОФИЦИАНТА",
     "VIEW_SURVEYS": "ПРОСМОТРЕТЬ ОПРОСЫ",
@@ -309,6 +352,42 @@
     "TABLE_NOT_ASSIGNED_TO_YOU": "Извините, этот столик не был назначен вам",
     "TABLE_VERIFICATION_ERROR": "Ошибка проверки назначенного столика",
     "UNRECOGNIZED_QR_TYPE": "Нераспознанный тип QR-кода: {{type}}"
+  },
+  "RESERVAS_SUPERVISOR": {
+    "CLIENT_LABEL": "Клиент:",
+    "COMMENT_LABEL": "Комментарий:",
+    "CONFIRM_BUTTON": "ПОДТВЕРДИТЬ БРОНИРОВАНИЕ",
+    "CONFIRM_ERROR": "Произошла ошибка при подтверждении бронирования.",
+    "CONFIRM_SUCCESS": "Бронирование успешно подтверждено.",
+    "DATE_LABEL": "Дата и время:",
+    "NO_PENDING": "Нет ожидающих бронирований.",
+    "PARTY_SIZE_LABEL": "Количество человек:",
+    "REJECT_BUTTON": "ОТКЛОНИТЬ БРОНИРОВАНИЕ",
+    "REJECT_ERROR": "Произошла ошибка при отклонении бронирования.",
+    "REJECT_SUCCESS": "Бронирование успешно отклонено.",
+    "TABLE_NUMBER": "СТОЛ {{numero}}",
+    "TITLE": "ОЖИДАЮЩИЕ БРОНИРОВАНИЯ"
+  },
+  "RESERVA_CLIENTE": {
+    "COMMENT_PLACEHOLDER": "Комментарий (необязательно)",
+    "DATE_NOT_FUTURE": "Дата и время бронирования должны быть в будущем.",
+    "DATE_PLACEHOLDER": "Дата и время",
+    "INVALID_FORM": "Заполните дату и количество человек.",
+    "MY_RESERVATIONS_TITLE": "Мои бронирования",
+    "NO_TABLES_AVAILABLE": "На эту дату нет свободных столов.",
+    "ONLY_REGISTERED": "Только зарегистрированный клиент может сделать бронирование.",
+    "PARTY_SIZE_PLACEHOLDER": "Количество человек",
+    "PICK_DATE_FIRST": "Сначала выберите дату и время, чтобы увидеть доступные столы.",
+    "SAVE_BUTTON": "ЗАБРОНИРОВАТЬ",
+    "SAVE_ERROR": "Произошла ошибка при создании бронирования.",
+    "SAVE_SUCCESS": "Бронирование успешно создано.",
+    "STATUS_CONFIRMED": "Подтверждено",
+    "STATUS_PENDING": "Ожидает подтверждения",
+    "STATUS_REJECTED": "Отклонено",
+    "TABLE_ALREADY_RESERVED": "Этот стол уже забронирован на этот день. Выберите другой стол или дату.",
+    "TABLE_LABEL": "Стол",
+    "TABLE_OPTION": "Стол {{numero}}",
+    "TITLE": "ЗАБРОНИРОВАТЬ СТОЛ"
   },
   "SPLASH": {
     "LOGO_ALT": "Значок"

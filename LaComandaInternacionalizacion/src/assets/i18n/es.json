@@ -7,6 +7,20 @@
     "WIN_MESSAGE": "¡Ganaste! 🎉",
     "WORD_WAS": "La palabra era:"
   },
+  "ALTA_BEBIDA": {
+    "DESCRIPTION_PLACEHOLDER": "Descripción",
+    "INVALID_FORM": "Completá todos los campos y las 3 fotos.",
+    "NAME_PLACEHOLDER": "Nombre",
+    "PREP_TIME_PLACEHOLDER": "Tiempo estimado de preparación (min)",
+    "PRICE_PLACEHOLDER": "Precio",
+    "SAVE_BUTTON": "GUARDAR BEBIDA",
+    "SAVE_ERROR": "Ocurrió un error al guardar la bebida.",
+    "SAVE_SUCCESS": "Bebida agregada correctamente.",
+    "TAKE_PHOTO_1_BUTTON": "TOMAR FOTO 1",
+    "TAKE_PHOTO_2_BUTTON": "TOMAR FOTO 2",
+    "TAKE_PHOTO_3_BUTTON": "TOMAR FOTO 3",
+    "TITLE": "NUEVA BEBIDA"
+  },
   "ALTA_CLIENTE": {
     "ALREADY_HAVE_ACCOUNT": "¿Ya tenés cuenta? Iniciá sesión",
     "ANONYMOUS_LABEL": "Anónimo",
@@ -28,6 +42,33 @@
     "SCAN_QR_BUTTON": "ESCANEAR QR",
     "TAKE_PHOTO_BUTTON": "TOMAR FOTO",
     "TITLE": "NUEVO CLIENTE"
+  },
+  "ALTA_MESA": {
+    "BABY_FRIENDLY_LABEL": "Apta bebés",
+    "CAPACITY_PLACEHOLDER": "Capacidad",
+    "DESCRIPTION_PLACEHOLDER": "Descripción",
+    "INVALID_FORM": "Completá todos los campos obligatorios y la foto.",
+    "LOCATION_LABEL": "Ubicación",
+    "NUMBER_PLACEHOLDER": "Número de mesa",
+    "SAVE_BUTTON": "GUARDAR MESA",
+    "SAVE_ERROR": "Ocurrió un error al guardar la mesa.",
+    "SAVE_SUCCESS": "Mesa agregada correctamente.",
+    "TAKE_PHOTO_BUTTON": "TOMAR FOTO",
+    "TITLE": "NUEVA MESA"
+  },
+  "ALTA_PLATO": {
+    "DESCRIPTION_PLACEHOLDER": "Descripción",
+    "INVALID_FORM": "Completá todos los campos y las 3 fotos.",
+    "NAME_PLACEHOLDER": "Nombre",
+    "PREP_TIME_PLACEHOLDER": "Tiempo estimado de preparación (min)",
+    "PRICE_PLACEHOLDER": "Precio",
+    "SAVE_BUTTON": "GUARDAR PLATO",
+    "SAVE_ERROR": "Ocurrió un error al guardar el plato.",
+    "SAVE_SUCCESS": "Plato agregado correctamente.",
+    "TAKE_PHOTO_1_BUTTON": "TOMAR FOTO 1",
+    "TAKE_PHOTO_2_BUTTON": "TOMAR FOTO 2",
+    "TAKE_PHOTO_3_BUTTON": "TOMAR FOTO 3",
+    "TITLE": "NUEVO PLATO"
   },
   "ASIGNAR_MESA_MAITRE": {
     "ASSIGN_TABLE_BUTTON": "Asignar Mesa",
@@ -83,6 +124,7 @@
     "LOGOUT": "Cerrar sesión"
   },
   "EMPLEADOS_HOME": {
+    "ADD_PRODUCT_BUTTON": "AGREGAR PRODUCTO",
     "COMING_SOON": "PRÓXIAMENTE",
     "LOGO_ALT": "Logo",
     "PENDING_ORDERS": "PEDIDOS PENDIENTES",
@@ -134,6 +176,7 @@
   "HOME_CLIENTE": {
     "LOGO_ALT": "Logo",
     "MENU": "MENÚ",
+    "RESERVATION_BUTTON": "RESERVAR MESA",
     "SCAN": "ESCANEAR",
     "TALK_TO_WAITER": "HABLA CON UN MOZO",
     "VIEW_SURVEYS": "VER ENCUESTAS",
@@ -309,6 +352,42 @@
     "TABLE_NOT_ASSIGNED_TO_YOU": "Lo sentimos, esta mesa no fue asignada a su nombre",
     "TABLE_VERIFICATION_ERROR": "Error verificando mesa asignada",
     "UNRECOGNIZED_QR_TYPE": "Tipo de QR no reconocido: {{type}}"
+  },
+  "RESERVAS_SUPERVISOR": {
+    "CLIENT_LABEL": "Cliente:",
+    "COMMENT_LABEL": "Comentario:",
+    "CONFIRM_BUTTON": "CONFIRMAR RESERVA",
+    "CONFIRM_ERROR": "Ocurrió un error al confirmar la reserva.",
+    "CONFIRM_SUCCESS": "Reserva confirmada correctamente.",
+    "DATE_LABEL": "Fecha y hora:",
+    "NO_PENDING": "No hay reservas pendientes.",
+    "PARTY_SIZE_LABEL": "Cantidad de personas:",
+    "REJECT_BUTTON": "RECHAZAR RESERVA",
+    "REJECT_ERROR": "Ocurrió un error al rechazar la reserva.",
+    "REJECT_SUCCESS": "Reserva rechazada correctamente.",
+    "TABLE_NUMBER": "MESA {{numero}}",
+    "TITLE": "RESERVAS PENDIENTES"
+  },
+  "RESERVA_CLIENTE": {
+    "COMMENT_PLACEHOLDER": "Comentario (opcional)",
+    "DATE_NOT_FUTURE": "La fecha y hora de la reserva debe ser en el futuro.",
+    "DATE_PLACEHOLDER": "Fecha y hora",
+    "INVALID_FORM": "Completá la fecha y la cantidad de personas.",
+    "MY_RESERVATIONS_TITLE": "Mis reservas",
+    "NO_TABLES_AVAILABLE": "No hay mesas disponibles para esa fecha.",
+    "ONLY_REGISTERED": "Sólo un cliente registrado puede hacer una reserva.",
+    "PARTY_SIZE_PLACEHOLDER": "Cantidad de personas",
+    "PICK_DATE_FIRST": "Elegí primero la fecha y hora para ver las mesas disponibles.",
+    "SAVE_BUTTON": "RESERVAR",
+    "SAVE_ERROR": "Ocurrió un error al crear la reserva.",
+    "SAVE_SUCCESS": "Reserva creada correctamente.",
+    "STATUS_CONFIRMED": "Confirmada",
+    "STATUS_PENDING": "Pendiente de confirmación",
+    "STATUS_REJECTED": "Rechazada",
+    "TABLE_ALREADY_RESERVED": "Esa mesa ya está reservada para ese día. Elegí otra mesa u otra fecha.",
+    "TABLE_LABEL": "Mesa",
+    "TABLE_OPTION": "Mesa {{numero}}",
+    "TITLE": "RESERVAR MESA"
   },
   "SPLASH": {
     "LOGO_ALT": "Icono"
