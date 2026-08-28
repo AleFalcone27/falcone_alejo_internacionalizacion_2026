@@ -23,6 +23,8 @@
       [disabled]="!showMenu">{{ 'HOME_CLIENTE.MENU' | translate }}</ion-button>
     <ion-button expand="block" class="full-button" (click)="navTo('/preguntas-cliente')" [disabled]="!showMenu">{{
       'HOME_CLIENTE.TALK_TO_WAITER' | translate }}</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/reserva-cliente')" [disabled]="!isRegisteredClient">{{
+      'HOME_CLIENTE.RESERVATION_BUTTON' | translate }}</ion-button>
 
   </div>
   <div *ngIf="isLoading" class="custom-spinner">

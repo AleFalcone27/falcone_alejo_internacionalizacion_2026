@@ -1,0 +1,31 @@
+<header class="header">
+  <h1 class="title">{{ 'ALTA_MESA.TITLE' | translate }}</h1>
+</header>
+
+<main class="login-page">
+  <section class="auth-card">
+    <form [formGroup]="mesaForm" (ngSubmit)="onGuardar()">
+      <input type="number" [placeholder]="'ALTA_MESA.NUMBER_PLACEHOLDER' | translate" formControlName="numero" />
+
+      <input type="text" [placeholder]="'ALTA_MESA.DESCRIPTION_PLACEHOLDER' | translate" formControlName="descripcion" />
+
+      <input type="number" [placeholder]="'ALTA_MESA.CAPACITY_PLACEHOLDER' | translate" formControlName="capacidad" />
+
+      <ion-select formControlName="ubicacion" [label]="'ALTA_MESA.LOCATION_LABEL' | translate">
+        <ion-select-option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion">{{ ubicacion }}</ion-select-option>
+      </ion-select>
+
+      <ion-label>{{ 'ALTA_MESA.BABY_FRIENDLY_LABEL' | translate }}</ion-label>
+      <ion-toggle formControlName="aptaBebes" name="aptaBebes"></ion-toggle>
+
+      <button type="button" (click)="tomarFoto()">{{ 'ALTA_MESA.TAKE_PHOTO_BUTTON' | translate }}</button>
+      <img *ngIf="fotoPreview" [src]="fotoPreview" class="foto-preview" />
+
+      <button type="submit">{{ 'ALTA_MESA.SAVE_BUTTON' | translate }}</button>
+    </form>
+  </section>
+
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
+  </div>
+</main>

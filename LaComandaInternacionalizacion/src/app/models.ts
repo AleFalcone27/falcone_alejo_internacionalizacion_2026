@@ -35,6 +35,7 @@ export type Mesa = {
     estado: EstadoMesas;
     aptaBebes: boolean;
     ubicacion: UbicacionMesa;
+    foto?: string;
 }
 
 export type ClienteMesa = {
@@ -93,6 +94,18 @@ export type Pedido = {
     cliente: string;
     estado: EstadoPedido;
     mesa: Mesa;
+}
+
+export type Reserva = {
+    id?: number;
+    cliente_id: string | undefined;
+    mesa_id: number;
+    fecha_hora: string;
+    cantidad_personas: number;
+    comentario?: string;
+    estado?: EstadoReserva;
+    cliente?: { nombre: string; apellido: string; email: string };
+    mesa?: { numero: number };
 }
 
 export type Encuesta = {
@@ -164,4 +177,10 @@ export enum EstadoProducto {
 export enum AreaDePreparacion {
     Cocina = 0,
     Barra = 1,
+}
+
+export enum EstadoReserva {
+    Pendiente = 0,
+    Confirmada = 1,
+    Cancelada = 2,
 }

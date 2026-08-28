@@ -16,8 +16,8 @@
   <!-- Contenedor de botones -->
   <div class="button-list-container">
     <ion-button expand="block" class="full-button" (click)="navTo('/clientes-supervisor')"> {{ 'HOME_SUPERVISOR.CLIENTS_BUTTON' | translate }}</ion-button>
-    <ion-button expand="block" class="full-button">{{ 'HOME_SUPERVISOR.TABLES_BUTTON' | translate }}</ion-button>
-    <ion-button expand="block" class="full-button">{{ 'HOME_SUPERVISOR.RESERVATION_BUTTON' | translate }}</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/alta-mesa')">{{ 'HOME_SUPERVISOR.TABLES_BUTTON' | translate }}</ion-button>
+    <ion-button expand="block" class="full-button" (click)="navTo('/reservas-supervisor')">{{ 'HOME_SUPERVISOR.RESERVATION_BUTTON' | translate }}</ion-button>
     <ion-button expand="block" class="full-button">{{ 'HOME_SUPERVISOR.DELIVERY_BUTTON' | translate }}</ion-button>
     <ion-button expand="block" class="full-button">{{ 'HOME_SUPERVISOR.COMING_SOON_BUTTON' | translate }}</ion-button>
   </div>

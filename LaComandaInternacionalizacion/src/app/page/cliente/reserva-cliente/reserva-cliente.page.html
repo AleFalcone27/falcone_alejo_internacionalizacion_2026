@@ -1,0 +1,45 @@
+<header class="header">
+  <h1 class="title">{{ 'RESERVA_CLIENTE.TITLE' | translate }}</h1>
+</header>
+
+<main class="login-page">
+  <section class="auth-card">
+    <form [formGroup]="reservaForm" (ngSubmit)="onReservar()">
+      <input type="datetime-local" [placeholder]="'RESERVA_CLIENTE.DATE_PLACEHOLDER' | translate" formControlName="fechaHora" />
+
+      <ion-select formControlName="mesaId" [disabled]="mesasDisponibles.length === 0" [label]="'RESERVA_CLIENTE.TABLE_LABEL' | translate">
+        <ion-select-option *ngFor="let mesa of mesasDisponibles" [value]="mesa.id">{{ 'RESERVA_CLIENTE.TABLE_OPTION' | translate:{ numero: mesa.numero } }}</ion-select-option>
+      </ion-select>
+      <p class="hint" *ngIf="reservaForm.get('fechaHora')?.value && mesasDisponibles.length === 0">{{ 'RESERVA_CLIENTE.NO_TABLES_AVAILABLE' | translate }}</p>
+      <p class="hint" *ngIf="!reservaForm.get('fechaHora')?.value">{{ 'RESERVA_CLIENTE.PICK_DATE_FIRST' | translate }}</p>
+
+      <input type="number" [placeholder]="'RESERVA_CLIENTE.PARTY_SIZE_PLACEHOLDER' | translate" formControlName="cantidadPersonas" />
+
+      <input type="text" [placeholder]="'RESERVA_CLIENTE.COMMENT_PLACEHOLDER' | translate" formControlName="comentario" />
+
+      <button type="submit">{{ 'RESERVA_CLIENTE.SAVE_BUTTON' | translate }}</button>
+    </form>
+  </section>
+
+  <section *ngIf="misReservas.length > 0" class="mis-reservas-section">
+    <h2>{{ 'RESERVA_CLIENTE.MY_RESERVATIONS_TITLE' | translate }}</h2>
+
+    <ion-card *ngFor="let reserva of misReservas">
+      <ion-card-header>
+        <ion-card-title>{{ 'RESERVA_CLIENTE.TABLE_OPTION' | translate:{ numero: getNumeroMesa(reserva.mesa_id) } }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ reserva.fecha_hora | date:'short' }} <br>
+        {{ 'RESERVA_CLIENTE.PARTY_SIZE_PLACEHOLDER' | translate }}: {{ reserva.cantidad_personas }} <br>
+        <span *ngIf="reserva.comentario">{{ reserva.comentario }} <br></span>
+        <span class="estado-badge" [ngClass]="getEstadoClass(reserva.estado)">
+          {{ getEstadoLabel(reserva.estado) }}
+        </span>
+      </ion-card-content>
+    </ion-card>
+  </section>
+
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
+  </div>
+</main>

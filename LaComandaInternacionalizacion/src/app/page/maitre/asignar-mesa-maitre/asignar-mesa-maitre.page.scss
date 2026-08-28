@@ -67,6 +67,15 @@
   gap: 0.5rem; // antes era 1.5rem
 }
 
+/* Foto de la mesa */
+.mesa-foto {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: var(--redondeado);
+  border: 2px solid white;
+}
+
 /* Imagen circular */
 .cliente-foto {
   width: 120px;

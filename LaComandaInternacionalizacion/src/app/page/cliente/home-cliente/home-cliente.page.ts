@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonIcon, IonContent } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
-import { Pedido } from 'src/app/models';
+import { Pedido, Role } from 'src/app/models';
 import { TranslatePipe } from '@ngx-translate/core';
 
 
@@ -24,6 +24,7 @@ export class HomeClientePage implements OnInit {
   isLoading = false;
   pedido!: Pedido;
   estadoPedido = "";
+  isRegisteredClient = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -36,6 +37,9 @@ export class HomeClientePage implements OnInit {
     this.isLoading = true;
     setTimeout(async () => {
       const user = await this.authService.getSession();
+
+      const cliente = await this.authService.getClienteById(user?.user.id);
+      this.isRegisteredClient = cliente?.rol === Role.Cliente;
 
       this.showEncuesta = await this.authService.estaEnListaDeEspera();
       this.showMenu = await this.authService.estaSentadoEnMesa(user!.user.id);

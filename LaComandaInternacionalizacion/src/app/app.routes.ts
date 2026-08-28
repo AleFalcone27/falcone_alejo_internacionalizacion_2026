@@ -99,6 +99,18 @@ export const routes: Routes = [
     loadComponent: () => import('./page/alta-bebida/alta-bebida.page').then( m => m.AltaBebidaPage)
   },
   {
+    path: 'alta-mesa',
+    loadComponent: () => import('./page/alta-mesa/alta-mesa.page').then( m => m.AltaMesaPage)
+  },
+  {
+    path: 'reserva-cliente',
+    loadComponent: () => import('./page/cliente/reserva-cliente/reserva-cliente.page').then( m => m.ReservaClientePage)
+  },
+  {
+    path: 'reservas-supervisor',
+    loadComponent: () => import('./page/supervisor/reservas-supervisor/reservas-supervisor.page').then( m => m.ReservasSupervisorPage)
+  },
+  {
     path: 'ahorcado',
     loadComponent: () => import('./page/juegos/ahorcado/ahorcado.page').then( m => m.AhorcadoPage)
   },

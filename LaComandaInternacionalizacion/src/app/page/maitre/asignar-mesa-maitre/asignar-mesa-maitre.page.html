@@ -12,6 +12,7 @@
       </ion-card-header>
 
       <ion-card-content class="cliente-card-content">
+        <img *ngIf="mesa.foto" [src]="mesa.foto" class="mesa-foto" />
         <div class="cliente-info">
           <p><strong>{{ 'ASIGNAR_MESA_MAITRE.DESCRIPTION_LABEL' | translate }}</strong> {{ mesa.descripcion }}</p>
           <p><strong>{{ 'ASIGNAR_MESA_MAITRE.CAPACITY_LABEL' | translate }}</strong> {{ mesa.capacidad || ('ASIGNAR_MESA_MAITRE.NOT_AVAILABLE' | translate) }}</p>
