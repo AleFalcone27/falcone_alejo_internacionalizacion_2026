@@ -216,6 +216,7 @@
     "TITLE": "Waiting List"
   },
   "LOGIN": {
+    "CONTINUE_WITH_GOOGLE": "Continue with Google",
     "EMAIL_INVALID": "The email format is invalid.",
     "EMAIL_PLACEHOLDER": "Email",
     "EMAIL_REQUIRED": "Email is required.",
@@ -223,6 +224,7 @@
     "INVALID_CREDENTIALS": "Incorrect credentials or user does not exist.",
     "LOGIN_SUCCESS": "Login successful",
     "NEW_CLIENT_LINK": "Are you a new customer? Sign up",
+    "OR_DIVIDER": "OR",
     "PASSWORD_MIN_LENGTH": "Password must be at least 6 characters long.",
     "PASSWORD_PLACEHOLDER": "Password",
     "PASSWORD_REQUIRED": "Password is required.",
@@ -235,6 +237,7 @@
     "ROLE_MAITRE": "MAITRE",
     "ROLE_MOZO": "Waiter",
     "ROLE_SUPERVISOR": "Supervisor",
+    "SOCIAL_LOGIN_ERROR": "An error occurred while logging in with the social network.",
     "SUBMIT_BUTTON": "LOG IN",
     "WELCOME_SUBTITLE": "EL BOCADO"
   },

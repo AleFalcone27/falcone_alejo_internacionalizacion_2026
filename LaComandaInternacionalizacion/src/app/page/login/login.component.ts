@@ -108,26 +108,7 @@ export class LoginComponent {
     this.isLoading = false;
 
     // Redirección según rol
-    switch (user.rol) {
-      case 'cliente':
-        this.router.navigate(['/home-cliente']);
-        break;
-      case 'mozo':
-        this.router.navigate(['/home-mozo']);
-        break;
-      case 'supervisor':
-        this.router.navigate(['/home-supervisor']);
-        break;
-      case 'maitre':
-        this.router.navigate(['/home-maitre']);
-        break;
-          case 'cocinero':
-      this.router.navigate(['/empleados-home']);
-      break;
-          case 'bartender':
-      this.router.navigate(['/empleados-home']);
-      break;
-    }
+    this.router.navigate([this.auth.getRouteForRole(user.rol)]);
   }
 
 
@@ -137,7 +118,14 @@ export class LoginComponent {
     this.loginForm.patchValue({ correo, clave });
   }
 
+  async loginWithGoogle() {
+    this.isLoading = true;
+    const { error } = await this.auth.loginWithProvider('google');
 
-
+    if (error) {
+      this.isLoading = false;
+      AppComponent.instance.toast.show(this.translate.instant('LOGIN.SOCIAL_LOGIN_ERROR'), 3000);
+    }
+  }
 
 }

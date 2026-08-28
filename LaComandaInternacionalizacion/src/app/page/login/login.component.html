@@ -12,6 +12,16 @@
       <input type="password" [placeholder]="'LOGIN.PASSWORD_PLACEHOLDER' | translate" formControlName="clave" />
       <button type="submit">{{ 'LOGIN.SUBMIT_BUTTON' | translate }}</button>
     </form>
+
+    <div class="social-divider">
+      <span>{{ 'LOGIN.OR_DIVIDER' | translate }}</span>
+    </div>
+
+    <div class="social-login-buttons">
+      <ion-button expand="block" class="social-btn social-btn-google" (click)="loginWithGoogle()">
+        {{ 'LOGIN.CONTINUE_WITH_GOOGLE' | translate }}
+      </ion-button>
+    </div>
   </section>
 
   <a routerLink="/alta-cliente" class="registro-link">{{ 'LOGIN.NEW_CLIENT_LINK' | translate }}</a>

@@ -19,6 +19,10 @@ export const routes: Routes = [
     loadComponent: () => import('./page/splash/splash.page').then( m => m.SplashPage)
   },
   {
+    path: 'auth-callback',
+    loadComponent: () => import('./page/auth-callback/auth-callback.page').then( m => m.AuthCallbackPage)
+  },
+  {
     path: 'alta-cliente',
     loadComponent: () => import('./page/alta-cliente/alta-cliente.page').then( m => m.AltaClientePage)
   },

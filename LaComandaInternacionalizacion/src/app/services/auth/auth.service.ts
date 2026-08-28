@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.prod';
 import { createClient } from '@supabase/supabase-js';
-import { Cliente, Mesa, ClienteMesa, Pedido, EstadoMesas, EstadoListaDeEspera, Producto, ItemPedido, EstadoPedido, EstadoProducto, Encuesta } from 'src/app/models';
+import { Cliente, Mesa, ClienteMesa, Pedido, EstadoMesas, EstadoListaDeEspera, Producto, ItemPedido, EstadoPedido, EstadoProducto, Encuesta, Reserva, EstadoReserva } from 'src/app/models';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +60,104 @@ export class AuthService {
   }
 
 
+  async loginWithProvider(provider: 'google') {
+    return await this.supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${window.location.origin}/auth-callback`
+      }
+    });
+  }
+
+  async handleOAuthRedirect() {
+    const { data: sessionData, error: sessionError } = await this.supabase.auth.getSession();
+
+    if (sessionError || !sessionData.session) {
+      return { error: sessionError ?? { message: "No se pudo obtener la sesión." }, user: null };
+    }
+
+    const authUser = sessionData.session.user;
+    const email = authUser.email;
+
+    if (!email) {
+      return { error: { message: "No se pudo obtener el correo del usuario." }, user: null };
+    }
+
+    let { data: usuarioData, error: usuarioError } = await this.supabase
+      .from("clientes")
+      .select("id, nombre, apellido, email, dni, edad, foto, alta, rol")
+      .eq("email", email)
+      .maybeSingle();
+
+    if (usuarioError) {
+      return { error: usuarioError, user: null };
+    }
+
+    if (!usuarioData) {
+      const nombreCompleto = (authUser.user_metadata?.['full_name'] || authUser.user_metadata?.['name'] || '') as string;
+      const [nombre, ...resto] = nombreCompleto.split(' ').filter(Boolean);
+
+      const nuevoCliente = {
+        id: authUser.id,
+        email,
+        nombre: nombre || email,
+        apellido: resto.join(' '),
+        dni: '',
+        edad: 0,
+        foto: authUser.user_metadata?.['avatar_url'] || authUser.user_metadata?.['picture'] || '',
+        alta: 1,
+        rol: 'cliente'
+      };
+
+      const { data: creado, error: creacionError } = await this.supabase
+        .from("clientes")
+        .insert(nuevoCliente)
+        .select("id, nombre, apellido, email, dni, edad, foto, alta, rol")
+        .single();
+
+      if (creacionError) {
+        return { error: creacionError, user: null };
+      }
+
+      usuarioData = creado;
+    }
+
+    if (usuarioData.alta == 2) {
+      return { error: { message: "denied" }, user: null };
+    }
+
+    if (usuarioData.alta !== 1) {
+      return { error: { message: "alta_false" }, user: null };
+    }
+
+    return {
+      error: null,
+      user: {
+        ...usuarioData,
+        email
+      }
+    };
+  }
+
+  getRouteForRole(rol: string): string {
+    switch (rol) {
+      case 'cliente':
+      case 'clienteAnonimo':
+        return '/home-cliente';
+      case 'mozo':
+        return '/home-mozo';
+      case 'supervisor':
+        return '/home-supervisor';
+      case 'maitre':
+        return '/home-maitre';
+      case 'cocinero':
+      case 'bartender':
+        return '/empleados-home';
+      default:
+        return '/home-cliente';
+    }
+  }
+
   async register(email: string, password: string, username: string) {
     return await this.supabase.auth.signUp({
       email,
@@ -102,6 +200,246 @@ export class AuthService {
     }
 
     return data as Producto[];
+  }
+
+  async crearReserva(datosReserva: {
+    cliente_id: string,
+    mesa_id: number,
+    fecha_hora: string,
+    cantidad_personas: number,
+    comentario?: string
+  }): Promise<Reserva> {
+    const { data, error } = await this.supabase
+      .from('reservas')
+      .insert([{ ...datosReserva, estado: EstadoReserva.Pendiente }])
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error al crear la reserva:', error.message);
+      throw error;
+    }
+
+    return data as Reserva;
+  }
+
+  async getReservasCliente(clienteId: string): Promise<Reserva[]> {
+    const { data, error } = await this.supabase
+      .from('reservas')
+      .select('*')
+      .eq('cliente_id', clienteId)
+      .order('fecha_hora', { ascending: true });
+
+    if (error) {
+      console.error('Error al obtener reservas del cliente:', error.message);
+      return [];
+    }
+
+    return data as Reserva[];
+  }
+
+  async existeReservaParaMesaYFecha(mesaId: number, fechaHoraISO: string): Promise<boolean> {
+    const fecha = new Date(fechaHoraISO);
+    const inicioDia = new Date(Date.UTC(fecha.getUTCFullYear(), fecha.getUTCMonth(), fecha.getUTCDate()));
+    const inicioDiaSiguiente = new Date(inicioDia.getTime() + 24 * 60 * 60 * 1000);
+
+    const { data, error } = await this.supabase
+      .from('reservas')
+      .select('id')
+      .eq('mesa_id', mesaId)
+      .neq('estado', EstadoReserva.Cancelada)
+      .gte('fecha_hora', inicioDia.toISOString())
+      .lt('fecha_hora', inicioDiaSiguiente.toISOString())
+      .limit(1);
+
+    if (error) {
+      console.error('Error al verificar disponibilidad de la mesa:', error.message);
+      return false;
+    }
+
+    return (data?.length ?? 0) > 0;
+  }
+
+  async getReservasPendientes(): Promise<Reserva[]> {
+    const { data, error } = await this.supabase
+      .from('reservas')
+      .select('*, cliente:cliente_id(nombre, apellido, email), mesa:mesa_id(numero)')
+      .eq('estado', EstadoReserva.Pendiente)
+      .order('fecha_hora', { ascending: true });
+
+    if (error) {
+      console.error('Error al obtener reservas pendientes:', error.message);
+      return [];
+    }
+
+    return data as unknown as Reserva[];
+  }
+
+  async confirmarReserva(reservaId: number): Promise<void> {
+    const { error } = await this.supabase
+      .from('reservas')
+      .update({ estado: EstadoReserva.Confirmada })
+      .eq('id', reservaId);
+
+    if (error) {
+      console.error('Error al confirmar la reserva:', error.message);
+      throw error;
+    }
+  }
+
+  async rechazarReserva(reservaId: number): Promise<void> {
+    const { error } = await this.supabase
+      .from('reservas')
+      .update({ estado: EstadoReserva.Cancelada })
+      .eq('id', reservaId);
+
+    if (error) {
+      console.error('Error al rechazar la reserva:', error.message);
+      throw error;
+    }
+  }
+
+  async getMesaIdsReservadosParaFecha(fechaHoraISO: string): Promise<number[]> {
+    const fecha = new Date(fechaHoraISO);
+    const inicioDia = new Date(Date.UTC(fecha.getUTCFullYear(), fecha.getUTCMonth(), fecha.getUTCDate()));
+    const inicioDiaSiguiente = new Date(inicioDia.getTime() + 24 * 60 * 60 * 1000);
+
+    const { data, error } = await this.supabase
+      .from('reservas')
+      .select('mesa_id')
+      .neq('estado', EstadoReserva.Cancelada)
+      .gte('fecha_hora', inicioDia.toISOString())
+      .lt('fecha_hora', inicioDiaSiguiente.toISOString());
+
+    if (error) {
+      console.error('Error al obtener mesas reservadas para la fecha:', error.message);
+      return [];
+    }
+
+    return (data ?? []).map((r: { mesa_id: number }) => r.mesa_id);
+  }
+
+  async uploadProductoImage(file: Blob, productoId: string | number, index: 1 | 2 | 3): Promise<string | null> {
+    const filePath = `productos/${productoId}-foto${index}.jpg`;
+
+    const { error } = await this.supabase.storage
+      .from('productos')
+      .upload(filePath, file, {
+        contentType: file.type,
+        upsert: true,
+      });
+
+    if (error) {
+      console.error('Error al subir la foto del producto:', error);
+      return null;
+    }
+
+    const { data } = this.supabase.storage.from('productos').getPublicUrl(filePath);
+    return data.publicUrl;
+  }
+
+  async uploadMesaImage(file: Blob, mesaId: string | number): Promise<string | null> {
+    const filePath = `mesas/${mesaId}.jpg`;
+
+    const { error } = await this.supabase.storage
+      .from('mesas')
+      .upload(filePath, file, {
+        contentType: file.type,
+        upsert: true,
+      });
+
+    if (error) {
+      console.error('Error al subir la foto de la mesa:', error);
+      return null;
+    }
+
+    const { data } = this.supabase.storage.from('mesas').getPublicUrl(filePath);
+    return data.publicUrl;
+  }
+
+  async crearProductoConFotos(
+    datosProducto: {
+      nombre: string,
+      descripcion: string,
+      precio: number,
+      tiempoEstimadoDePreparacion: number,
+      areaDePreparacion: number
+    },
+    fotos: Blob[]
+  ): Promise<Producto> {
+    const { data: productoCreado, error: insertError } = await this.supabase
+      .from('productos')
+      .insert([datosProducto])
+      .select()
+      .single();
+
+    if (insertError) {
+      console.error('Error al crear producto:', insertError.message);
+      throw insertError;
+    }
+
+    const fotoUrls: Partial<Record<'foto1' | 'foto2' | 'foto3', string>> = {};
+    const campos: Array<'foto1' | 'foto2' | 'foto3'> = ['foto1', 'foto2', 'foto3'];
+
+    for (let i = 0; i < fotos.length; i++) {
+      const url = await this.uploadProductoImage(fotos[i], productoCreado.id, (i + 1) as 1 | 2 | 3);
+      if (url) {
+        fotoUrls[campos[i]] = url;
+      }
+    }
+
+    const { data: productoActualizado, error: updateError } = await this.supabase
+      .from('productos')
+      .update(fotoUrls)
+      .eq('id', productoCreado.id)
+      .select()
+      .single();
+
+    if (updateError) {
+      console.error('Error al actualizar fotos del producto:', updateError.message);
+      throw updateError;
+    }
+
+    return productoActualizado as Producto;
+  }
+
+  async crearMesaConFoto(
+    datosMesa: {
+      numero: number,
+      descripcion: string,
+      capacidad: number,
+      aptaBebes: boolean,
+      ubicacion: string,
+      estado: number
+    },
+    foto: Blob
+  ): Promise<Mesa> {
+    const { data: mesaCreada, error: insertError } = await this.supabase
+      .from('mesas')
+      .insert([datosMesa])
+      .select()
+      .single();
+
+    if (insertError) {
+      console.error('Error al crear mesa:', insertError.message);
+      throw insertError;
+    }
+
+    const fotoUrl = await this.uploadMesaImage(foto, mesaCreada.id);
+
+    const { data: mesaActualizada, error: updateError } = await this.supabase
+      .from('mesas')
+      .update({ foto: fotoUrl ?? undefined })
+      .eq('id', mesaCreada.id)
+      .select()
+      .single();
+
+    if (updateError) {
+      console.error('Error al actualizar foto de la mesa:', updateError.message);
+      throw updateError;
+    }
+
+    return mesaActualizada as Mesa;
   }
 
 

@@ -216,6 +216,7 @@
     "TITLE": "Лист ожидания"
   },
   "LOGIN": {
+    "CONTINUE_WITH_GOOGLE": "Продолжить через Google",
     "EMAIL_INVALID": "Неверный формат электронной почты.",
     "EMAIL_PLACEHOLDER": "Электронная почта",
     "EMAIL_REQUIRED": "Необходимо указать электронную почту.",
@@ -223,6 +224,7 @@
     "INVALID_CREDENTIALS": "Неверные учётные данные или пользователь не существует.",
     "LOGIN_SUCCESS": "Вход выполнен успешно",
     "NEW_CLIENT_LINK": "Вы новый клиент? Зарегистрироваться",
+    "OR_DIVIDER": "ИЛИ",
     "PASSWORD_MIN_LENGTH": "Пароль должен содержать не менее 6 символов.",
     "PASSWORD_PLACEHOLDER": "Пароль",
     "PASSWORD_REQUIRED": "Необходимо указать пароль.",
@@ -235,6 +237,7 @@
     "ROLE_MAITRE": "МЕТРДОТЕЛЬ",
     "ROLE_MOZO": "Официант",
     "ROLE_SUPERVISOR": "Супервайзер",
+    "SOCIAL_LOGIN_ERROR": "Произошла ошибка при входе через социальную сеть.",
     "SUBMIT_BUTTON": "ВОЙТИ",
     "WELCOME_SUBTITLE": "EL BOCADO"
   },

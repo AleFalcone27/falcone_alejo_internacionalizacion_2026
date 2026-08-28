@@ -216,6 +216,7 @@
     "TITLE": "Lista de Espera"
   },
   "LOGIN": {
+    "CONTINUE_WITH_GOOGLE": "Continuar con Google",
     "EMAIL_INVALID": "El formato del correo no es válido.",
     "EMAIL_PLACEHOLDER": "Correo",
     "EMAIL_REQUIRED": "El correo es obligatorio.",
@@ -223,6 +224,7 @@
     "INVALID_CREDENTIALS": "Credenciales incorrectas o usuario no existente.",
     "LOGIN_SUCCESS": "Inicio de sesión exitoso",
     "NEW_CLIENT_LINK": "¿Sos un cliente nuevo? Registrate",
+    "OR_DIVIDER": "O",
     "PASSWORD_MIN_LENGTH": "La contraseña debe tener al menos 6 caracteres.",
     "PASSWORD_PLACEHOLDER": "Contraseña",
     "PASSWORD_REQUIRED": "La contraseña es obligatoria.",
@@ -235,6 +237,7 @@
     "ROLE_MAITRE": "MAITRE",
     "ROLE_MOZO": "Mozo",
     "ROLE_SUPERVISOR": "Supervisor",
+    "SOCIAL_LOGIN_ERROR": "Ocurrió un error al iniciar sesión con la red social.",
     "SUBMIT_BUTTON": "INGRESAR",
     "WELCOME_SUBTITLE": "EL BOCADO"
   },

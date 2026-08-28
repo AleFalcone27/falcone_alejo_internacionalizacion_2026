@@ -216,6 +216,7 @@
     "TITLE": "Warteliste"
   },
   "LOGIN": {
+    "CONTINUE_WITH_GOOGLE": "Mit Google fortfahren",
     "EMAIL_INVALID": "Das E-Mail-Format ist ungültig.",
     "EMAIL_PLACEHOLDER": "E-Mail",
     "EMAIL_REQUIRED": "E-Mail ist erforderlich.",
@@ -223,6 +224,7 @@
     "INVALID_CREDENTIALS": "Falsche Anmeldedaten oder der Benutzer existiert nicht.",
     "LOGIN_SUCCESS": "Anmeldung erfolgreich",
     "NEW_CLIENT_LINK": "Bist du ein neuer Kunde? Registrieren",
+    "OR_DIVIDER": "ODER",
     "PASSWORD_MIN_LENGTH": "Das Passwort muss mindestens 6 Zeichen lang sein.",
     "PASSWORD_PLACEHOLDER": "Passwort",
     "PASSWORD_REQUIRED": "Passwort ist erforderlich.",
@@ -235,6 +237,7 @@
     "ROLE_MAITRE": "MAITRE",
     "ROLE_MOZO": "Kellner",
     "ROLE_SUPERVISOR": "Supervisor",
+    "SOCIAL_LOGIN_ERROR": "Bei der Anmeldung über das soziale Netzwerk ist ein Fehler aufgetreten.",
     "SUBMIT_BUTTON": "ANMELDEN",
     "WELCOME_SUBTITLE": "EL BOCADO"
   },

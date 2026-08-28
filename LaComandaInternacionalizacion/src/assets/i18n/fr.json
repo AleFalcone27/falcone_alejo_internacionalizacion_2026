@@ -216,6 +216,7 @@
     "TITLE": "Liste d'attente"
   },
   "LOGIN": {
+    "CONTINUE_WITH_GOOGLE": "Continuer avec Google",
     "EMAIL_INVALID": "Le format de l'email est invalide.",
     "EMAIL_PLACEHOLDER": "Email",
     "EMAIL_REQUIRED": "L'email est obligatoire.",
@@ -223,6 +224,7 @@
     "INVALID_CREDENTIALS": "Identifiants incorrects ou utilisateur inexistant.",
     "LOGIN_SUCCESS": "Connexion réussie",
     "NEW_CLIENT_LINK": "Vous êtes un nouveau client ? Inscrivez-vous",
+    "OR_DIVIDER": "OU",
     "PASSWORD_MIN_LENGTH": "Le mot de passe doit contenir au moins 6 caractères.",
     "PASSWORD_PLACEHOLDER": "Mot de passe",
     "PASSWORD_REQUIRED": "Le mot de passe est obligatoire.",
@@ -235,6 +237,7 @@
     "ROLE_MAITRE": "MAÎTRE D'HÔTEL",
     "ROLE_MOZO": "Serveur",
     "ROLE_SUPERVISOR": "Superviseur",
+    "SOCIAL_LOGIN_ERROR": "Une erreur s'est produite lors de la connexion avec le réseau social.",
     "SUBMIT_BUTTON": "SE CONNECTER",
     "WELCOME_SUBTITLE": "EL BOCADO"
   },
