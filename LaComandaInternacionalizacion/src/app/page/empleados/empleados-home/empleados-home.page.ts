@@ -37,4 +37,14 @@ export class EmpleadosHomePage {
   }
 
   }
+
+  async navToAltaProducto() {
+    const rol = await this.authService.getUserRole();
+
+    if (rol === 'cocinero') {
+      this.router.navigate(['/alta-plato']);
+    } else if (rol === 'bartender') {
+      this.router.navigate(['/alta-bebida']);
+    }
+  }
 }

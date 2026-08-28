@@ -91,6 +91,14 @@ export const routes: Routes = [
     loadComponent: () => import('./page/empleados/pedidos-bar/pedidos-bar.page').then( m => m.PedidosBarPage)
   },
   {
+    path: 'alta-plato',
+    loadComponent: () => import('./page/alta-plato/alta-plato.page').then( m => m.AltaPlatoPage)
+  },
+  {
+    path: 'alta-bebida',
+    loadComponent: () => import('./page/alta-bebida/alta-bebida.page').then( m => m.AltaBebidaPage)
+  },
+  {
     path: 'ahorcado',
     loadComponent: () => import('./page/juegos/ahorcado/ahorcado.page').then( m => m.AhorcadoPage)
   },
@@ -105,7 +113,7 @@ export const routes: Routes = [
   {
     path: 'ver-encuesta-cliente',
     loadComponent: () => import('./page/cliente/ver-encuesta-cliente/ver-encuesta-cliente.page').then( m => m.VerEncuestaClientePage)
-  },  {
+  },  {
     path: 'ver-encuestas',
     loadComponent: () => import('./page/ver-encuestas/ver-encuestas.page').then( m => m.VerEncuestasPage)
   },

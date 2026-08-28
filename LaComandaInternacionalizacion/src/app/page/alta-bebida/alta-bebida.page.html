@@ -1,0 +1,32 @@
+<header class="header">
+  <h1 class="title">{{ 'ALTA_BEBIDA.TITLE' | translate }}</h1>
+</header>
+
+<main class="login-page">
+  <section class="auth-card">
+    <form [formGroup]="bebidaForm" (ngSubmit)="onGuardar()">
+      <input type="text" [placeholder]="'ALTA_BEBIDA.NAME_PLACEHOLDER' | translate" formControlName="nombre" />
+
+      <input type="text" [placeholder]="'ALTA_BEBIDA.DESCRIPTION_PLACEHOLDER' | translate" formControlName="descripcion" />
+
+      <input type="number" [placeholder]="'ALTA_BEBIDA.PRICE_PLACEHOLDER' | translate" formControlName="precio" />
+
+      <input type="number" [placeholder]="'ALTA_BEBIDA.PREP_TIME_PLACEHOLDER' | translate" formControlName="tiempoEstimadoDePreparacion" />
+
+      <button type="button" (click)="tomarFoto(1)">{{ 'ALTA_BEBIDA.TAKE_PHOTO_1_BUTTON' | translate }}</button>
+      <img *ngIf="fotoPreview1" [src]="fotoPreview1" class="foto-preview" />
+
+      <button type="button" (click)="tomarFoto(2)">{{ 'ALTA_BEBIDA.TAKE_PHOTO_2_BUTTON' | translate }}</button>
+      <img *ngIf="fotoPreview2" [src]="fotoPreview2" class="foto-preview" />
+
+      <button type="button" (click)="tomarFoto(3)">{{ 'ALTA_BEBIDA.TAKE_PHOTO_3_BUTTON' | translate }}</button>
+      <img *ngIf="fotoPreview3" [src]="fotoPreview3" class="foto-preview" />
+
+      <button type="submit">{{ 'ALTA_BEBIDA.SAVE_BUTTON' | translate }}</button>
+    </form>
+  </section>
+
+  <div *ngIf="isLoading" class="custom-spinner">
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'COMMON.LOADING' | translate" />
+  </div>
+</main>
