@@ -15,9 +15,12 @@ import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const supportedLanguages = ['en', 'es', 'de', 'fr', 'ru', 'pt'];
 
+const savedLang = localStorage.getItem('appLang');
 const browserLang = navigator.language.split('-')[0];
 
-const selectedLang = supportedLanguages.includes(browserLang)
+const selectedLang = supportedLanguages.includes(savedLang ?? '')
+  ? savedLang!
+  : supportedLanguages.includes(browserLang)
   ? browserLang
   : 'en';
 

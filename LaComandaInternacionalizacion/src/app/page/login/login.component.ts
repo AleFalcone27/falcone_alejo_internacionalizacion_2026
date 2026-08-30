@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { UiService } from '../../services/ui/ui.service';
 import { CustomToastComponent } from '../../components/custom-toast/custom-toast.component';
+import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
 import { ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import {
@@ -17,7 +18,7 @@ import {
 @Component({
   standalone: true,
   selector: 'app-login',
-  imports: [IonicModule, CommonModule, ReactiveFormsModule, RouterModule, FormsModule, CustomToastComponent, FormsModule, TranslatePipe],
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, RouterModule, FormsModule, CustomToastComponent, FormsModule, TranslatePipe, LanguageSwitcherComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

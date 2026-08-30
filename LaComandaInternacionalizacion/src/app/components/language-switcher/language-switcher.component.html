@@ -1,0 +1,15 @@
+<div class="language-switcher">
+  <button type="button" class="language-toggle" (click)="isOpen = !isOpen">
+    <span class="flag">{{ currentFlag() }}</span>
+  </button>
+
+  <ul class="language-menu" *ngIf="isOpen">
+    <li *ngFor="let lang of languages">
+      <button type="button" class="language-option" [class.active]="lang.code === currentLang"
+        (click)="selectLanguage(lang.code)">
+        <span class="flag">{{ lang.flag }}</span>
+        <span class="label">{{ lang.label }}</span>
+      </button>
+    </li>
+  </ul>
+</div>
