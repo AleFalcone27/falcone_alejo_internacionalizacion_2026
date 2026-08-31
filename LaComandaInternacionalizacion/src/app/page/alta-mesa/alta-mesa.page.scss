@@ -26,6 +26,8 @@ body, html {
 .login-page {
   flex-grow: 1;
   min-height: calc(100vh - 60px);
+  max-height: 100vh;
+  overflow-y: auto;
   background: linear-gradient(to top, var(--blanco), var(--naranja));
   display: flex;
   flex-direction: column;
