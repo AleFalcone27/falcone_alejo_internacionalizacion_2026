@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.prod';
 import { createClient } from '@supabase/supabase-js';
+import { Capacitor } from '@capacitor/core';
+import { Browser } from '@capacitor/browser';
 import { Cliente, Mesa, ClienteMesa, Pedido, EstadoMesas, EstadoListaDeEspera, Producto, ItemPedido, EstadoPedido, EstadoProducto, Encuesta, Reserva, EstadoReserva } from 'src/app/models';
+
+export const NATIVE_OAUTH_REDIRECT_URL = 'elbocado://auth-callback';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  supabase = createClient(environment.apiUrl, environment.publicAnonKey);
+  supabase = createClient(environment.apiUrl, environment.publicAnonKey, {
+    auth: { flowType: 'pkce' }
+  });
   constructor() { }
 
   async login(email: string, password: string) {
@@ -61,12 +67,33 @@ export class AuthService {
 
 
   async loginWithProvider(provider: 'google') {
+    if (Capacitor.isNativePlatform()) {
+      const { data, error } = await this.supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: NATIVE_OAUTH_REDIRECT_URL,
+          skipBrowserRedirect: true
+        }
+      });
+
+      if (!error && data?.url) {
+        await Browser.open({ url: data.url });
+      }
+
+      return { data, error };
+    }
+
     return await this.supabase.auth.signInWithOAuth({
       provider,
       options: {
         redirectTo: `${window.location.origin}/auth-callback`
       }
     });
+  }
+
+  async handleNativeOAuthRedirect(callbackUrl: string) {
+    await Browser.close();
+    return await this.supabase.auth.exchangeCodeForSession(callbackUrl);
   }
 
   async handleOAuthRedirect() {

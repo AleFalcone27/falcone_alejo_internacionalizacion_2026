@@ -6,6 +6,8 @@ import { filter } from 'rxjs';
 import { NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CustomToastComponent } from './components/custom-toast/custom-toast.component';
+import { App } from '@capacitor/app';
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,7 @@ export class AppComponent {
   showLogOut!: boolean;
   public static instance: AppComponent;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
     AppComponent.instance = this;
   }
   ngAfterViewInit() {
@@ -39,5 +41,14 @@ export class AppComponent {
       this.showNavbar = !document.body.classList.contains('overlay-activo');
     });
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    App.addListener('appUrlOpen', async ({ url }) => {
+      if (!url.startsWith('elbocado://auth-callback')) {
+        return;
+      }
+
+      await this.authService.handleNativeOAuthRedirect(url);
+      this.router.navigateByUrl('/auth-callback');
+    });
   }
 }
