@@ -12,6 +12,7 @@ Este repositorio contiene el desarrollo completo de la app, utilizando tecnolog�
 - [🧑‍💻 Integrantes del Equipo](#-integrantes-del-equipo)
 - [📱 Tecnologías Utilizadas](#-tecnologías-utilizadas)
 - [📊 Funcionalidades](#-funcionalidades)
+- [🔧 Compilar para Android](#-compilar-para-android)
 - [📷 Imágenes](#-imágenes)
   - [Icono](#icono)
 - [📎 Otros](#-otros)
@@ -152,6 +153,31 @@ Este repositorio contiene el desarrollo completo de la app, utilizando tecnolog�
 - Pagos
 - Estadisticas de encuestas
 ---
+
+## 🔧 Compilar para Android
+
+La carpeta `android/` está en `.gitignore` y se genera localmente con Capacitor: no viaja con `git pull`. Si se compila desde otra PC, o si esa carpeta se borra y se vuelve a crear, hay que rehacer estos pasos:
+
+```bash
+npm install
+ng build
+npx cap add android
+npx @capacitor/assets generate --android
+npx cap sync android
+```
+
+Además, el inicio de sesión con Google (Supabase OAuth) requiere un intent-filter de deep link agregado a mano en `android/app/src/main/AndroidManifest.xml`, dentro del bloque `<activity>`, justo después del intent-filter de MAIN/LAUNCHER:
+
+```xml
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="elbocado" android:host="auth-callback" />
+</intent-filter>
+```
+
+Este paso no se resuelve solo con `cap add android`: Capacitor no conoce este esquema personalizado, así que hay que agregarlo a mano cada vez que se regenera la carpeta `android/`. También hay que verificar que `elbocado://auth-callback` esté en la lista de Redirect URLs del proyecto de Supabase (Authentication → URL Configuration).
 
 ## 📷 Imágenes
 ### Icono

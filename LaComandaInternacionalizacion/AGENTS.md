@@ -35,6 +35,24 @@ For Android work, build the web app first, then use the Capacitor CLI as needed
 (for example, `npx cap sync android`). Do not edit generated files under
 `android/` unless the change specifically requires a native Android adjustment.
 
+`android/` is gitignored and regenerated via `npx cap add android` — if it's ever
+deleted and re-added, redo this manual step: Google OAuth sign-in requires a deep
+link intent-filter for `elbocado://auth-callback` in
+`android/app/src/main/AndroidManifest.xml`, added inside the `<activity>` block
+right after the existing MAIN/LAUNCHER intent-filter:
+
+```xml
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="elbocado" android:host="auth-callback" />
+</intent-filter>
+```
+
+The corresponding `elbocado://auth-callback` redirect URL must also be present in
+the Supabase project's Authentication → URL Configuration → Redirect URLs list.
+
 ## Repository layout
 
 ```text
