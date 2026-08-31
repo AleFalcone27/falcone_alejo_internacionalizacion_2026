@@ -122,9 +122,9 @@ export class LoginComponent {
   async loginWithGoogle() {
     this.isLoading = true;
     const { error } = await this.auth.loginWithProvider('google');
+    this.isLoading = false;
 
     if (error) {
-      this.isLoading = false;
       AppComponent.instance.toast.show(this.translate.instant('LOGIN.SOCIAL_LOGIN_ERROR'), 3000);
     }
   }

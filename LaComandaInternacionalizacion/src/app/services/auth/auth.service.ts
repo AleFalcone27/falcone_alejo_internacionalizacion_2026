@@ -72,7 +72,8 @@ export class AuthService {
         provider,
         options: {
           redirectTo: NATIVE_OAUTH_REDIRECT_URL,
-          skipBrowserRedirect: true
+          skipBrowserRedirect: true,
+          queryParams: { prompt: 'select_account' }
         }
       });
 
@@ -86,14 +87,27 @@ export class AuthService {
     return await this.supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/auth-callback`
+        redirectTo: `${window.location.origin}/auth-callback`,
+        queryParams: { prompt: 'select_account' }
       }
     });
   }
 
   async handleNativeOAuthRedirect(callbackUrl: string) {
     await Browser.close();
-    return await this.supabase.auth.exchangeCodeForSession(callbackUrl);
+
+    const url = new URL(callbackUrl);
+    const errorDescription = url.searchParams.get('error_description') ?? url.searchParams.get('error');
+    if (errorDescription) {
+      return { data: { user: null, session: null }, error: { message: errorDescription } };
+    }
+
+    const code = url.searchParams.get('code');
+    if (!code) {
+      return { data: { user: null, session: null }, error: { message: 'No se recibió el código de autenticación.' } };
+    }
+
+    return await this.supabase.auth.exchangeCodeForSession(code);
   }
 
   async handleOAuthRedirect() {
