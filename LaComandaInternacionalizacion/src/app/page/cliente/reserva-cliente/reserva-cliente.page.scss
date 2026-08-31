@@ -58,7 +58,8 @@ body, html {
 .auth-card input[type="text"],
 .auth-card input[type="number"],
 .auth-card input[type="email"],
-.auth-card input[type="password"] {
+.auth-card input[type="password"],
+.auth-card input[type="datetime-local"] {
   padding: 12px 15px;
   font-size: 1rem;
   border: 2px solid var(--blanco);
@@ -66,6 +67,9 @@ body, html {
   transition: border-color 0.3s ease;
   background-color: var(--durazno);
   color: var(--blanco);
+  color-scheme: light;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .auth-card input::placeholder {
