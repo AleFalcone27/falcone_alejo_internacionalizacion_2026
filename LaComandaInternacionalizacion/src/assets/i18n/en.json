@@ -334,6 +334,8 @@
     "CAMERA_DISABLED": "📵 Camera disabled",
     "CAMERA_INIT_ERROR": "Error initializing camera: {{error}}",
     "CAMERA_START_ERROR": "Error starting camera: {{error}}",
+    "CONFIRM_ENTER_LOCAL_MESSAGE": "Do you want to join the venue's waiting list?",
+    "CONFIRM_SEAT_MESSAGE": "Do you want to sit at table {{numero}}?",
     "GO_TO_SETTINGS": "Go to Settings",
     "INITIALIZING_CAMERA": "🔄 Initializing camera...",
     "INVALID_TABLE_QR": "The QR code does not contain a valid table",

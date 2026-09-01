@@ -334,6 +334,8 @@
     "CAMERA_DISABLED": "📵 Câmera desativada",
     "CAMERA_INIT_ERROR": "Erro ao inicializar a câmera: {{error}}",
     "CAMERA_START_ERROR": "Erro ao iniciar a câmera: {{error}}",
+    "CONFIRM_ENTER_LOCAL_MESSAGE": "Deseja entrar na lista de espera do local?",
+    "CONFIRM_SEAT_MESSAGE": "Deseja sentar-se na mesa {{numero}}?",
     "GO_TO_SETTINGS": "Ir para Configurações",
     "INITIALIZING_CAMERA": "🔄 Inicializando câmera...",
     "INVALID_TABLE_QR": "O código QR não contém uma mesa válida",

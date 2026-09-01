@@ -313,7 +313,7 @@ export class QrCodeScannerPage implements OnInit, OnDestroy {
 
   private async handleIngresarAlLocal(jsonScanedData: JSONQr) {
     const alert = await this.createQrAlert(
-      jsonScanedData.mensaje,
+      this.translate.instant('QR_CODE_SCANNER.CONFIRM_ENTER_LOCAL_MESSAGE'),
       () => {
         this.authService.ingresarEnListaDeEspera();
         this.goBack();
@@ -365,7 +365,7 @@ private async handleIngresarAMesa(jsonScanedData: JSONQr) {
 
     // 4. Mostrar alerta para confirmar sentarse
     const alert = await this.createQrAlert(
-      jsonScanedData.mensaje,
+      this.translate.instant('QR_CODE_SCANNER.CONFIRM_SEAT_MESSAGE', { numero: mesaQR }),
       async () => {
         await this.authService.sentarseEnMesa();
         this.goBack();

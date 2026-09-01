@@ -334,6 +334,8 @@
     "CAMERA_DISABLED": "📵 Камера отключена",
     "CAMERA_INIT_ERROR": "Ошибка инициализации камеры: {{error}}",
     "CAMERA_START_ERROR": "Ошибка запуска камеры: {{error}}",
+    "CONFIRM_ENTER_LOCAL_MESSAGE": "Хотите встать в лист ожидания заведения?",
+    "CONFIRM_SEAT_MESSAGE": "Хотите сесть за столик {{numero}}?",
     "GO_TO_SETTINGS": "Перейти в настройки",
     "INITIALIZING_CAMERA": "🔄 Инициализация камеры...",
     "INVALID_TABLE_QR": "QR-код не содержит действительный столик",
