@@ -14,13 +14,15 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const supportedLanguages = ['en', 'es', 'de', 'fr', 'ru', 'pt'];
-const DEFAULT_LANG = 'es';
 
 const savedLang = localStorage.getItem('appLang');
+const browserLang = navigator.language.split('-')[0];
 
 const selectedLang = supportedLanguages.includes(savedLang ?? '')
   ? savedLang!
-  : DEFAULT_LANG;
+  : supportedLanguages.includes(browserLang)
+  ? browserLang
+  : 'en';
 
 bootstrapApplication(AppComponent, {
   providers: [
