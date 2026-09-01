@@ -10,6 +10,7 @@ interface LanguageOption {
 }
 
 const LANGUAGE_STORAGE_KEY = 'appLang';
+const DEFAULT_LANG = 'es';
 
 @Component({
   standalone: true,
@@ -33,11 +34,24 @@ export class LanguageSwitcherComponent {
   constructor(private translate: TranslateService) {}
 
   get currentLang(): string {
-    return this.translate.getCurrentLang() ?? 'es';
+    return this.translate.getCurrentLang() ?? DEFAULT_LANG;
+  }
+
+  isDefaultActive(): boolean {
+    return localStorage.getItem(LANGUAGE_STORAGE_KEY) === null;
   }
 
   currentFlag(): string {
+    if (this.isDefaultActive()) {
+      return '🌐';
+    }
     return this.languages.find(l => l.code === this.currentLang)?.flag ?? '🌐';
+  }
+
+  selectDefault() {
+    localStorage.removeItem(LANGUAGE_STORAGE_KEY);
+    this.translate.use(DEFAULT_LANG);
+    this.isOpen = false;
   }
 
   selectLanguage(code: string) {
