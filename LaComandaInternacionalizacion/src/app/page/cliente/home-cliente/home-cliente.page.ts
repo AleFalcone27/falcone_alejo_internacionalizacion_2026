@@ -1,7 +1,7 @@
 import { AfterRenderRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonButton, IonIcon, IonContent } from '@ionic/angular/standalone';
+import { IonButton, IonIcon, IonContent, ViewWillEnter } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Pedido, Role } from 'src/app/models';
@@ -15,7 +15,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   standalone: true,
   imports: [IonIcon, IonButton, CommonModule, FormsModule, TranslatePipe]
 })
-export class HomeClientePage implements OnInit {
+export class HomeClientePage implements OnInit, ViewWillEnter {
 
   showCompletarEncuesta!: boolean;
   showEncuesta!: boolean;
@@ -30,6 +30,10 @@ export class HomeClientePage implements OnInit {
 
   async ngOnInit() {
     this.init()
+  }
+
+  ionViewWillEnter() {
+    this.init();
   }
 
   async init() {
