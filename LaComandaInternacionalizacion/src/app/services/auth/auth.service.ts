@@ -410,7 +410,7 @@ export class AuthService {
   ): Promise<Producto> {
     const { data: productoCreado, error: insertError } = await this.supabase
       .from('productos')
-      .insert([datosProducto])
+      .insert([{ ...datosProducto, foto1: '', foto2: '', foto3: '' }])
       .select()
       .single();
 
