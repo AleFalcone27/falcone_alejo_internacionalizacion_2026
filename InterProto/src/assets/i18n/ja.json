@@ -1,0 +1,30 @@
+{
+  "SPLASH": {
+    "LOGO_ALT": "InterProtoのロゴ"
+  },
+  "MAP": {
+    "TITLE": "場所を選んでください",
+    "INSTRUCTIONS": "地図上のピンをタップしてGPS位置をシミュレートします。アプリの言語はその国に合わせて切り替わります。",
+    "CONTINENT_AMERICA": "アメリカ大陸",
+    "CONTINENT_EUROPE": "ヨーロッパ",
+    "CONTINENT_ASIA": "アジア",
+    "CONTINENT_AFRICA": "アフリカ",
+    "CONTINENT_OCEANIA": "オセアニア"
+  },
+  "DEMO": {
+    "TITLE": "InterProto デモ",
+    "INTRO_TEXT": "地図で選択した場所に基づいて、この画面は現地の言語で表示されています。",
+    "LIST_TITLE": "ここでできること",
+    "LIST_ITEM_1": "新しい言語でアプリを探索する",
+    "LIST_ITEM_2": "地元のコンテンツを発見する",
+    "LIST_ITEM_3": "あなたの体験を共有する",
+    "LIST_ITEM_4": "他の旅行者とつながる",
+    "BACK_BUTTON": "地図に戻る",
+    "MENU_BUTTON": "メニューを開く",
+    "MENU_TITLE": "オプション",
+    "MENU_OPTION_1": "お気に入りに追加",
+    "MENU_OPTION_2": "共有",
+    "MENU_OPTION_3": "詳細情報",
+    "MENU_CANCEL": "キャンセル"
+  }
+}

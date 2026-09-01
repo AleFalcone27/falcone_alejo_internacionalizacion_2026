@@ -1,0 +1,30 @@
+{
+  "SPLASH": {
+    "LOGO_ALT": "شعار InterProto"
+  },
+  "MAP": {
+    "TITLE": "اختر موقعًا",
+    "INSTRUCTIONS": "اضغط على دبوس على الخريطة لمحاكاة موقعك عبر GPS. ستتغير لغة التطبيق حسب ذلك البلد.",
+    "CONTINENT_AMERICA": "الأمريكتان",
+    "CONTINENT_EUROPE": "أوروبا",
+    "CONTINENT_ASIA": "آسيا",
+    "CONTINENT_AFRICA": "أفريقيا",
+    "CONTINENT_OCEANIA": "أوقيانوسيا"
+  },
+  "DEMO": {
+    "TITLE": "عرض InterProto التجريبي",
+    "INTRO_TEXT": "بناءً على الموقع الذي حددته على الخريطة، تُعرض هذه الشاشة الآن باللغة المحلية.",
+    "LIST_TITLE": "ما يمكنك فعله هنا",
+    "LIST_ITEM_1": "استكشاف التطبيق بلغة جديدة",
+    "LIST_ITEM_2": "اكتشاف محتوى محلي",
+    "LIST_ITEM_3": "مشاركة تجربتك",
+    "LIST_ITEM_4": "التواصل مع مسافرين آخرين",
+    "BACK_BUTTON": "العودة إلى الخريطة",
+    "MENU_BUTTON": "فتح القائمة",
+    "MENU_TITLE": "خيارات",
+    "MENU_OPTION_1": "أضف إلى المفضلة",
+    "MENU_OPTION_2": "مشاركة",
+    "MENU_OPTION_3": "مزيد من المعلومات",
+    "MENU_CANCEL": "إلغاء"
+  }
+}

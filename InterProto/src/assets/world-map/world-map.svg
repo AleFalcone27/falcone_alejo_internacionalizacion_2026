@@ -1,0 +1,40 @@
+<svg viewBox="0 0 1000 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1000" height="500" fill="#cfe8f3"/>
+
+  <!-- graticule -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="125" x2="1000" y2="125"/>
+    <line x1="0" y1="250" x2="1000" y2="250"/>
+    <line x1="0" y1="375" x2="1000" y2="375"/>
+    <line x1="125" y1="0" x2="125" y2="500"/>
+    <line x1="250" y1="0" x2="250" y2="500"/>
+    <line x1="375" y1="0" x2="375" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="625" y1="0" x2="625" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+    <line x1="875" y1="0" x2="875" y2="500"/>
+  </g>
+
+  <!-- North America -->
+  <path d="M60,70 Q160,40 260,70 Q300,110 280,160 Q260,200 210,220 Q150,230 110,190 Q70,150 60,70 Z" fill="#f6b88c" stroke="#fafafa" stroke-width="2"/>
+  <!-- South America -->
+  <path d="M190,250 Q250,235 275,270 Q300,330 270,400 Q245,440 210,420 Q180,370 180,300 Q180,270 190,250 Z" fill="#a3d9a5" stroke="#fafafa" stroke-width="2"/>
+  <!-- Europe -->
+  <path d="M440,60 Q510,45 555,75 Q560,110 530,130 Q480,140 450,115 Q435,90 440,60 Z" fill="#ffd08a" stroke="#fafafa" stroke-width="2"/>
+  <!-- Africa -->
+  <path d="M450,150 Q540,140 575,180 Q590,250 560,330 Q530,390 490,385 Q460,340 455,270 Q445,210 450,150 Z" fill="#88c999" stroke="#fafafa" stroke-width="2"/>
+  <!-- Asia -->
+  <path d="M560,50 Q720,30 880,70 Q900,120 860,170 Q780,200 700,190 Q620,180 580,140 Q555,100 560,50 Z" fill="#f6b88c" stroke="#fafafa" stroke-width="2"/>
+  <!-- Oceania -->
+  <path d="M760,310 Q830,295 880,320 Q900,350 870,380 Q820,400 780,380 Q755,350 760,310 Z" fill="#a3d9a5" stroke="#fafafa" stroke-width="2"/>
+
+  <!-- continent labels -->
+  <g fill="#2b2b2b" font-family="Poppins, sans-serif" font-size="14" font-weight="600" opacity="0.65">
+    <text x="150" y="65">AMÉRICA N.</text>
+    <text x="190" y="245">AMÉRICA S.</text>
+    <text x="455" y="55">EUROPA</text>
+    <text x="480" y="230">ÁFRICA</text>
+    <text x="680" y="45">ASIA</text>
+    <text x="775" y="305">OCEANÍA</text>
+  </g>
+</svg>

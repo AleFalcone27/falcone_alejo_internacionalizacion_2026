@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>{{ 'MAP.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="map-screen">
+    <p class="instructions">{{ 'MAP.INSTRUCTIONS' | translate }}</p>
+
+    <div class="continent-tabs">
+      <button
+        *ngFor="let continent of continents"
+        class="continent-tab"
+        [class.active]="continent.id === selectedContinent()"
+        (click)="selectContinent(continent.id)"
+      >
+        {{ continent.labelKey | translate }}
+      </button>
+    </div>
+
+    <div class="map-wrapper">
+      <img src="assets/world-map/world-map.svg" class="map-image" alt="World map" />
+
+      <button
+        *ngFor="let pin of pins()"
+        class="pin"
+        [style.left.%]="pin.mapX"
+        [style.top.%]="pin.mapY"
+        (click)="selectPin(pin)"
+        [attr.aria-label]="pin.country"
+        title="{{ pin.country }}"
+      >
+        <span class="pin-flag">{{ pin.flag }}</span>
+      </button>
+    </div>
+  </div>
+</ion-content>

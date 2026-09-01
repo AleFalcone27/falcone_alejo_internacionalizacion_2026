@@ -1,0 +1,104 @@
+.splash-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: var(--blanco);
+    overflow: hidden;
+
+    .app-title {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-top: 5dvh;
+        color: var(--blanco);
+        opacity: 0;
+        transition: opacity 1.5s ease;
+        z-index: 2;
+
+        &.visible {
+            opacity: 1;
+        }
+    }
+
+    .splash-logo {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 20px;
+        animation: zoomIn 1s ease-in-out;
+        z-index: 2;
+    }
+
+    .wave {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: var(--naranja);
+        border-radius: 50%;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 1;
+        transition: transform 5s ease-in-out;
+    }
+
+    .wave.expand {
+        transform: translate(-50%, -50%) scale(560);
+    }
+
+    .names {
+        text-align: center;
+        z-index: 2;
+    }
+
+    .name1,
+    .name2,
+    .name3 {
+        color: var(--blanco);
+        font-weight: 400;
+        font-size: 2.5rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease, transform 1s ease;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes expandFullScreen {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(50);
+    opacity: 1;
+  }
+}
+
+.splash-logo.expand {
+  animation: expandFullScreen 1s ease-in-out forwards;
+  z-index: 10;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}

@@ -1,0 +1,30 @@
+{
+  "SPLASH": {
+    "LOGO_ALT": "Nembo ya InterProto"
+  },
+  "MAP": {
+    "TITLE": "Chagua eneo",
+    "INSTRUCTIONS": "Gusa pini kwenye ramani ili kuiga mahali ulipo kwa GPS. Lugha ya programu itabadilika kulingana na nchi hiyo.",
+    "CONTINENT_AMERICA": "Amerika",
+    "CONTINENT_EUROPE": "Ulaya",
+    "CONTINENT_ASIA": "Asia",
+    "CONTINENT_AFRICA": "Afrika",
+    "CONTINENT_OCEANIA": "Oseania"
+  },
+  "DEMO": {
+    "TITLE": "Onyesho la InterProto",
+    "INTRO_TEXT": "Kulingana na eneo ulilochagua kwenye ramani, skrini hii sasa inaonyeshwa kwa lugha ya eneo hilo.",
+    "LIST_TITLE": "Unachoweza kufanya hapa",
+    "LIST_ITEM_1": "Chunguza programu kwa lugha mpya",
+    "LIST_ITEM_2": "Gundua maudhui ya eneo hilo",
+    "LIST_ITEM_3": "Shiriki uzoefu wako",
+    "LIST_ITEM_4": "Ungana na wasafiri wengine",
+    "BACK_BUTTON": "Rudi kwenye ramani",
+    "MENU_BUTTON": "Fungua menyu",
+    "MENU_TITLE": "Chaguo",
+    "MENU_OPTION_1": "Ongeza kwenye vipendwa",
+    "MENU_OPTION_2": "Shiriki",
+    "MENU_OPTION_3": "Maelezo zaidi",
+    "MENU_CANCEL": "Ghairi"
+  }
+}

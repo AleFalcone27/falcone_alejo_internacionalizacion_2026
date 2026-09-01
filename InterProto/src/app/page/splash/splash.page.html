@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+  <div class="splash-container">
+
+    <h1 class="app-title" [class.visible]="showTitle">InterProto</h1>
+    <img src="../../../assets/icon/favicon.svg" [attr.alt]="'SPLASH.LOGO_ALT' | translate" class="splash-logo" />
+
+    <div class="wave" [class.expand]="showWave"></div>
+
+    <div class="names">
+      <h2 class="name1" [class.visible]="showAlejo">Alejo Falcone</h2>
+      <h2 class="name2" [class.visible]="showIgnacio">Ignacio Fachado</h2>
+      <h2 class="name3" [class.visible]="showAgustin">Agustin Mondani</h2>
+    </div>
+  </div>
+</ion-content>

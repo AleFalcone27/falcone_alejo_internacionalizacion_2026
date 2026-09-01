@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>{{ 'DEMO.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="demo-screen">
+
+    <div class="demo-main">
+      <h2 class="country-heading">
+        <span class="flag">{{ location().flag }}</span>
+        {{ location().country }}
+      </h2>
+      <p class="continent">{{ location().continent }} · {{ location().lang }}</p>
+
+      <p class="intro-text">{{ 'DEMO.INTRO_TEXT' | translate }}</p>
+
+      <h3 class="list-title">{{ 'DEMO.LIST_TITLE' | translate }}</h3>
+      <ion-list>
+        <ion-item *ngFor="let item of listItems">
+          <ion-icon name="restaurant-outline" slot="start"></ion-icon>
+          <ion-label>{{ item | translate }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="actions">
+      <ion-button expand="block" fill="outline" (click)="goBackToMap()">
+        <ion-icon name="arrow-back" slot="start"></ion-icon>
+        {{ 'DEMO.BACK_BUTTON' | translate }}
+      </ion-button>
+
+      <ion-button expand="block" (click)="openMenu()">
+        {{ 'DEMO.MENU_BUTTON' | translate }}
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

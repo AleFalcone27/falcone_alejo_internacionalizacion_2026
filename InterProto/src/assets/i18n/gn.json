@@ -1,0 +1,30 @@
+{
+  "SPLASH": {
+    "LOGO_ALT": "InterProto rehegua"
+  },
+  "MAP": {
+    "TITLE": "Eiporavo peteĩ tenda",
+    "INSTRUCTIONS": "Eipoko peteĩ pin mapa ári embohasávo nde GPS renda. Ñe'ẽ App-pegua oñemoambue upe tetã ári.",
+    "CONTINENT_AMERICA": "Amérika",
+    "CONTINENT_EUROPE": "Europa",
+    "CONTINENT_ASIA": "Ásia",
+    "CONTINENT_AFRICA": "África",
+    "CONTINENT_OCEANIA": "Oseanía"
+  },
+  "DEMO": {
+    "TITLE": "InterProto Demo",
+    "INTRO_TEXT": "Reiporavo haguére peteĩ tenda mapa ári, ko pantalla ohechauka ko'ág̃a upe tetã ñe'ẽme.",
+    "LIST_TITLE": "Mba'épa ikatu rejapo ápe",
+    "LIST_ITEM_1": "Eikundaha App-pe peteĩ ñe'ẽ pyahúpe",
+    "LIST_ITEM_2": "Ejuhu mba'e local",
+    "LIST_ITEM_3": "Emoherakuã nde rembiasakue",
+    "LIST_ITEM_4": "Eñemoirũ ambue viajero ndive",
+    "BACK_BUTTON": "Eho jey mapa-pe",
+    "MENU_BUTTON": "Eipe'a menú",
+    "MENU_TITLE": "Poravo'ãha",
+    "MENU_OPTION_1": "Emoĩ favoritos-pe",
+    "MENU_OPTION_2": "Emoherakuã",
+    "MENU_OPTION_3": "Marandu ambue",
+    "MENU_CANCEL": "Ehejapa"
+  }
+}
