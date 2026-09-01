@@ -57,6 +57,16 @@
 }
 
 
+ion-toolbar.app-toolbar {
+  --background: var(--naranja);
+  --color: var(--blanco);
+}
+
+ion-badge.app-badge {
+  --background: var(--naranja);
+  --color: var(--blanco);
+}
+
 .custom-spinner {
   position: fixed;
   top: 0;

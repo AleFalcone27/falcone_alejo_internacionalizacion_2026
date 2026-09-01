@@ -14,23 +14,19 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class SplashPage implements OnInit {
 
-  showWave = false;
+  showLogo = false;
   showTitle = false;
   showAlejo = false;
-  showIgnacio = false;
-  showAgustin = false;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    setTimeout(() => this.showWave = true, 1000);     // Wave -> 1s
-    setTimeout(() => this.showTitle = true, 1500);     // App title -> 2s
-    setTimeout(() => this.showAlejo = true, 3000);     // Nombres
-    setTimeout(() => this.showIgnacio = true, 3500);
-    setTimeout(() => this.showAgustin = true, 4000);
+    setTimeout(() => this.showLogo = true, 200);
+    setTimeout(() => this.showTitle = true, 900);
+    setTimeout(() => this.showAlejo = true, 1700);
     setTimeout(() => {
       this.router.navigateByUrl('/map');
-    }, 6000);
+    }, 3400);
   }
 
 }

@@ -1,6 +1,7 @@
 {
   "SPLASH": {
-    "LOGO_ALT": "Logo InterProto"
+    "LOGO_ALT": "Logo InterProto",
+    "TAGLINE": "Explorez le monde"
   },
   "MAP": {
     "TITLE": "Choisissez un lieu",
@@ -9,22 +10,39 @@
     "CONTINENT_EUROPE": "Europe",
     "CONTINENT_ASIA": "Asie",
     "CONTINENT_AFRICA": "Afrique",
-    "CONTINENT_OCEANIA": "Océanie"
+    "CONTINENT_OCEANIA": "Océanie",
+    "COUNTRY_LIST_TITLE": "Pays disponibles"
   },
   "DEMO": {
-    "TITLE": "Démo InterProto",
-    "INTRO_TEXT": "En fonction du lieu sélectionné sur la carte, cet écran s'affiche maintenant dans la langue locale.",
-    "LIST_TITLE": "Ce que vous pouvez faire ici",
-    "LIST_ITEM_1": "Explorer l'application dans une nouvelle langue",
-    "LIST_ITEM_2": "Découvrir du contenu local",
-    "LIST_ITEM_3": "Partager votre expérience",
-    "LIST_ITEM_4": "Vous connecter avec d'autres voyageurs",
-    "BACK_BUTTON": "Retour à la carte",
-    "MENU_BUTTON": "Ouvrir le menu",
-    "MENU_TITLE": "Options",
-    "MENU_OPTION_1": "Ajouter aux favoris",
-    "MENU_OPTION_2": "Partager",
-    "MENU_OPTION_3": "Plus d'informations",
-    "MENU_CANCEL": "Annuler"
+    "TITLE": "Informations sur le pays",
+    "CAPITAL": "Capitale",
+    "POPULATION": "Population",
+    "AREA": "Superficie",
+    "CURRENCY": "Monnaie",
+    "TIMEZONE": "Fuseau horaire",
+    "CALLING_CODE": "Indicatif téléphonique",
+    "LANGUAGE": "Langue",
+    "FUN_FACT": "Anecdote",
+    "BACK_BUTTON": "Retour à la carte"
+  },
+  "FUN_FACTS": {
+    "us": "Il possède le plus grand nombre de parcs nationaux au monde.",
+    "ca": "Il compte plus de lacs que le reste du monde réuni.",
+    "mx": "Il abrite la pyramide la plus volumineuse du monde, à Cholula.",
+    "gt": "Il a le lac le plus profond d'Amérique centrale, le lac Atitlán.",
+    "br": "Il abrite plus de 60% de la forêt amazonienne.",
+    "ar": "Il possède l'Aconcagua, le plus haut sommet des Amériques.",
+    "co": "C'est le pays à la plus grande diversité d'oiseaux au monde.",
+    "pe": "Le Machu Picchu est l'une des 7 merveilles du monde moderne.",
+    "cl": "Il possède le désert le plus aride du monde, l'Atacama.",
+    "py": "Le guarani est langue officielle aux côtés de l'espagnol.",
+    "es": "Il compte plus de bars par habitant que tout autre pays d'Europe.",
+    "de": "Il compte plus de 20 000 châteaux.",
+    "jp": "Il est composé de plus de 6 800 îles.",
+    "in": "Il reconnaît 22 langues officielles.",
+    "eg": "Les pyramides de Gizeh sont la seule merveille antique encore debout.",
+    "ke": "Il accueille chaque année la Grande Migration du Serengeti-Mara.",
+    "au": "Il compte plus de kangourous que d'habitants.",
+    "nz": "Il fut le premier pays à accorder le droit de vote aux femmes, en 1893."
   }
 }

@@ -1,6 +1,7 @@
 {
   "SPLASH": {
-    "LOGO_ALT": "Logo de InterProto"
+    "LOGO_ALT": "Logo de InterProto",
+    "TAGLINE": "Explorá el mundo"
   },
   "MAP": {
     "TITLE": "Elegí una ubicación",
@@ -9,22 +10,39 @@
     "CONTINENT_EUROPE": "Europa",
     "CONTINENT_ASIA": "Asia",
     "CONTINENT_AFRICA": "África",
-    "CONTINENT_OCEANIA": "Oceanía"
+    "CONTINENT_OCEANIA": "Oceanía",
+    "COUNTRY_LIST_TITLE": "Países disponibles"
   },
   "DEMO": {
-    "TITLE": "Demo de InterProto",
-    "INTRO_TEXT": "Según la ubicación que seleccionaste en el mapa, esta pantalla ahora se muestra en el idioma local.",
-    "LIST_TITLE": "Qué podés hacer acá",
-    "LIST_ITEM_1": "Explorar la app en un nuevo idioma",
-    "LIST_ITEM_2": "Descubrir contenido local",
-    "LIST_ITEM_3": "Compartir tu experiencia",
-    "LIST_ITEM_4": "Conectar con otros viajeros",
-    "BACK_BUTTON": "Volver al mapa",
-    "MENU_BUTTON": "Abrir menú",
-    "MENU_TITLE": "Opciones",
-    "MENU_OPTION_1": "Agregar a favoritos",
-    "MENU_OPTION_2": "Compartir",
-    "MENU_OPTION_3": "Más información",
-    "MENU_CANCEL": "Cancelar"
+    "TITLE": "Información del país",
+    "CAPITAL": "Capital",
+    "POPULATION": "Población",
+    "AREA": "Superficie",
+    "CURRENCY": "Moneda",
+    "TIMEZONE": "Huso horario",
+    "CALLING_CODE": "Código telefónico",
+    "LANGUAGE": "Idioma",
+    "FUN_FACT": "Dato curioso",
+    "BACK_BUTTON": "Volver al mapa"
+  },
+  "FUN_FACTS": {
+    "us": "Tiene el mayor número de parques nacionales del mundo.",
+    "ca": "Tiene más lagos que el resto del mundo junto.",
+    "mx": "Alberga la pirámide de mayor volumen del mundo, en Cholula.",
+    "gt": "Tiene el lago más profundo de Centroamérica, el Atitlán.",
+    "br": "Alberga más del 60% de la selva amazónica.",
+    "ar": "Tiene el Aconcagua, el pico más alto de América.",
+    "co": "Es el país con mayor diversidad de aves del mundo.",
+    "pe": "Machu Picchu es una de las 7 maravillas del mundo moderno.",
+    "cl": "Tiene el desierto más árido del mundo, el Atacama.",
+    "py": "El guaraní es idioma oficial junto al español.",
+    "es": "Tiene más bares por habitante que cualquier otro país de Europa.",
+    "de": "Tiene más de 20.000 castillos.",
+    "jp": "Está formado por más de 6.800 islas.",
+    "in": "Reconoce 22 idiomas oficiales.",
+    "eg": "Las pirámides de Giza son la única maravilla antigua que aún existe.",
+    "ke": "Es sede de la Gran Migración anual del Serengeti-Mara.",
+    "au": "Tiene más canguros que personas.",
+    "nz": "Fue el primer país en otorgar el voto a las mujeres, en 1893."
   }
 }

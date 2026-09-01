@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="warning">
+  <ion-toolbar class="app-toolbar">
     <ion-title>{{ 'MAP.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,31 +8,59 @@
   <div class="map-screen">
     <p class="instructions">{{ 'MAP.INSTRUCTIONS' | translate }}</p>
 
-    <div class="continent-tabs">
-      <button
-        *ngFor="let continent of continents"
-        class="continent-tab"
-        [class.active]="continent.id === selectedContinent()"
-        (click)="selectContinent(continent.id)"
-      >
-        {{ continent.labelKey | translate }}
-      </button>
-    </div>
+    <div
+      class="map-wrapper"
+      [style.aspect-ratio]="containerAspectRatio"
+      [style.--continent-aspect]="containerAspectRatio"
+    >
+      <img
+        class="map-image"
+        [src]="continentPhoto()"
+        (load)="onPhotoLoad()"
+        (error)="onPhotoLoad()"
+        [alt]="selectedContinent()"
+      />
 
-    <div class="map-wrapper">
-      <img src="assets/world-map/world-map.svg" class="map-image" alt="World map" />
+      <div class="continent-tabs">
+        <button
+          *ngFor="let continent of continents"
+          class="continent-tab"
+          [class.active]="continent.id === selectedContinent()"
+          (click)="selectContinent(continent.id)"
+        >
+          {{ continent.labelKey | translate }}
+        </button>
+      </div>
+
+      <div class="spinner-overlay" *ngIf="loadingPhoto()">
+        <ion-spinner name="crescent"></ion-spinner>
+      </div>
 
       <button
         *ngFor="let pin of pins()"
         class="pin"
-        [style.left.%]="pin.mapX"
-        [style.top.%]="pin.mapY"
+        [style.left.%]="pinPosition(pin).left"
+        [style.top.%]="pinPosition(pin).top"
         (click)="selectPin(pin)"
         [attr.aria-label]="pin.country"
         title="{{ pin.country }}"
       >
         <span class="pin-flag">{{ pin.flag }}</span>
       </button>
+    </div>
+
+    <div class="country-list">
+      <h3 class="country-list-title">{{ 'MAP.COUNTRY_LIST_TITLE' | translate }}</h3>
+      <div class="country-chips">
+        <button
+          *ngFor="let pin of pins()"
+          class="country-chip"
+          (click)="selectPin(pin)"
+        >
+          <span class="chip-flag">{{ pin.flag }}</span>
+          {{ pin.country }}
+        </button>
+      </div>
     </div>
   </div>
 </ion-content>

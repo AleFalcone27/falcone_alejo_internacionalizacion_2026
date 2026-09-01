@@ -1,6 +1,7 @@
 {
   "SPLASH": {
-    "LOGO_ALT": "InterProto logo"
+    "LOGO_ALT": "InterProto logo",
+    "TAGLINE": "Explore the world"
   },
   "MAP": {
     "TITLE": "Pick a location",
@@ -9,22 +10,39 @@
     "CONTINENT_EUROPE": "Europe",
     "CONTINENT_ASIA": "Asia",
     "CONTINENT_AFRICA": "Africa",
-    "CONTINENT_OCEANIA": "Oceania"
+    "CONTINENT_OCEANIA": "Oceania",
+    "COUNTRY_LIST_TITLE": "Available countries"
   },
   "DEMO": {
-    "TITLE": "InterProto Demo",
-    "INTRO_TEXT": "Based on the location you selected on the map, this screen is now shown in the local language.",
-    "LIST_TITLE": "What you can do here",
-    "LIST_ITEM_1": "Explore the app in a new language",
-    "LIST_ITEM_2": "Discover local content",
-    "LIST_ITEM_3": "Share your experience",
-    "LIST_ITEM_4": "Connect with other travelers",
-    "BACK_BUTTON": "Back to map",
-    "MENU_BUTTON": "Open menu",
-    "MENU_TITLE": "Options",
-    "MENU_OPTION_1": "Add to favorites",
-    "MENU_OPTION_2": "Share",
-    "MENU_OPTION_3": "More info",
-    "MENU_CANCEL": "Cancel"
+    "TITLE": "Country information",
+    "CAPITAL": "Capital",
+    "POPULATION": "Population",
+    "AREA": "Area",
+    "CURRENCY": "Currency",
+    "TIMEZONE": "Timezone",
+    "CALLING_CODE": "Calling code",
+    "LANGUAGE": "Language",
+    "FUN_FACT": "Fun fact",
+    "BACK_BUTTON": "Back to map"
+  },
+  "FUN_FACTS": {
+    "us": "It has the largest number of national parks in the world.",
+    "ca": "It has more lakes than the rest of the world combined.",
+    "mx": "It's home to the largest pyramid by volume in the world, in Cholula.",
+    "gt": "It has the deepest lake in Central America, Lake Atitlán.",
+    "br": "It contains over 60% of the Amazon rainforest.",
+    "ar": "It has Aconcagua, the highest peak in the Americas.",
+    "co": "It's the country with the greatest bird diversity in the world.",
+    "pe": "Machu Picchu is one of the 7 wonders of the modern world.",
+    "cl": "It has the driest desert in the world, the Atacama.",
+    "py": "Guaraní is an official language alongside Spanish.",
+    "es": "It has more bars per capita than any other country in Europe.",
+    "de": "It has more than 20,000 castles.",
+    "jp": "It's made up of more than 6,800 islands.",
+    "in": "It recognizes 22 official languages.",
+    "eg": "The Pyramids of Giza are the only ancient wonder still standing.",
+    "ke": "It hosts the annual Serengeti-Mara Great Migration.",
+    "au": "It has more kangaroos than people.",
+    "nz": "It was the first country to grant women the right to vote, in 1893."
   }
 }

@@ -1,6 +1,7 @@
 {
   "SPLASH": {
-    "LOGO_ALT": "Logo do InterProto"
+    "LOGO_ALT": "Logo do InterProto",
+    "TAGLINE": "Explore o mundo"
   },
   "MAP": {
     "TITLE": "Escolha um local",
@@ -9,22 +10,39 @@
     "CONTINENT_EUROPE": "Europa",
     "CONTINENT_ASIA": "Ásia",
     "CONTINENT_AFRICA": "África",
-    "CONTINENT_OCEANIA": "Oceania"
+    "CONTINENT_OCEANIA": "Oceania",
+    "COUNTRY_LIST_TITLE": "Países disponíveis"
   },
   "DEMO": {
-    "TITLE": "Demo do InterProto",
-    "INTRO_TEXT": "Com base no local selecionado no mapa, esta tela agora é exibida no idioma local.",
-    "LIST_TITLE": "O que você pode fazer aqui",
-    "LIST_ITEM_1": "Explorar o app em um novo idioma",
-    "LIST_ITEM_2": "Descobrir conteúdo local",
-    "LIST_ITEM_3": "Compartilhar sua experiência",
-    "LIST_ITEM_4": "Conectar-se com outros viajantes",
-    "BACK_BUTTON": "Voltar ao mapa",
-    "MENU_BUTTON": "Abrir menu",
-    "MENU_TITLE": "Opções",
-    "MENU_OPTION_1": "Adicionar aos favoritos",
-    "MENU_OPTION_2": "Compartilhar",
-    "MENU_OPTION_3": "Mais informações",
-    "MENU_CANCEL": "Cancelar"
+    "TITLE": "Informações do país",
+    "CAPITAL": "Capital",
+    "POPULATION": "População",
+    "AREA": "Área",
+    "CURRENCY": "Moeda",
+    "TIMEZONE": "Fuso horário",
+    "CALLING_CODE": "Código telefônico",
+    "LANGUAGE": "Idioma",
+    "FUN_FACT": "Curiosidade",
+    "BACK_BUTTON": "Voltar ao mapa"
+  },
+  "FUN_FACTS": {
+    "us": "Tem o maior número de parques nacionais do mundo.",
+    "ca": "Tem mais lagos do que o resto do mundo somado.",
+    "mx": "Abriga a pirâmide de maior volume do mundo, em Cholula.",
+    "gt": "Tem o lago mais profundo da América Central, o Atitlán.",
+    "br": "Abriga mais de 60% da floresta amazônica.",
+    "ar": "Tem o Aconcágua, o pico mais alto das Américas.",
+    "co": "É o país com maior diversidade de aves do mundo.",
+    "pe": "Machu Picchu é uma das 7 maravilhas do mundo moderno.",
+    "cl": "Tem o deserto mais árido do mundo, o Atacama.",
+    "py": "O guarani é idioma oficial junto com o espanhol.",
+    "es": "Tem mais bares por habitante do que qualquer outro país da Europa.",
+    "de": "Tem mais de 20.000 castelos.",
+    "jp": "É formado por mais de 6.800 ilhas.",
+    "in": "Reconhece 22 idiomas oficiais.",
+    "eg": "As pirâmides de Gizé são a única maravilha antiga que ainda existe.",
+    "ke": "Sedia a Grande Migração anual do Serengeti-Mara.",
+    "au": "Tem mais cangurus do que pessoas.",
+    "nz": "Foi o primeiro país a conceder o voto às mulheres, em 1893."
   }
 }

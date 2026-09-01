@@ -1,6 +1,7 @@
 {
   "SPLASH": {
-    "LOGO_ALT": "Nembo ya InterProto"
+    "LOGO_ALT": "Nembo ya InterProto",
+    "TAGLINE": "Gundua ulimwengu"
   },
   "MAP": {
     "TITLE": "Chagua eneo",
@@ -9,22 +10,39 @@
     "CONTINENT_EUROPE": "Ulaya",
     "CONTINENT_ASIA": "Asia",
     "CONTINENT_AFRICA": "Afrika",
-    "CONTINENT_OCEANIA": "Oseania"
+    "CONTINENT_OCEANIA": "Oseania",
+    "COUNTRY_LIST_TITLE": "Nchi zinazopatikana"
   },
   "DEMO": {
-    "TITLE": "Onyesho la InterProto",
-    "INTRO_TEXT": "Kulingana na eneo ulilochagua kwenye ramani, skrini hii sasa inaonyeshwa kwa lugha ya eneo hilo.",
-    "LIST_TITLE": "Unachoweza kufanya hapa",
-    "LIST_ITEM_1": "Chunguza programu kwa lugha mpya",
-    "LIST_ITEM_2": "Gundua maudhui ya eneo hilo",
-    "LIST_ITEM_3": "Shiriki uzoefu wako",
-    "LIST_ITEM_4": "Ungana na wasafiri wengine",
-    "BACK_BUTTON": "Rudi kwenye ramani",
-    "MENU_BUTTON": "Fungua menyu",
-    "MENU_TITLE": "Chaguo",
-    "MENU_OPTION_1": "Ongeza kwenye vipendwa",
-    "MENU_OPTION_2": "Shiriki",
-    "MENU_OPTION_3": "Maelezo zaidi",
-    "MENU_CANCEL": "Ghairi"
+    "TITLE": "Taarifa za nchi",
+    "CAPITAL": "Mji mkuu",
+    "POPULATION": "Idadi ya watu",
+    "AREA": "Eneo",
+    "CURRENCY": "Sarafu",
+    "TIMEZONE": "Eneo la saa",
+    "CALLING_CODE": "Msimbo wa simu",
+    "LANGUAGE": "Lugha",
+    "FUN_FACT": "Jambo la kuvutia",
+    "BACK_BUTTON": "Rudi kwenye ramani"
+  },
+  "FUN_FACTS": {
+    "us": "Ina idadi kubwa zaidi ya mbuga za kitaifa duniani.",
+    "ca": "Ina maziwa mengi kuliko sehemu nyingine yote ya dunia ikijumlishwa.",
+    "mx": "Ina piramidi yenye ujazo mkubwa zaidi duniani, huko Cholula.",
+    "gt": "Ina ziwa refu zaidi Amerika ya Kati, Atitlán.",
+    "br": "Ina zaidi ya asilimia 60 ya msitu wa mvua wa Amazoni.",
+    "ar": "Ina Aconcagua, mlima mrefu zaidi Amerika.",
+    "co": "Ni nchi yenye aina nyingi zaidi za ndege duniani.",
+    "pe": "Machu Picchu ni mojawapo ya maajabu 7 mapya ya dunia.",
+    "cl": "Ina jangwa kame zaidi duniani, Atacama.",
+    "py": "Kiguarani ni lugha rasmi pamoja na Kihispania.",
+    "es": "Ina baa nyingi kwa kila mtu kuliko nchi nyingine yoyote barani Ulaya.",
+    "de": "Ina zaidi ya ngome 20,000.",
+    "jp": "Inaundwa na visiwa zaidi ya 6,800.",
+    "in": "Inatambua lugha rasmi 22.",
+    "eg": "Piramidi za Giza ndilo ajabu pekee la dunia ya kale lililobaki.",
+    "ke": "Ni mwenyeji wa uhamiaji mkubwa wa kila mwaka wa Serengeti-Mara.",
+    "au": "Ina kangaruu wengi kuliko watu.",
+    "nz": "Ilikuwa nchi ya kwanza kuwapa wanawake haki ya kupiga kura, mwaka 1893."
   }
 }

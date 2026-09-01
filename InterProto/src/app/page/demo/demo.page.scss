@@ -1,8 +1,8 @@
 .demo-screen {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
   justify-content: center;
   gap: 32px;
   padding: 20px 24px;
@@ -28,6 +28,10 @@
   .flag {
     font-size: 2.2rem;
   }
+
+  ion-badge {
+    font-size: 0.8rem;
+  }
 }
 
 .continent {
@@ -44,9 +48,21 @@
   font-size: 1.05rem;
 }
 
-.list-title {
+.stats-list {
+  margin-bottom: 16px;
+}
+
+.fun-fact-accordion {
+  margin-bottom: 20px;
+  border-radius: var(--redondeado, 8px);
+  overflow: hidden;
+}
+
+.fun-fact-content {
+  padding: 12px 16px 16px;
   color: var(--negro);
-  margin-bottom: 4px;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 .actions {

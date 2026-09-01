@@ -1,6 +1,7 @@
 {
   "SPLASH": {
-    "LOGO_ALT": "InterProto-Logo"
+    "LOGO_ALT": "InterProto-Logo",
+    "TAGLINE": "Entdecke die Welt"
   },
   "MAP": {
     "TITLE": "Wähle einen Ort",
@@ -9,22 +10,39 @@
     "CONTINENT_EUROPE": "Europa",
     "CONTINENT_ASIA": "Asien",
     "CONTINENT_AFRICA": "Afrika",
-    "CONTINENT_OCEANIA": "Ozeanien"
+    "CONTINENT_OCEANIA": "Ozeanien",
+    "COUNTRY_LIST_TITLE": "Verfügbare Länder"
   },
   "DEMO": {
-    "TITLE": "InterProto Demo",
-    "INTRO_TEXT": "Basierend auf dem auf der Karte ausgewählten Standort wird dieser Bildschirm nun in der Landessprache angezeigt.",
-    "LIST_TITLE": "Was du hier tun kannst",
-    "LIST_ITEM_1": "Die App in einer neuen Sprache erkunden",
-    "LIST_ITEM_2": "Lokale Inhalte entdecken",
-    "LIST_ITEM_3": "Deine Erfahrung teilen",
-    "LIST_ITEM_4": "Dich mit anderen Reisenden vernetzen",
-    "BACK_BUTTON": "Zurück zur Karte",
-    "MENU_BUTTON": "Menü öffnen",
-    "MENU_TITLE": "Optionen",
-    "MENU_OPTION_1": "Zu Favoriten hinzufügen",
-    "MENU_OPTION_2": "Teilen",
-    "MENU_OPTION_3": "Mehr Informationen",
-    "MENU_CANCEL": "Abbrechen"
+    "TITLE": "Länderinformationen",
+    "CAPITAL": "Hauptstadt",
+    "POPULATION": "Bevölkerung",
+    "AREA": "Fläche",
+    "CURRENCY": "Währung",
+    "TIMEZONE": "Zeitzone",
+    "CALLING_CODE": "Landesvorwahl",
+    "LANGUAGE": "Sprache",
+    "FUN_FACT": "Wissenswertes",
+    "BACK_BUTTON": "Zurück zur Karte"
+  },
+  "FUN_FACTS": {
+    "us": "Es hat die meisten Nationalparks der Welt.",
+    "ca": "Es hat mehr Seen als der Rest der Welt zusammen.",
+    "mx": "Hier steht die volumenmäßig größte Pyramide der Welt, in Cholula.",
+    "gt": "Es hat den tiefsten See Mittelamerikas, den Atitlán-See.",
+    "br": "Über 60% des Amazonas-Regenwaldes liegen hier.",
+    "ar": "Hier liegt der Aconcagua, der höchste Gipfel Amerikas.",
+    "co": "Es ist das Land mit der größten Vogelvielfalt der Welt.",
+    "pe": "Machu Picchu ist eines der 7 neuen Weltwunder.",
+    "cl": "Es hat die trockenste Wüste der Welt, die Atacama.",
+    "py": "Guaraní ist neben Spanisch Amtssprache.",
+    "es": "Es hat mehr Bars pro Einwohner als jedes andere Land Europas.",
+    "de": "Es hat mehr als 20.000 Burgen und Schlösser.",
+    "jp": "Es besteht aus mehr als 6.800 Inseln.",
+    "in": "Es erkennt 22 Amtssprachen an.",
+    "eg": "Die Pyramiden von Gizeh sind das einzige noch erhaltene antike Weltwunder.",
+    "ke": "Hier findet jährlich die große Serengeti-Mara-Migration statt.",
+    "au": "Es gibt mehr Kängurus als Menschen.",
+    "nz": "Es war 1893 das erste Land, das Frauen das Wahlrecht gab."
   }
 }

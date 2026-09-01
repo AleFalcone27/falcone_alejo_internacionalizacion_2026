@@ -1,6 +1,7 @@
 {
   "SPLASH": {
-    "LOGO_ALT": "InterProto rehegua"
+    "LOGO_ALT": "InterProto rehegua",
+    "TAGLINE": "Ejúhu pe múndo"
   },
   "MAP": {
     "TITLE": "Eiporavo peteĩ tenda",
@@ -9,22 +10,39 @@
     "CONTINENT_EUROPE": "Europa",
     "CONTINENT_ASIA": "Ásia",
     "CONTINENT_AFRICA": "África",
-    "CONTINENT_OCEANIA": "Oseanía"
+    "CONTINENT_OCEANIA": "Oseanía",
+    "COUNTRY_LIST_TITLE": "Tetã ojehupytýva"
   },
   "DEMO": {
-    "TITLE": "InterProto Demo",
-    "INTRO_TEXT": "Reiporavo haguére peteĩ tenda mapa ári, ko pantalla ohechauka ko'ág̃a upe tetã ñe'ẽme.",
-    "LIST_TITLE": "Mba'épa ikatu rejapo ápe",
-    "LIST_ITEM_1": "Eikundaha App-pe peteĩ ñe'ẽ pyahúpe",
-    "LIST_ITEM_2": "Ejuhu mba'e local",
-    "LIST_ITEM_3": "Emoherakuã nde rembiasakue",
-    "LIST_ITEM_4": "Eñemoirũ ambue viajero ndive",
-    "BACK_BUTTON": "Eho jey mapa-pe",
-    "MENU_BUTTON": "Eipe'a menú",
-    "MENU_TITLE": "Poravo'ãha",
-    "MENU_OPTION_1": "Emoĩ favoritos-pe",
-    "MENU_OPTION_2": "Emoherakuã",
-    "MENU_OPTION_3": "Marandu ambue",
-    "MENU_CANCEL": "Ehejapa"
+    "TITLE": "Tetã rehegua marandu",
+    "CAPITAL": "Táva guasu",
+    "POPULATION": "Tapichakuéra",
+    "AREA": "Tuichakue",
+    "CURRENCY": "Pláta",
+    "TIMEZONE": "Aravo",
+    "CALLING_CODE": "Código telefónico",
+    "LANGUAGE": "Ñe'ẽ",
+    "FUN_FACT": "Marandu iporãva",
+    "BACK_BUTTON": "Eho jey mapa-pe"
+  },
+  "FUN_FACTS": {
+    "us": "Oguereko heta parque nacional ko yvy ape ári.",
+    "ca": "Oguereko sa'y hetave opa mundo ambue rehe.",
+    "mx": "Upépe oĩ pirámide tuichavéva ko yvy ape ári, Cholula-pe.",
+    "gt": "Oguereko y guasu pypuku Amérika Central-pe, Atitlán héra.",
+    "br": "Upépe oĩ 60% amazona ka'aguy guasu.",
+    "ar": "Oguereko Aconcagua, yvyty yvate-vé Amérika-pe.",
+    "co": "Ha'e tetã guyra reta heta-vévape ko yvy ape ári.",
+    "pe": "Machu Picchu ha'e peteĩ 7 tetã marandu pyahu-gui.",
+    "cl": "Oguereko yvy ykua'ỹva ko yvy ape ári, Atacama héra.",
+    "py": "Guaraní ha'e ñe'ẽ tee castellano ndive.",
+    "es": "Oguereko bar heta-ve peteĩcha tapichápe opa Europa-gui.",
+    "de": "Oguereko 20.000 castillo hetave.",
+    "jp": "Ojejapo 6.800 yvy'i-gui.",
+    "in": "Omomba'e guasu 22 ñe'ẽ tee.",
+    "eg": "Pirámide Giza-pegua ha'e pe marandu tuja opytáva gueteri.",
+    "ke": "Upépe ojehecha ary ary Serengeti-Mara migración guasu.",
+    "au": "Oguereko canguro hetave tapicha-gui.",
+    "nz": "Ha'e tetã peteĩha kuñanguéra omoĩ hagua ijehe voto, 1893-pe."
   }
 }
