@@ -1363,7 +1363,7 @@ async liberarMesa(pedido: { id: number }) {
 
 
   async obtenerTodasLasEncuestas() {
-  const { data, error } = await this.supabase.from('encuestas').select('*');
+  const { data, error } = await this.supabase.from('encuestas').select('*').order('created_at', { ascending: false });
   console.log('Datos obtenidos de supabase:', data, 'Error:', error);
   if (error) {
     console.error('Error al traer encuestas:', error);

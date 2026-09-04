@@ -110,6 +110,7 @@ export type Reserva = {
 
 export type Encuesta = {
     id?: number;
+    created_at?: string;
     calificacionGeneral: number;
     calificacionComida: number;
     calificacionAtencion: number;
