@@ -17,6 +17,7 @@
       <div class="respuesta-box" [class.respondida]="p.respuesta">
         <p *ngIf="p.respuesta" class="respuesta-texto">
           <strong>{{ 'PREGUNTAS_CLIENTE.ANSWER_LABEL' | translate }}</strong> {{ p.respuesta }}
+          <span *ngIf="p.fecha_respuesta" class="respuesta-fecha">({{ p.fecha_respuesta | date:'dd/MM/yyyy HH:mm' }})</span>
         </p>
         <p *ngIf="!p.respuesta" class="esperando">
           <em>{{ 'PREGUNTAS_CLIENTE.WAITING_ANSWER' | translate }}</em>
