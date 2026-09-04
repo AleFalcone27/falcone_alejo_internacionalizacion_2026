@@ -41,7 +41,17 @@
     "REPEAT_PASSWORD_PLACEHOLDER": "Passwort wiederholen",
     "SCAN_QR_BUTTON": "QR SCANNEN",
     "TAKE_PHOTO_BUTTON": "FOTO AUFNEHMEN",
-    "TITLE": "NEUER KUNDE"
+    "TITLE": "NEUER KUNDE",
+    "FIELD_NAMES": {
+      "nombre": "Name",
+      "apellido": "Nachname",
+      "email": "E-Mail",
+      "contraseña": "Passwort",
+      "repetirContraseña": "Passwort wiederholen",
+      "dni": "Ausweisnummer",
+      "fechaNacimiento": "Geburtsdatum",
+      "foto": "Foto"
+    }
   },
   "ALTA_MESA": {
     "BABY_FRIENDLY_LABEL": "Babyfreundlich",

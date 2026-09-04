@@ -41,7 +41,17 @@
     "REPEAT_PASSWORD_PLACEHOLDER": "Повторите пароль",
     "SCAN_QR_BUTTON": "СКАНИРОВАТЬ QR",
     "TAKE_PHOTO_BUTTON": "СДЕЛАТЬ ФОТО",
-    "TITLE": "НОВЫЙ КЛИЕНТ"
+    "TITLE": "НОВЫЙ КЛИЕНТ",
+    "FIELD_NAMES": {
+      "nombre": "Имя",
+      "apellido": "Фамилия",
+      "email": "Эл. почта",
+      "contraseña": "Пароль",
+      "repetirContraseña": "Повторите пароль",
+      "dni": "Номер документа",
+      "fechaNacimiento": "Дата рождения",
+      "foto": "Фото"
+    }
   },
   "ALTA_MESA": {
     "BABY_FRIENDLY_LABEL": "Подходит для детей",

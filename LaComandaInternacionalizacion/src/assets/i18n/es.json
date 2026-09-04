@@ -41,7 +41,17 @@
     "REPEAT_PASSWORD_PLACEHOLDER": "Repetir contraseña",
     "SCAN_QR_BUTTON": "ESCANEAR QR",
     "TAKE_PHOTO_BUTTON": "TOMAR FOTO",
-    "TITLE": "NUEVO CLIENTE"
+    "TITLE": "NUEVO CLIENTE",
+    "FIELD_NAMES": {
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "email": "Correo electrónico",
+      "contraseña": "Contraseña",
+      "repetirContraseña": "Repetir contraseña",
+      "dni": "DNI",
+      "fechaNacimiento": "Fecha de nacimiento",
+      "foto": "Foto"
+    }
   },
   "ALTA_MESA": {
     "BABY_FRIENDLY_LABEL": "Apta bebés",

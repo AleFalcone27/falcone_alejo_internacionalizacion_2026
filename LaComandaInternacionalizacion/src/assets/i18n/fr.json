@@ -41,7 +41,17 @@
     "REPEAT_PASSWORD_PLACEHOLDER": "Répéter le mot de passe",
     "SCAN_QR_BUTTON": "SCANNER LE QR",
     "TAKE_PHOTO_BUTTON": "PRENDRE UNE PHOTO",
-    "TITLE": "NOUVEAU CLIENT"
+    "TITLE": "NOUVEAU CLIENT",
+    "FIELD_NAMES": {
+      "nombre": "Prénom",
+      "apellido": "Nom",
+      "email": "E-mail",
+      "contraseña": "Mot de passe",
+      "repetirContraseña": "Répéter le mot de passe",
+      "dni": "Numéro de carte d'identité",
+      "fechaNacimiento": "Date de naissance",
+      "foto": "Photo"
+    }
   },
   "ALTA_MESA": {
     "BABY_FRIENDLY_LABEL": "Adaptée aux bébés",

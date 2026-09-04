@@ -213,11 +213,12 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
     for (const key in this.registroForm.controls) {
       const control = this.registroForm.get(key);
       if (control?.invalid) {
-        if (control.errors?.['required']) return this.translate.instant('ALTA_CLIENTE.FIELD_REQUIRED', { field: key });
-        if (control.errors?.['email']) return this.translate.instant('ALTA_CLIENTE.FIELD_INVALID_EMAIL', { field: key });
+        const field = this.translate.instant('ALTA_CLIENTE.FIELD_NAMES.' + key);
+        if (control.errors?.['required']) return this.translate.instant('ALTA_CLIENTE.FIELD_REQUIRED', { field });
+        if (control.errors?.['email']) return this.translate.instant('ALTA_CLIENTE.FIELD_INVALID_EMAIL', { field });
         if (control.errors?.['minlength']) {
           const min = control.errors['minlength'].requiredLength;
-          return this.translate.instant('ALTA_CLIENTE.FIELD_MIN_LENGTH', { field: key, min: min });
+          return this.translate.instant('ALTA_CLIENTE.FIELD_MIN_LENGTH', { field, min: min });
         }
       }
     }
