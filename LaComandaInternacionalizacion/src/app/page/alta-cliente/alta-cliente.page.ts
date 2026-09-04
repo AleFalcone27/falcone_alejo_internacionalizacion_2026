@@ -12,6 +12,7 @@ import { UiService } from '../../services/ui/ui.service';
 import { QRCodeScannerService } from 'src/app/services/qRCodeScanenr/q-rcode-scanner.service';
 import { AppComponent } from 'src/app/app.component';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { dniData1 } from 'src/app/models';
 
 @Component({
   selector: 'app-alta-cliente',
@@ -59,21 +60,33 @@ export class AltaClientePage implements OnInit, ViewWillEnter {
   }
 
   completarDesdeQR(data: string) {
-    const partes = data.split('@');
-    if (partes.length >= 6) {
-      const dni = partes[4];
-      const apellido = this.capitalize(partes[1]);
-      const nombre = this.capitalize(partes[2]);
-      const fechaNacimiento = partes[5];
-      const valoresActuales = this.registroForm.value;
+    let dni: string;
+    let apellido: string;
+    let nombre: string;
+    let fechaNacimiento: string;
 
-      this.registroForm.patchValue({
-        dni: valoresActuales.dni || dni,
-        apellido: valoresActuales.apellido || apellido,
-        nombre: valoresActuales.nombre || nombre,
-        fechaNacimiento: valoresActuales.fechaNacimiento || fechaNacimiento,
-      });
+    try {
+      const dniData: dniData1 = JSON.parse(data);
+      dni = dniData.dni;
+      apellido = this.capitalize(dniData.apellido);
+      nombre = this.capitalize(dniData.nombre);
+      fechaNacimiento = dniData.fechaNacimiento;
+    } catch {
+      const partes = data.split('@');
+      if (partes.length < 6) return;
+      dni = partes[4];
+      apellido = this.capitalize(partes[1]);
+      nombre = this.capitalize(partes[2]);
+      fechaNacimiento = partes[5];
     }
+
+    const valoresActuales = this.registroForm.value;
+    this.registroForm.patchValue({
+      dni: valoresActuales.dni || dni,
+      apellido: valoresActuales.apellido || apellido,
+      nombre: valoresActuales.nombre || nombre,
+      fechaNacimiento: valoresActuales.fechaNacimiento || fechaNacimiento,
+    });
   }
 
   capitalize(text: string): string {
